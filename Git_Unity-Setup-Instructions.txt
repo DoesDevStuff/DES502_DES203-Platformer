@@ -1,0 +1,39 @@
+Setting up Github desktop with unity
+
+Under Edit > Project Settings > Editor 
+Ensure you mark the following for Asset serialisation : 
+Mode 				Force Text
+
+And in Version Control
+Mode 				Visible Meta Files
+
+--------
+References :
+1. https://blog.terresquall.com/2020/04/using-github-desktop-as-your-source-control-repository-in-unity/
+2. https://www.youtube.com/watch?v=WH7qDUYHGK8
+3. https://www.what-could-possibly-go-wrong.com/version-control/
+
+
+
+Setting up git LFS
+Make sure you install git lfs first, then navigate to your local repository
+right-click in folder and put in the following command:
+$ git lfs install
+
+Updated git hooks.
+Git LFS initialized.
+
+
+-----
+then we want to add a gitattributes folder that essentially tracks your larger files to do that command is:
+$ git lfs track "*.psd"
+Tracking "*.psd"
+
+
+Here we took example of photoshop files
+
+Modified the gitattributes with a great sample from reference : https://gist.github.com/Srfigie/77b5c15bc5eb61733a74d34d10b3ed87
+
+------------
+References :
+1. https://www.youtube.com/watch?v=09McJ2NL7YM
