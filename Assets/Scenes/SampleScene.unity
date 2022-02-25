@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec62aef707498fd478bbb78ba3d87f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 20
+  walkSpeed: 15
   creepSpeed: 5
   gravity: 30
   jumpSpeed: 15
@@ -1819,17 +1819,17 @@ MonoBehaviour:
   groundSlamSpeed: 60
   deadzoneValue: 0.15
   canDoubleJump: 1
-  canTripleJump: 0
+  canTripleJump: 1
   canWallJump: 1
   canJumpAfterWallJump: 1
   canWallRun: 1
   canMultipleWallRun: 1
-  canWallSlide: 0
-  canGlide: 0
-  canGlideAfterWallContact: 0
-  canPowerJump: 0
+  canWallSlide: 1
+  canGlide: 1
+  canGlideAfterWallContact: 1
+  canPowerJump: 1
   canGroundDash: 1
-  canAirDash: 0
+  canAirDash: 1
   canGroundSlam: 1
   isJumping: 0
   isDoubleJumping: 0
