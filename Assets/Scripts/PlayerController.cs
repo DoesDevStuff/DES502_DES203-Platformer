@@ -7,12 +7,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-// Change overview - a state variable for grounding was added, this is so the flare gun script knows if the player is grounded or not
-// this was done because im not sure if we want the player to be able to shoot while in air
-// i think gameplay wise that is fine, but it would be janky animation wise, unless we change the flare gun to something else, but with the same function
-// it could look better than i think, it's hard to say rn since there are no in game animations, but i'd guess if we make them super realistic it'd look bad
 
-//CHANGE HERE
     #region public properties
     [Header("Player Properties")]
     public float walkSpeed = 10f;
@@ -62,9 +57,6 @@ public class PlayerController : MonoBehaviour
     public bool isPowerJumping;
     public bool isDashing;
     public bool isGroundSlamming;
-
-//CHANGE - this was added by dom
-    public bool isGrounded;
     #endregion
 
     #region private properties
@@ -171,7 +163,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-//CHANGE HERE
     void OnGround()
     {
         //clear any downward motion when on ground
@@ -182,9 +173,7 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         DuckingAndCreeping();
-
-//CHANGE - This was added by dom
-        isGrounded = true;
+        
     }
 
     private void DuckingAndCreeping()
@@ -271,7 +260,6 @@ public class PlayerController : MonoBehaviour
         _startGlide = true;
     }
 
-//CHANGE HERE
     void InAir()
     {
         ClearGroundAbilityFlags();
@@ -280,10 +268,7 @@ public class PlayerController : MonoBehaviour
 
         WallRunning();
 
-        GravityCalculations();
-
-//CHANGE - This was added by dom
-        isGrounded = false;
+        GravityCalculations(); 
     }
 
     private void WallRunning()
