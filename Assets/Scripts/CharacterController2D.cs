@@ -39,14 +39,12 @@ public class CharacterController2D : MonoBehaviour
     private bool _inAirLastFrame;
     private bool _noSideCollisionLastFrame;
 
-    // Start is called before the first frame update
     void Start()
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         _inAirLastFrame = !below;
@@ -57,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
 
         if (_slopeAngle != 0 && below == true)
         {
-            if((_moveAmount.x > 0f && _slopeAngle > 0f) || (_moveAmount.x < 0f && _slopeAngle < 0f))
+            if ((_moveAmount.x > 0f && _slopeAngle > 0f) || (_moveAmount.x < 0f && _slopeAngle < 0f))
             {
                 _moveAmount.y = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * _moveAmount.x);
                 _moveAmount.y *= downForceAdjustment;
@@ -81,12 +79,12 @@ public class CharacterController2D : MonoBehaviour
         if (below && _inAirLastFrame)
         {
             hitGroundThisFrame = true;
-        } 
+        }
         else
         {
             hitGroundThisFrame = false;
         }
-        
+
         if ((right || left) && _noSideCollisionLastFrame)
         {
             hitWallThisFrame = true;
