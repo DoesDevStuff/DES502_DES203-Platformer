@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class AntiGravAbility : MonoBehaviour
 {
-    // this script doesn't use a proper input system
+//!! this script was originally force based, this was an attempt at making it use the custom 'move' physics
+//!! the attempt failed and idk what else to try
 
     #region variables
     #region attributes
@@ -44,6 +45,9 @@ public class AntiGravAbility : MonoBehaviour
     #endregion
 
     #region misc variables
+    Vector2 overallForce;
+    Vector2 moveAmount;
+
     bool antiGravAbilityEnabled = true;
     bool antiGravActive = false;
 
@@ -57,6 +61,9 @@ public class AntiGravAbility : MonoBehaviour
 
     bool frameOneAntiGrav = true;
 
+    PlayerController playerController;
+    CharacterController2D characterController2D;
+
     Rigidbody2D rb2D;
     GameObject instantiatedBubble;
 
@@ -66,11 +73,15 @@ public class AntiGravAbility : MonoBehaviour
 
     void Start()
     {
+        playerController = gameObject.GetComponent<PlayerController>();
+        characterController2D = gameObject.GetComponent<CharacterController2D>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        overallForce = Vector2.zero;
+
         if (Keyboard.current.vKey.isPressed)
         {
             if (antiGravAbilityEnabled == true)
@@ -80,20 +91,30 @@ public class AntiGravAbility : MonoBehaviour
                 if (frameOneAntiGrav == true)
                 {
                     instantiatedBubble = Instantiate(bubblePrefab, transform.position, transform.rotation, transform);
-                    rb2D.AddForce(new Vector2(0, kickOffForce), ForceMode2D.Impulse);
+                    overallForce.y = overallForce.y + kickOffForce;
                     CharacterControllerInteraction();
 
                     frameOneAntiGrav = false;
                 }
 
                 HeightsListUpdate();
-                rb2D.gravityScale = CoyotedGravity();
+                overallForce.y = overallForce.y + -CoyotedGravity();
 
-                AntiGravMovement();
+
+                AntiGravMovement(); 
+
+                moveAmount = characterController2D.moveVelocity + (overallForce * Time.deltaTime);
+
+                AntiGravMovement(); // it's dumb to have to do this twice but it works, it's so the smooth damps can work
+
+
+                characterController2D.Move(moveAmount);
             }
         }
         if (Keyboard.current.vKey.wasReleasedThisFrame)
         {
+            overallForce = Vector2.zero;
+
             antiGravActive = false;
 
             coyoteActivated = false;
@@ -124,11 +145,12 @@ public class AntiGravAbility : MonoBehaviour
 
         if(antiGravAbilityEnabled == true && antiGravActive == true)
         {
-            // disable character movement
+            playerController.isUsingAntiGrav = true;
+            characterController2D.DisableGroundCheck();
         }
         else
         {
-            // enable character movement
+            playerController.isUsingAntiGrav = false;
         }
     }
 
@@ -255,50 +277,50 @@ public class AntiGravAbility : MonoBehaviour
 
         if (Keyboard.current.wKey.isPressed)
         {
-            if (rb2D.velocity.y < maxPushableSpeed)
+            if (characterController2D.moveVelocity.y < maxPushableSpeed)
             {
-                rb2D.AddForce(new Vector2(0, pushForce) * UpwardsForceMultiplier(), ForceMode2D.Impulse);
+                overallForce.y = overallForce.y + (pushForce * UpwardsForceMultiplier());
             }
 
-            if (rb2D.velocity.y < 0)
+            if (characterController2D.moveVelocity.y < 0)
             {
-                rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(rb2D.velocity.x, 0), ref velocity, pivotTime);
+                //moveAmount.y = Vector2.SmoothDamp(characterController2D.moveVelocity, new Vector2(characterController2D.moveVelocity.x, 0), ref velocity, pivotTime).y;
             }
         }
         if (Keyboard.current.aKey.isPressed)
         {
-            if (rb2D.velocity.x > -maxPushableSpeed)
+            if (characterController2D.moveVelocity.x > -maxPushableSpeed)
             {
-                rb2D.AddForce(new Vector2(-pushForce, 0), ForceMode2D.Impulse);
+                overallForce.x = overallForce.x + -pushForce;
             }
 
-            if (rb2D.velocity.x > 0)
+            if (characterController2D.moveVelocity.x > 0)
             {
-                rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(0, rb2D.velocity.y), ref velocity, pivotTime);
+                //moveAmount.x = Vector2.SmoothDamp(characterController2D.moveVelocity, new Vector2(0, characterController2D.moveVelocity.y), ref velocity, pivotTime).x;
             }
         }
         if (Keyboard.current.sKey.isPressed)
         {
-            if (rb2D.velocity.y > -maxPushableDownwardsSpeed)
+            if (characterController2D.moveVelocity.y > -maxPushableDownwardsSpeed)
             {
-                rb2D.AddForce(new Vector2(0, -pushForce) * downwardsPushMultiplier, ForceMode2D.Impulse);
+                overallForce.y = overallForce.y + (-pushForce * downwardsPushMultiplier);
             }
 
-            if (rb2D.velocity.y < 0)
+            if (characterController2D.moveVelocity.x < 0)
             {
-                rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(rb2D.velocity.x, 0), ref velocity, pivotTime);
+                //moveAmount.y = Vector2.SmoothDamp(characterController2D.moveVelocity, new Vector2(characterController2D.moveVelocity.x, 0), ref velocity, pivotTime).y;
             }
         }
         if (Keyboard.current.dKey.isPressed)
         {
-            if (rb2D.velocity.x < maxPushableSpeed)
+            if (characterController2D.moveVelocity.x < maxPushableSpeed)
             {
-                rb2D.AddForce(new Vector2(pushForce, 0), ForceMode2D.Impulse);
+                overallForce.x = overallForce.x + pushForce;
             }
 
-            if (rb2D.velocity.x < 0)
+            if (characterController2D.moveVelocity.x < 0)
             {
-                rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(0, rb2D.velocity.y), ref velocity, pivotTime);
+                //moveAmount.x = Vector2.SmoothDamp(characterController2D.moveVelocity, new Vector2(0, characterController2D.moveVelocity.y), ref velocity, pivotTime).x;
             }
         }
     }
@@ -310,6 +332,8 @@ public class AntiGravAbility : MonoBehaviour
     {
         Debug.Log("Anti-Grav Disabled");
         antiGravAbilityEnabled = false;
+
+        overallForce = Vector2.zero;
 
         antiGravActive = false;
         frameOneAntiGrav = true;

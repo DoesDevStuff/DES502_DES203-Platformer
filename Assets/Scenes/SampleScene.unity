@@ -1781,6 +1781,7 @@ GameObject:
   - component: {fileID: 968554558}
   - component: {fileID: 968554564}
   - component: {fileID: 968554563}
+  - component: {fileID: 968554565}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1843,6 +1844,7 @@ MonoBehaviour:
   isPowerJumping: 0
   isDashing: 0
   isGroundSlamming: 0
+  isUsingAntiGrav: 0
 --- !u!50 &968554559
 Rigidbody2D:
   serializedVersion: 4
@@ -2080,7 +2082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8661c5b33ba56940acb28262fef5ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antiGravActive: 0
   raycastDistance: 0.1
   layerMask:
     serializedVersion: 2
@@ -2094,6 +2095,41 @@ MonoBehaviour:
   groundType: 0
   hitGroundThisFrame: 0
   hitWallThisFrame: 0
+  moveVelocity: {x: 0, y: 0}
+--- !u!114 &968554565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968554557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8638b9f53031ed48959a823dce9fc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bubblePrefab: {fileID: 1805370024624466944, guid: 28da1cb1df06d0741a15f4b8e064c2f2, type: 3}
+  antiGravKey: 118
+  upKey: 0
+  leftKey: 0
+  downKey: 0
+  rightKey: 0
+  kickOffForce: 0.3
+  pivotTime: 0.3
+  maxPushableSpeed: 4
+  pushForce: 0.1
+  downwardsPushMultiplier: 2
+  maxPushableDownwardsSpeed: 14
+  maxGravity: 2
+  minGravity: 0
+  maxHeight: 6
+  minHeight: 2
+  heightCoyoteTime: 0.3
+  strengthDwindleTime: 0.1
+  minHeightDifferenceForCoyote: 2.5
 --- !u!1 &1081670477
 GameObject:
   m_ObjectHideFlags: 0

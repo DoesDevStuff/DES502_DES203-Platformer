@@ -20,7 +20,9 @@ public class CharacterController2D : MonoBehaviour
     public bool hitGroundThisFrame;
     public bool hitWallThisFrame;
 
-    private Vector2 _moveAmount;
+    public Vector2 moveVelocity; //NEW
+
+    private Vector2 _moveAmount; 
     private Vector2 _currentPostion;
     private Vector2 _lastPosition;
 
@@ -93,6 +95,8 @@ public class CharacterController2D : MonoBehaviour
         {
             hitWallThisFrame = false;
         }
+
+        moveVelocity = _currentPostion - _lastPosition; //NEW
     }
 
     public void Move(Vector2 movement)

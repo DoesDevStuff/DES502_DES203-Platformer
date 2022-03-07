@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public bool isPowerJumping;
     public bool isDashing;
     public bool isGroundSlamming;
+    public bool isUsingAntiGrav = false; // new
     #endregion
 
     #region private properties
@@ -109,7 +110,8 @@ public class PlayerController : MonoBehaviour
         {
             InAir();
         }
-        _characterController.Move(_moveDirection * Time.deltaTime);
+        
+        if(isUsingAntiGrav == false) _characterController.Move(_moveDirection * Time.deltaTime); // CHANGED
     }
 
     private void ApplyDeadzones()
