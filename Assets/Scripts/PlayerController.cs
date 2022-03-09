@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _capsuleCollider.size = _originalColliderSize;
                     transform.position = new Vector2(transform.position.x, transform.position.y + (_originalColliderSize.y / 4));
-                    _spriteRenderer.sprite = Resources.Load<Sprite>("directionSpriteUp");
+                    _spriteRenderer.sprite = Resources.Load<Sprite>("Player_normal");
                     isDucking = false;
                     isCreeping = false;
                 }
