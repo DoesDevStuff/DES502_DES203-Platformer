@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - LevelGeometry
-  - 
+  - Non Interactable Physics
   - 
   - 
   - 
@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundDistant
+    uniqueID: 3193886589
+    locked: 0
+  - name: BackgroundFar
+    uniqueID: 1259717275
+    locked: 0
+  - name: BackgroundNear
+    uniqueID: 612214981
+    locked: 0
+  - name: BackgroundImmediate
+    uniqueID: 3662957303
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Flares
+    uniqueID: 848056837
+    locked: 0
+  - name: Foreground
+    uniqueID: 1240586373
     locked: 0
