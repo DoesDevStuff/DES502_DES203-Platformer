@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.05
+  m_Intensity: 0.51
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 7dd75ebe9bc2154bc5a87d24f74a54da0000000005528c3285d8f149
@@ -2073,7 +2073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8661c5b33ba56940acb28262fef5ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 0.1
+  raycastDistance: 0.2
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -2084,6 +2084,9 @@ MonoBehaviour:
   right: 0
   above: 0
   groundType: 0
+  leftWallType: 0
+  rightWallType: 0
+  ceilingType: 0
   hitGroundThisFrame: 0
   hitWallThisFrame: 0
 --- !u!1 &1027391806
@@ -3431,6 +3434,7 @@ GameObject:
   - component: {fileID: 2020087810}
   - component: {fileID: 2020087809}
   - component: {fileID: 2020087813}
+  - component: {fileID: 2020087814}
   m_Layer: 6
   m_Name: OneWayPlatform
   m_TagString: Untagged
@@ -3458,7 +3462,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020087808}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -3556,6 +3560,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: 0
+--- !u!68 &2020087814
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020087808}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0.39952803}
+  - {x: 0.5, y: 0.39952755}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &2060335221
 GameObject:
   m_ObjectHideFlags: 0
