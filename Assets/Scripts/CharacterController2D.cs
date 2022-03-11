@@ -304,11 +304,16 @@ public class CharacterController2D : MonoBehaviour
         if (collider.GetComponent<GroundEffector>())
         {
             GroundEffector groundEffector = collider.GetComponent<GroundEffector>();
-            if (groundType == GroundType.MovingPlatform)
+            if (groundType == GroundType.MovingPlatform || groundType == GroundType.CollapsablePlatform)
             {
                 if (!_tempMovingPlatform)
                 {
                     _tempMovingPlatform = collider.transform;
+
+                    if (groundType == GroundType.CollapsablePlatform)
+                    {
+                        _tempMovingPlatform.GetComponent<CollapsablePlatform>().CollapsePlatform();
+                    }
                 }
             }
 
