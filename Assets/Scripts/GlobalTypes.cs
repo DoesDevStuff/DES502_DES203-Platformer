@@ -10,4 +10,12 @@ namespace GlobalTypes
         JumpPad
     }
 
+    public enum WallType
+    {
+        None,
+        Normal,
+        Sticky
+
+    }
+
 }
