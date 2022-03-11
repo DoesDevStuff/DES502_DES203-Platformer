@@ -91,6 +91,15 @@ public class CharacterController2D : MonoBehaviour
             
                 
         }
+        //y dir stuff
+        if(groundType == GroundType.CollapsablePlatform)
+        {
+            if (MovingPlatformAdjust().y < 0f) // are we moving away from player
+            {
+                _moveAmount.y += MovingPlatformAdjust().y;
+                _moveAmount.y *= downForceAdjustment;//adjusts any gap when moving down
+            }
+        }
 
         _currentPostion = _lastPosition + _moveAmount;
 
@@ -313,6 +322,7 @@ public class CharacterController2D : MonoBehaviour
                     if (groundType == GroundType.CollapsablePlatform)
                     {
                         _tempMovingPlatform.GetComponent<CollapsablePlatform>().CollapsePlatform();
+
                     }
                 }
             }
@@ -343,6 +353,11 @@ public class CharacterController2D : MonoBehaviour
         if (_tempMovingPlatform && groundType == GroundType.MovingPlatform)
         {
             _movingPlatformVelocity = _tempMovingPlatform.GetComponent<MovingPlatform>().difference;
+            return _movingPlatformVelocity;
+        }
+        else if(_tempMovingPlatform && groundType == GroundType.CollapsablePlatform)
+        {
+            _movingPlatformVelocity = _tempMovingPlatform.GetComponent<CollapsablePlatform>().difference;
             return _movingPlatformVelocity;
         }
         else
