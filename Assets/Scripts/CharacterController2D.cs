@@ -97,7 +97,7 @@ public class CharacterController2D : MonoBehaviour
             if (MovingPlatformAdjust().y < 0f) // are we moving away from player
             {
                 _moveAmount.y += MovingPlatformAdjust().y;
-                _moveAmount.y *= downForceAdjustment;//adjusts any gap when moving down
+                _moveAmount.y *= downForceAdjustment * 4;//adjusts any gap when moving down
             }
         }
 
@@ -331,6 +331,11 @@ public class CharacterController2D : MonoBehaviour
         }
         else
         {
+            if (_tempMovingPlatform)
+            {
+                _tempMovingPlatform = null;
+            }
+
             return GroundType.LevelGeometry;
         }
     }
@@ -366,4 +371,13 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+
+    //make sure we don't gain extra height when falling from moving platform
+    public void ClearMovingPlatform()
+    {
+        if (_tempMovingPlatform)
+        {
+            _tempMovingPlatform = null;
+        }
+    }
 }

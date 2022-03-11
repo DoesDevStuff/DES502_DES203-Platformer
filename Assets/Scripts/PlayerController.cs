@@ -248,6 +248,7 @@ public class PlayerController : MonoBehaviour
 
             isJumping = true;
             _characterController.DisableGroundCheck();
+            _characterController.ClearMovingPlatform();
             _ableToWallRun = true;
         }
 
