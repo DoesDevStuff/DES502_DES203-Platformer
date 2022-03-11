@@ -251,8 +251,9 @@ GameObject:
   - component: {fileID: 135693431}
   - component: {fileID: 135693430}
   - component: {fileID: 135693429}
-  - component: {fileID: 135693428}
   - component: {fileID: 135693432}
+  - component: {fileID: 135693433}
+  - component: {fileID: 135693428}
   m_Layer: 6
   m_Name: CollapsablePlatform
   m_TagString: Untagged
@@ -260,19 +261,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &135693428
-MonoBehaviour:
+--- !u!50 &135693428
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135693427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f691ee10621e7e4789e28404f5d22f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundType: 4
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &135693429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -378,6 +387,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: 0
+--- !u!114 &135693433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135693427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c65dcd8b8132ce45a68c47bceb6be75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundType: 4
+  fallSpeed: 500
+  delayTime: 0.5
+  difference: {x: 0, y: 0, z: 0}
 --- !u!1 &171150673
 GameObject:
   m_ObjectHideFlags: 0
