@@ -2062,6 +2062,7 @@ GameObject:
   - component: {fileID: 968554561}
   - component: {fileID: 968554560}
   - component: {fileID: 968554559}
+  - component: {fileID: 968554565}
   - component: {fileID: 968554558}
   - component: {fileID: 968554564}
   - component: {fileID: 968554563}
@@ -2127,6 +2128,7 @@ MonoBehaviour:
   isPowerJumping: 0
   isDashing: 0
   isGroundSlamming: 0
+  isInAntiGrav: 0
 --- !u!50 &968554559
 Rigidbody2D:
   serializedVersion: 4
@@ -2393,6 +2395,39 @@ MonoBehaviour:
   ceilingType: 0
   hitGroundThisFrame: 0
   hitWallThisFrame: 0
+  _moveVelocity: {x: 0, y: 0}
+--- !u!114 &968554565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968554557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1a732cf0f1c124d8ffd37400b22860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  bubblePrefab: {fileID: 3574847692718799187, guid: be53efdc140028d4f8fdf508e7390c9d, type: 3}
+  antiGravKey: 0
+  upKey: 0
+  leftKey: 0
+  downKey: 0
+  rightKey: 0
+  kickOffForce: 0.008
+  pivotTime: 0.3
+  maxPushableSpeed: 0.08
+  pushForce: 0.002
+  downwardsPushMultiplier: 2
+  maxPushableDownwardsSpeed: 0.1
+  maxGravity: 0.5
+  minGravity: 0
+  maxHeight: 6
+  minHeight: 2.2
+  percentageHeightCutoffForUpForce: 0.75
 --- !u!1 &1027391806
 GameObject:
   m_ObjectHideFlags: 0

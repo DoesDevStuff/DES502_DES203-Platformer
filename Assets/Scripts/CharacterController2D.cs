@@ -28,6 +28,7 @@ public class CharacterController2D : MonoBehaviour
     private Vector2 _moveAmount;
     private Vector2 _currentPostion;
     private Vector2 _lastPosition;
+    [HideInInspector] public Vector2 _moveVelocity; //NEW
 
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
@@ -58,6 +59,8 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _moveVelocity = _currentPostion - _lastPosition; //NEW
+
         _inAirLastFrame = !below;
 
         _noSideCollisionLastFrame = (!right && !left);

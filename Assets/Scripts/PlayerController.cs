@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public bool isPowerJumping;
     public bool isDashing;
     public bool isGroundSlamming;
+    public bool isInAntiGrav;
     #endregion
 
     #region private properties
@@ -94,22 +95,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (_dashTimer > 0)
-            _dashTimer -= Time.deltaTime;
-
-        ApplyDeadzones();
-
-        ProcessHorizontalMovement();
-
-        if (_characterController.below) //On the ground
+        if (isInAntiGrav == false)
         {
-            OnGround();
+            if (_dashTimer > 0)
+                _dashTimer -= Time.deltaTime;
+
+            ApplyDeadzones();
+
+            ProcessHorizontalMovement();
+
+            if (_characterController.below) //On the ground
+            {
+                OnGround();
+            }
+            else //In the air
+            {
+                InAir();
+            }
+            _characterController.Move(_moveDirection * Time.deltaTime);
         }
-        else //In the air
-        {
-            InAir();
-        }
-        _characterController.Move(_moveDirection * Time.deltaTime);
     }
 
     private void ApplyDeadzones()
@@ -254,7 +258,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void ClearAirAbilityFlags()
+    public void ClearAirAbilityFlags() // CHANGED to public
     {
         //clear flags for in air abilities
         isJumping = false;
@@ -389,7 +393,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ClearGroundAbilityFlags()
+    public void ClearGroundAbilityFlags() // CHANGED to public
     {
         if ((isDucking || isCreeping) && _moveDirection.y > 0)
         {
