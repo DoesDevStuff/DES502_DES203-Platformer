@@ -73,10 +73,10 @@ public class AntiGravAbility : MonoBehaviour
             {
                 antiGravActive = true;
 
+                moveForce = characterController2D._moveVelocity;
+
                 if (frameOneAntiGrav == true)
                 {
-                    moveForce = characterController2D._moveVelocity;
-
                     if (characterController2D.below == true)
                     {
                         //rb2D.AddForce(new Vector2(0, kickOffForce), ForceMode2D.Impulse);
@@ -94,8 +94,6 @@ public class AntiGravAbility : MonoBehaviour
                 //rb2D.gravityScale = CalculateBubbleGravity(HeightDetection());
                 moveForce.y = moveForce.y - (CalculateBubbleGravity(HeightDetection()) * Time.deltaTime);
                 AntiGravMovement();
-
-                GeometryInteraction();
 
                 characterController2D.Move(moveForce);
                 Debug.Log(moveForce + ", " + HeightDetection());
@@ -120,32 +118,16 @@ public class AntiGravAbility : MonoBehaviour
             playerController.isInAntiGrav = true;
             playerController.ClearAirAbilityFlags();
             playerController.ClearGroundAbilityFlags();
+
+            characterController2D.antiGravActive = true;
         }
         else
         {
             playerController.isInAntiGrav = false;
             playerController.ClearAirAbilityFlags();
             playerController.ClearGroundAbilityFlags();
-        }
-    }
 
-    void GeometryInteraction() // this doesn't work with slopes
-    {
-        if (characterController2D.below && moveForce.y < 0)
-        {
-            moveForce.y = 0;
-        }
-        if (characterController2D.above && moveForce.y > 0)
-        {
-            moveForce.y = 0;
-        }
-        if (characterController2D.left && moveForce.x < 0)
-        {
-            moveForce.x = 0;
-        }
-        if (characterController2D.right && moveForce.x > 0)
-        {
-            moveForce.x = 0;
+            characterController2D.antiGravActive = false;
         }
     }
 

@@ -2062,8 +2062,8 @@ GameObject:
   - component: {fileID: 968554561}
   - component: {fileID: 968554560}
   - component: {fileID: 968554559}
-  - component: {fileID: 968554565}
   - component: {fileID: 968554558}
+  - component: {fileID: 968554565}
   - component: {fileID: 968554564}
   - component: {fileID: 968554563}
   m_Layer: 3
@@ -2417,16 +2417,16 @@ MonoBehaviour:
   leftKey: 0
   downKey: 0
   rightKey: 0
-  kickOffForce: 0.008
-  pivotTime: 0.3
+  kickOffForce: 0.01
+  pivotTime: 0.2
   maxPushableSpeed: 0.08
-  pushForce: 0.002
+  pushForce: 0.006
   downwardsPushMultiplier: 2
   maxPushableDownwardsSpeed: 0.1
   maxGravity: 0.5
   minGravity: 0
   maxHeight: 6
-  minHeight: 2.2
+  minHeight: 2.6
   percentageHeightCutoffForUpForce: 0.75
 --- !u!1 &1027391806
 GameObject:

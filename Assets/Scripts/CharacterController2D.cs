@@ -38,6 +38,8 @@ public class CharacterController2D : MonoBehaviour
 
     private bool _disableGroundCheck;
 
+    public bool antiGravActive = false; // NEW
+
     //TODO: Change to private
     private Vector2 _slopeNormal;
     private float _slopeAngle;
@@ -67,15 +69,17 @@ public class CharacterController2D : MonoBehaviour
 
         _lastPosition = _rigidbody.position;
 
-        //slope adjustments
-        if (_slopeAngle != 0 && below == true)
+        if (antiGravActive == false) //NEW
         {
-            if((_moveAmount.x > 0f && _slopeAngle > 0f) || (_moveAmount.x < 0f && _slopeAngle < 0f))
+            //slope adjustments
+            if (_slopeAngle != 0 && below == true)
             {
-                _moveAmount.y = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * _moveAmount.x);
-                _moveAmount.y *= downForceAdjustment;
+                if ((_moveAmount.x > 0f && _slopeAngle > 0f) || (_moveAmount.x < 0f && _slopeAngle < 0f))
+                {
+                    _moveAmount.y = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * _moveAmount.x);
+                    _moveAmount.y *= downForceAdjustment;
+                }
             }
-
         }
 
         //moving platform adjustment
