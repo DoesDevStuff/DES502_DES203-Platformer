@@ -96,7 +96,6 @@ public class AntiGravAbility : MonoBehaviour
                 AntiGravMovement();
 
                 characterController2D.Move(moveForce);
-                Debug.Log(moveForce + ", " + HeightDetection());
             }
         }
         if (Keyboard.current.vKey.wasReleasedThisFrame)
@@ -126,6 +125,7 @@ public class AntiGravAbility : MonoBehaviour
             playerController.isInAntiGrav = false;
             playerController.ClearAirAbilityFlags();
             playerController.ClearGroundAbilityFlags();
+            playerController._moveDirection = characterController2D._moveVelocity;
 
             characterController2D.antiGravActive = false;
         }

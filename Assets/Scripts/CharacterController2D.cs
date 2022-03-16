@@ -61,8 +61,6 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _moveVelocity = _currentPostion - _lastPosition; //NEW
-
         _inAirLastFrame = !below;
 
         _noSideCollisionLastFrame = (!right && !left);
@@ -138,6 +136,8 @@ public class CharacterController2D : MonoBehaviour
         {
             hitWallThisFrame = false;
         }
+
+        _moveVelocity = _currentPostion - _lastPosition; //NEW
     }
 
     public void Move(Vector2 movement)
@@ -329,7 +329,6 @@ public class CharacterController2D : MonoBehaviour
                     if (groundType == GroundType.CollapsablePlatform)
                     {
                         _tempMovingPlatform.GetComponent<CollapsablePlatform>().CollapsePlatform();
-
                     }
                 }
             }

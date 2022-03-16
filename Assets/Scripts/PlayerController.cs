@@ -7,18 +7,33 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-
+    #region variables/properties
     #region public properties
     [Header("Player Properties")]
-    public float walkSpeed = 10f;
+    [Header("Input")]
+    public float deadzoneValue = 0.15f;
+
+    [Header("xMovement")]
+    public float walkAccelleration = 10f;
+    public float maxWalkSpeed;
+    public float runAccelleration;
+    public float maxRunSpeed;
+    public float pivotTime;
     public float creepSpeed = 5f;
+
+    [Header("Jumping")]
     public float gravity = 20f;
     public float jumpSpeed = 15f;
+    public float minJumpTime;
     public float doubleJumpSpeed = 10f;
+
+    [Header("Wall Jumping")]
     public float xWallJumpSpeed = 15f;
     public float yWallJumpSpeed = 15f;
-    public float wallRunAmount = 8f;
     public float wallSlideAmount = 0.1f;
+
+    [Header("Other")]
+    public float wallRunAmount = 8f;
     public float glideTime = 2f;
     public float glideDescentAmount = 2f;
     public float powerJumpSpeed = 40f;
@@ -27,8 +42,11 @@ public class PlayerController : MonoBehaviour
     public float dashTime = 0.2f;
     public float dashCooldownTime = 1f;
     public float groundSlamSpeed = 60f;
-    public float deadzoneValue = 0.15f;
 
+    [Space]
+    [Space]
+    [Space]
+    [Space]
     [Header("Player Abilities")]
     public bool canDoubleJump;
     public bool canTripleJump;
@@ -44,6 +62,10 @@ public class PlayerController : MonoBehaviour
     public bool canAirDash;
     public bool canGroundSlam;
 
+    [Space]
+    [Space]
+    [Space]
+    [Space]
     [Header("Player State")]
     public bool isJumping;
     public bool isDoubleJumping;
@@ -66,7 +88,6 @@ public class PlayerController : MonoBehaviour
     private bool _releaseJump;
 
     private Vector2 _input;
-    private Vector2 _moveDirection;
     private CharacterController2D _characterController;
 
     private bool _ableToWallRun = true;
@@ -83,6 +104,11 @@ public class PlayerController : MonoBehaviour
 
     private bool _facingRight;
     private float _dashTimer;
+
+    Vector2 velocity = Vector2.zero;
+    #endregion
+
+    [HideInInspector] public Vector2 _moveDirection;
     #endregion
 
     void Start()
@@ -112,8 +138,36 @@ public class PlayerController : MonoBehaviour
             {
                 InAir();
             }
-            _characterController.Move(_moveDirection * Time.deltaTime);
+
+            _characterController.Move(_moveDirection); // Changed (it use to multiply the move direction by time.deltatime)
+            // the reason it can't do that is because if we have velocity based movements multiplying it by time.deltatime will also then multiply the current velocity by that
+            // what this means is everything (that's supposed to be timescaled) has to be multiplied by time.deltatime individually
+            // this has already been implimented in this script
         }
+    }
+
+    void OnGround()
+    {
+        //clear any downward motion when on ground
+        _moveDirection.y = 0f;
+
+        ClearAirAbilityFlags();
+
+        Jump();
+
+        DuckingAndCreeping();
+
+    }
+
+    void InAir()
+    {
+        ClearGroundAbilityFlags();
+
+        AirJump();
+
+        WallRunning();
+
+        GravityCalculations();
     }
 
     private void ApplyDeadzones()
@@ -125,18 +179,31 @@ public class PlayerController : MonoBehaviour
             _input.y = 0f;
     }
 
+    #region On Ground
+    public void ClearAirAbilityFlags() // CHANGED to public (this is so the antigrav can interact with it)
+    {
+        //clear flags for in air abilities
+        isJumping = false;
+        isDoubleJumping = false;
+        isTripleJumping = false;
+        isWallJumping = false;
+        _currentGlideTime = glideTime;
+        isGroundSlamming = false;
+        _startGlide = true;
+    }
+
     private void ProcessHorizontalMovement()
     {
         if (!isWallJumping)
         {
-            _moveDirection.x = _input.x;
+            //_moveDirection.x = _input.x; //- Removed
 
-            if (_moveDirection.x < 0)
+            if (_input.x < 0) // changed
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 _facingRight = false;
             }
-            else if (_moveDirection.x > 0)
+            else if (_input.x > 0) // changed
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 _facingRight = true;
@@ -156,28 +223,40 @@ public class PlayerController : MonoBehaviour
             }
             else if (isCreeping)
             {
-                _moveDirection.x *= creepSpeed;
-
+                _moveDirection.x = _input.x * creepSpeed; // changed
             }
             else
             {
-                _moveDirection.x *= walkSpeed;
+                //_moveDirection.x *= walkAccelleration; //- Removed
+
+                
+                //new from here
+                _moveDirection.x = _characterController._moveVelocity.x;
+
+                // pivot
+                if (_input.x > 0 && _characterController._moveVelocity.x < 0)
+                {
+                    _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
+                }
+                if (_input.x < 0 && _characterController._moveVelocity.x > 0)
+                {
+                    _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
+                }
+                if (_input.x == 0 && _characterController.below == true)
+                {
+                    _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
+                }
+
+                // movement
+                float timeScaledWalkAccelleration = walkAccelleration * Time.deltaTime;
+                if (Mathf.Abs(_characterController._moveVelocity.x) < maxWalkSpeed)
+                {
+                    _moveDirection.x = _moveDirection.x + (timeScaledWalkAccelleration * _input.x);
+                }
+                // to here
             }
 
         }
-    }
-
-    void OnGround()
-    {
-        //clear any downward motion when on ground
-        _moveDirection.y = 0f;
-
-        ClearAirAbilityFlags();
-
-        Jump();
-
-        DuckingAndCreeping();
-        
     }
 
     private void DuckingAndCreeping()
@@ -237,6 +316,7 @@ public class PlayerController : MonoBehaviour
             if (canPowerJump && isDucking &&
                 _characterController.groundType != GroundType.OneWayPlatform && (_powerJumpTimer > powerJumpWaitTime))
             {
+                _moveDirection.y = 0; //NEW
                 _moveDirection.y = powerJumpSpeed;
                 StartCoroutine("PowerJumpWaiter");
             }
@@ -247,6 +327,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                _moveDirection.y = 0; //NEW
                 _moveDirection.y = jumpSpeed;
             }
 
@@ -255,30 +336,98 @@ public class PlayerController : MonoBehaviour
             _characterController.ClearMovingPlatform();
             _ableToWallRun = true;
         }
+    }
+    #endregion
 
+    #region In Air
+    public void ClearGroundAbilityFlags() // CHANGED to public (this is so the antigrav can interact with it)
+    {
+        if ((isDucking || isCreeping) && _moveDirection.y > 0)
+        {
+            StartCoroutine("ClearDuckingState");
+        }
+        //clear powerJumpTimer
+        _powerJumpTimer = 0f;
     }
 
-    public void ClearAirAbilityFlags() // CHANGED to public
+    private void AirJump()
     {
-        //clear flags for in air abilities
-        isJumping = false;
-        isDoubleJumping = false;
-        isTripleJumping = false;
-        isWallJumping = false;
-        _currentGlideTime = glideTime;
-        isGroundSlamming = false;
-        _startGlide = true;
-    }
+        if (_releaseJump)
+        {
+            Debug.Log("JumpRelease");
 
-    void InAir()
-    {
-        ClearGroundAbilityFlags();
+            _releaseJump = false;
 
-        AirJump();
+            if (_moveDirection.y > 0)
+            {
+                Debug.Log("glimtooka");
 
-        WallRunning();
+                _moveDirection.y *= 0.5f;
+            }
 
-        GravityCalculations(); 
+        }
+
+        //pressed jump button in air
+        if (_startJump)
+        {
+            Debug.Log("AirJump");
+
+            #region TripleJump
+            if (canTripleJump && (!_characterController.left && !_characterController.right))
+            {
+                if (isDoubleJumping && !isTripleJumping)
+                {
+                    _moveDirection.y = doubleJumpSpeed;
+                    isTripleJumping = true;
+                }
+            }
+            #endregion
+
+            #region Double Jump
+            if (canDoubleJump && (!_characterController.left && !_characterController.right))
+            {
+                if (!isDoubleJumping)
+                {
+                    _moveDirection.y = doubleJumpSpeed;
+                    isDoubleJumping = true;
+                }
+            }
+            #endregion
+
+            #region Wall Jump
+            if (canWallJump && (_characterController.left || _characterController.right))
+            {
+                if (_moveDirection.x <= 0 && _characterController.left)
+                {
+                    _moveDirection = Vector2.zero; //NEW
+
+                    _moveDirection.x = xWallJumpSpeed;
+                    _moveDirection.y = yWallJumpSpeed;
+                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                }
+                else if (_moveDirection.x >= 0 && _characterController.right)
+                {
+                    _moveDirection = Vector2.zero; //NEW
+
+                    _moveDirection.x = -xWallJumpSpeed;
+                    _moveDirection.y = yWallJumpSpeed;
+                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                }
+
+                //isWallJumping = true;
+
+                StartCoroutine("WallJumpWaiter");
+
+                if (canJumpAfterWallJump)
+                {
+                    isDoubleJumping = false;
+                    isTripleJumping = false;
+                }
+            }
+            #endregion
+
+            _startJump = false;
+        }
     }
 
     private void WallRunning()
@@ -288,7 +437,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_input.y > 0 && _ableToWallRun)
             {
-                _moveDirection.y = wallRunAmount;
+                _moveDirection.y = wallRunAmount * Time.deltaTime;
 
                 if (_characterController.left)
                 {
@@ -326,83 +475,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void AirJump()
-    {
-        if (_releaseJump)
-        {
-            _releaseJump = false;
-
-            if (_moveDirection.y > 0)
-            {
-                _moveDirection.y *= 0.5f;
-            }
-
-        }
-
-        //pressed jump button in air
-        if (_startJump)
-        {
-            //triple jump
-            if (canTripleJump && (!_characterController.left && !_characterController.right))
-            {
-                if (isDoubleJumping && !isTripleJumping)
-                {
-                    _moveDirection.y = doubleJumpSpeed;
-                    isTripleJumping = true;
-                }
-            }
-
-            //double jump
-            if (canDoubleJump && (!_characterController.left && !_characterController.right))
-            {
-                if (!isDoubleJumping)
-                {
-                    _moveDirection.y = doubleJumpSpeed;
-                    isDoubleJumping = true;
-                }
-            }
-
-            //wall jump
-            if (canWallJump && (_characterController.left || _characterController.right))
-            {
-                if (_moveDirection.x <= 0 && _characterController.left)
-                {
-                    _moveDirection.x = xWallJumpSpeed;
-                    _moveDirection.y = yWallJumpSpeed;
-                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                }
-                else if (_moveDirection.x >= 0 && _characterController.right)
-                {
-                    _moveDirection.x = -xWallJumpSpeed;
-                    _moveDirection.y = yWallJumpSpeed;
-                    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                }
-
-                //isWallJumping = true;
-
-                StartCoroutine("WallJumpWaiter");
-
-                if (canJumpAfterWallJump)
-                {
-                    isDoubleJumping = false;
-                    isTripleJumping = false;
-                }
-            }
-
-            _startJump = false;
-        }
-    }
-
-    public void ClearGroundAbilityFlags() // CHANGED to public
-    {
-        if ((isDucking || isCreeping) && _moveDirection.y > 0)
-        {
-            StartCoroutine("ClearDuckingState");
-        }
-        //clear powerJumpTimer
-        _powerJumpTimer = 0f;
-    }
-
     void GravityCalculations()
     {
         //detects if something above player
@@ -420,9 +492,9 @@ public class PlayerController : MonoBehaviour
         }
 
         //apply wall slide adjustment
-        if (canWallSlide && (_characterController.left || _characterController.right))
+        if (canWallSlide && isWallJumping == false && (_characterController.left || _characterController.right)) // NEW (is wall jumping clause added)
         {
-            if (_characterController.hitWallThisFrame)
+            if (_characterController.hitWallThisFrame) 
             {
                 _moveDirection.y = 0;
             }
@@ -463,15 +535,17 @@ public class PlayerController : MonoBehaviour
         //else if (canGroundSlam  && !isPowerJumping && _input.y < 0f && _moveDirection.y < 0f) // ground slam
         else if (isGroundSlamming && !isPowerJumping && _moveDirection.y <0f)
         {
-            _moveDirection.y = -groundSlamSpeed;
+            _moveDirection.y = -groundSlamSpeed * Time.deltaTime;
         }
         else if (!isDashing) //regular gravity
         {
+
             _moveDirection.y -= gravity * Time.deltaTime;
         }
 
         
     }
+    #endregion
 
     #region Input Methods
     public void OnMovement(InputAction.CallbackContext context)
@@ -517,7 +591,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region coroutines
+    #region Coroutines
     
     IEnumerator WallJumpWaiter()
     {
