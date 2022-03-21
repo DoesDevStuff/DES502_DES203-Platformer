@@ -39,10 +39,15 @@ public class CharacterController2D : MonoBehaviour
     private bool _disableGroundCheck;
 
     public bool antiGravActive = false; // NEW
+    public bool isSliding = false;
+
+    public float _slopeAngle; // CHANGED to public
+    public Vector2 _slopeNormal; // CHANGED to public
+
+    public List<Vector2> actualPositions = new List<Vector2>();
+    public Vector2 actualVeclocity;
 
     //TODO: Change to private
-    private Vector2 _slopeNormal;
-    private float _slopeAngle;
 
     private bool _inAirLastFrame;
     private bool _noSideCollisionLastFrame;
@@ -50,12 +55,14 @@ public class CharacterController2D : MonoBehaviour
     private Transform _tempMovingPlatform;
     private Vector2 _movingPlatformVelocity;
 
-
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
+
+        ActualMovementStoring(); //NEW
+        ActualMovementStoring(); //NEW
     }
 
     // Update is called once per frame
@@ -67,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
 
         _lastPosition = _rigidbody.position;
 
-        if (antiGravActive == false) //NEW
+        if (antiGravActive == false && isSliding == false) //NEW
         {
             //slope adjustments
             if (_slopeAngle != 0 && below == true)
@@ -138,6 +145,19 @@ public class CharacterController2D : MonoBehaviour
         }
 
         _moveVelocity = _currentPostion - _lastPosition; //NEW
+        ActualMovementStoring(); //NEW
+    }
+
+    void ActualMovementStoring()
+    {
+        actualPositions.Add(_rigidbody.position);
+
+        if(actualPositions.Count > 2)
+        {
+            actualPositions.RemoveAt(0);
+
+            actualVeclocity = actualPositions[1] - actualPositions[0];
+        }
     }
 
     public void Move(Vector2 movement)
