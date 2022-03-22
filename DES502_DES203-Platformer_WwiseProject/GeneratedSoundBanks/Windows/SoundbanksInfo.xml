@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2108779966" Language="SFX" Hash="390641664">
+			<ObjectPath>\SoundBanks\Default Work Unit\Walk</ObjectPath>
+			<ShortName>Walk</ShortName>
+			<Path>Walk.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2108779966" Name="Walk" ObjectPath="\Events\Default Work Unit\Walk" DurationType="OneShot" DurationMin="0.172381" DurationMax="0.172381">
+					<IncludedMemoryFiles>
+						<File Id="106599636" Language="SFX">
+							<ShortName>Walking.wav.wav</ShortName>
+							<Path>SFX\Walking.wav_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="3833651337" Language="SFX" Hash="1652906327">
+			<ObjectPath>\SoundBanks\Default Work Unit\Jump</ObjectPath>
+			<ShortName>Jump</ShortName>
+			<Path>Jump.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3944494847" Language="SFX" Hash="2307262792">
+			<ObjectPath>\SoundBanks\Default Work Unit\FlareShot</ObjectPath>
+			<ShortName>FlareShot</ShortName>
+			<Path>FlareShot.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
