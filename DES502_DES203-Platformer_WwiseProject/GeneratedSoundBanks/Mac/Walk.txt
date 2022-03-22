@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2108779966	Walk			\Default Work Unit\Walk	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	106599636	Walking_wav	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Walking.wav_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Walking_wav		15268
+

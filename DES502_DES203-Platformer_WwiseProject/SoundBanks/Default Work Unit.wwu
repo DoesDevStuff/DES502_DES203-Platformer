@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9279A0E4-7B98-4989-A59C-1527B55F40DE}" SchemaVersion="103">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{9279A0E4-7B98-4989-A59C-1527B55F40DE}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9279A0E4-7B98-4989-A59C-1527B55F40DE}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Walk" ID="{F82F81A1-4781-44CB-9A85-054FBE66C09E}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Walk" ID="{10D10B38-6101-4F55-9F6A-52C291592676}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Jump" ID="{67FA190D-5084-4F5B-B299-C19F5F82DAD3}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="FlareShot" ID="{98F5DD10-916E-416E-BAE9-F6EC3CD0FEF9}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>
