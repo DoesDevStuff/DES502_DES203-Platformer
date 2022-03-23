@@ -25,6 +25,9 @@ public class CharacterController2D : MonoBehaviour
     public bool hitGroundThisFrame;
     public bool hitWallThisFrame;
 
+    public float jumpPadAmount;
+    public float jumpPadUpperLimit;
+
     public bool inWater;
     public bool isSubmerged;
 
@@ -173,6 +176,12 @@ public class CharacterController2D : MonoBehaviour
                 below = true;
             }
 
+            if (groundType == GroundType.JumpPad)
+            {
+                JumpPad jumpPad = hit.collider.GetComponent<JumpPad>();
+                jumpPadAmount = jumpPad.jumpPadAmount;
+                jumpPadUpperLimit = jumpPad.jumpPadUpperLimit;
+            }
 
         }
         else

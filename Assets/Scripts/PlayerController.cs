@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldownTime = 1f;
     public float groundSlamSpeed = 60f;
     public float deadzoneValue = 0.15f;
+    public float swimSpeed = 140f;
 
     [Header("Player Abilities")]
     public bool canDoubleJump;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     public bool canGroundDash;
     public bool canAirDash;
     public bool canGroundSlam;
+    public bool canSwim; // if disabled can float only at top and not swim below surface
 
     [Header("Player State")]
     public bool isJumping;
@@ -57,12 +59,15 @@ public class PlayerController : MonoBehaviour
     public bool isPowerJumping;
     public bool isDashing;
     public bool isGroundSlamming;
+    public bool isSwimming; //if we have separate swim animation here
+
     #endregion
 
     #region private properties
     //input flags
     private bool _startJump;
     private bool _releaseJump;
+    private bool _holdJump;
 
     private Vector2 _input;
     private Vector2 _moveDirection;
@@ -82,6 +87,11 @@ public class PlayerController : MonoBehaviour
 
     private bool _facingRight;
     private float _dashTimer;
+
+    private float _jumpPadAmount = 15f;
+    private float _jumpPadAdjustment = 0f;
+    public Vector2 _tempVelocity;
+
     #endregion
 
     void Start()
@@ -104,6 +114,10 @@ public class PlayerController : MonoBehaviour
         if (_characterController.below) //On the ground
         {
             OnGround();
+        }
+        else if (_characterController.inWater) //in water
+        {
+            InWater();
         }
         else //In the air
         {
@@ -173,7 +187,82 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         DuckingAndCreeping();
-        
+
+        JumpPad();
+
+    }
+
+    void InWater()
+    {
+        ClearGroundAbilityFlags();
+
+        // need ability to jump and leave water even if not on ground
+        AirJump(); 
+
+        if(_input.y != 0f && canSwim && !_holdJump)
+        {
+            if (_input.y > 0 && !_characterController.isSubmerged)
+            {
+                _moveDirection.y = 0f;
+            }
+            else
+            {
+                // smooth motion (disregards frame rate)
+                _moveDirection.y = (_input.y * swimSpeed) * Time.deltaTime; 
+            }
+            
+        }
+
+        // natural water behaviour 
+        else if(_moveDirection.y < 0 && _input.y == 0f) // if going down and no player input
+        {
+            ///add own upward force for every frame + no up or down key pressed
+            _moveDirection.y += 2f; 
+        }
+
+        if (_characterController.isSubmerged && canSwim)
+        {
+            isSwimming = true;
+        }
+        else
+        {
+            isSwimming = false;
+        }
+    }
+
+    private void JumpPad()
+    {
+        if (_characterController.groundType == GroundType.JumpPad)
+        {
+            _jumpPadAmount = _characterController.jumpPadAmount;
+
+            //if inverted downwards velocity is greater than jump pad amount
+            if (-_tempVelocity.y > _jumpPadAmount)
+            {
+                _moveDirection.y = -_tempVelocity.y * 0.91f;
+            }
+            else
+            {
+                _moveDirection.y = _jumpPadAmount;
+            }
+
+
+            //if holding jump button add a little each time we bounce
+            if (_holdJump)
+            {
+                _jumpPadAdjustment += _moveDirection.y * 0.1f;
+                _moveDirection.y += _jumpPadAdjustment;
+            }
+            else
+            {
+                _jumpPadAdjustment = 0f;
+            }
+
+            //impose an upper limit to stop exponential jump height
+            if (_moveDirection.y > _characterController.jumpPadUpperLimit)
+                _moveDirection.y = _characterController.jumpPadUpperLimit;
+
+        }
     }
 
     private void DuckingAndCreeping()
@@ -358,6 +447,14 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            //reset 2x and 3x  + handle jump in water
+            if (_characterController.inWater)
+            {
+                isDoubleJumping = false;
+                isTripleJumping = false;
+                _moveDirection.y = jumpSpeed; // lets us do a regular jump
+            }
+
             //wall jump
             if (canWallJump && (_characterController.left || _characterController.right))
             {
@@ -481,11 +578,13 @@ public class PlayerController : MonoBehaviour
         {
             _startJump = true;
             _releaseJump = false;
+            _holdJump = true;
         }
         else if (context.canceled)
         {
             _releaseJump = true;
             _startJump = false;
+            _holdJump = false;
         }
     }
 
