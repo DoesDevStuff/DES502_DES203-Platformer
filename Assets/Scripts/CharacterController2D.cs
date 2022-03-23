@@ -16,6 +16,8 @@ public class CharacterController2D : MonoBehaviour
     public bool right;
     public bool above;
 
+    public bool slidingColAbove;
+
     public GroundType groundType;
     public WallType leftWallType;
     public WallType rightWallType;
@@ -32,6 +34,7 @@ public class CharacterController2D : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
+    CapsuleCollider2D _slidingCollider;
 
     private Vector2[] _raycastPosition = new Vector2[3];
     private RaycastHit2D[] _raycastHits = new RaycastHit2D[3];
@@ -60,6 +63,7 @@ public class CharacterController2D : MonoBehaviour
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
+        _slidingCollider = transform.Find("SlidingCollider").gameObject.GetComponent<CapsuleCollider2D>();
 
         ActualMovementStoring(); //NEW
         ActualMovementStoring(); //NEW
@@ -246,6 +250,16 @@ public class CharacterController2D : MonoBehaviour
         {
             ceilingType = GroundType.None;
             above = false;
+        }
+
+        RaycastHit2D aboveSlideHit = Physics2D.CapsuleCast(_slidingCollider.bounds.center, _slidingCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.up, raycastDistance, layerMask);
+        if (aboveSlideHit.collider)
+        {
+            slidingColAbove = true;
+        }
+        else
+        {
+            slidingColAbove = false;
         }
     }
 

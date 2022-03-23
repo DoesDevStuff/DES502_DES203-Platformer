@@ -19,6 +19,8 @@ public class FlareGunScript : MonoBehaviour
     #region Attributes
     public GameObject flarePrefab;
     public int maxSpawnedFlares;
+    [Space]
+    public float creepingAndSlidingYOffset;
 
     [Header("Sticky")]
     public bool shootStickyFlares;
@@ -50,9 +52,13 @@ public class FlareGunScript : MonoBehaviour
     #region misc variables
     [HideInInspector] public List<GameObject> spawnedFlares = new List<GameObject>();
 
+    PlayerController playerController;
     CharacterController2D characterController2D;
     GameObject flareSpawnPoint;
     SpriteRenderer debugSprite;
+
+    Vector3 originalPosition;
+    Vector3 crouchingSlidingPosition;
 
     float rightSideEdgeAngle = 0;
     float leftSideEdgeAngle = 0;
@@ -68,6 +74,10 @@ public class FlareGunScript : MonoBehaviour
     void Start()
     {
         characterController2D = gameObject.GetComponentInParent<CharacterController2D>();
+        playerController = gameObject.GetComponentInParent<PlayerController>();
+
+        originalPosition = transform.localPosition;
+        crouchingSlidingPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + creepingAndSlidingYOffset);
 
         if (debugMode == true)
         {
@@ -86,6 +96,15 @@ public class FlareGunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerController.isSliding == true || playerController.isCreeping == true)
+        {
+            transform.localPosition = crouchingSlidingPosition;
+        }
+        else
+        {
+            transform.localPosition = originalPosition;
+        }
+
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {
             shootStickyFlares = !shootStickyFlares;

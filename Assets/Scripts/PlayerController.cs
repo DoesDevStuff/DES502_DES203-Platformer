@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float coyoteTimer;
 
     bool slideFrameOne = false;
-    bool slideExit = false;
 
     //input flags
     private bool _startJump;
@@ -159,8 +158,6 @@ public class PlayerController : MonoBehaviour
     {
         _characterController = gameObject.GetComponent<CharacterController2D>();
         _capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
-        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        _originalColliderSize = _capsuleCollider.size;
 
         spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
     }
@@ -168,6 +165,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         RunInput();
+        SlideInputAndState();
+        InputBufferingAndCoyote();
 
         if (isInAntiGrav == false)
         {
@@ -175,16 +174,12 @@ public class PlayerController : MonoBehaviour
                 _dashTimer -= Time.deltaTime;
 
             ApplyDeadzones();
-            InputBufferingAndCoyote();
 
-            Sliding();
+            SlidingAndCreeping();
 
-            if (isSliding == false)
-            {
-                ProcessHorizontalMovement();
-            }
+            if (isSliding == false && isCreeping == false) { ProcessHorizontalMovement(); }
 
-            Jump(); // was removed from onground (it has to be like this for coyote time) (cause you're not grounded but can still jump)
+            if (isSliding == false) { Jump(); } // was removed from onground (it has to be like this for coyote time) (cause you're not grounded but can still jump)
 
             if (_characterController.below) //On the ground
             {
@@ -195,7 +190,8 @@ public class PlayerController : MonoBehaviour
                 InAir();
             }
 
-            Drag();
+            if (isCreeping == false) { Drag(); }
+
 
             _characterController.Move(_moveDirection); // Changed (it use to multiply the move direction by time.deltatime)
             // the reason it can't do that is because if we have velocity based movements multiplying it by time.deltatime will also then multiply the current velocity by that
@@ -205,34 +201,8 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    private void ApplyDeadzones()
-    {
-        if (_input.x > -deadzoneValue && _input.x < deadzoneValue)
-            _input.x = 0f;
-
-        if (_input.y > -deadzoneValue && _input.y < deadzoneValue)
-            _input.y = 0f;
-    }
-
-    void InputBufferingAndCoyote()
-    {
-        jumpBufferTimer = jumpBufferTimer - Time.deltaTime;
-
-        if (_startJump == true)
-        {
-            jumpBufferTimer = jumpBuffer;
-        }
-
-        if (_characterController.below == true)
-        {
-            coyoteTimer = coyoteTime;
-        }
-        else
-        {
-            coyoteTimer = coyoteTimer - Time.deltaTime;
-        }
-    }
-
+    #region Movement 
+    #region General Movement
     private void ProcessHorizontalMovement()
     {
         if (!isWallJumping)
@@ -263,10 +233,6 @@ public class PlayerController : MonoBehaviour
                     _moveDirection.x = -dashSpeed;
                 }
                 _moveDirection.y = 0;
-            }
-            else if (isCreeping)
-            {
-                //_moveDirection.x = _input.x * creepSpeed; // changed
             }
             else
             {
@@ -394,95 +360,45 @@ public class PlayerController : MonoBehaviour
         // move velocity = itself minus some drag
         // for running and walking it is lerp (faster you are the stronger it is, to a certain point)
     }
+    #endregion
 
-    void Sliding()
+    void SlidingAndCreeping()
     {
-        SlideInputAndState();
-
         if (isSliding == true)
         {
-            if (slideFrameOne == false)
+            if (slideFrameOne == true)
             {
-                ChangeSlidingSprite(true);
                 _moveDirection = _characterController.actualVeclocity;
-                slideFrameOne = true;
+                slideFrameOne = false;
+
+                Debug.Log("elgringo");
             }
+
+            ChangeSlidingSprite(true);
 
             SlideMovement();
             SlideHop();
             SlideGravity();
         }
-        SpriteRotater();
-    }
-    #region Sliding
-    void SlideInputAndState()
-    {
-        // if on ground and press key then slide, you can slide while airborne but you can't start sliding while airbone
-        if (Keyboard.current.sKey.isPressed && _characterController.below == true)
+        else if(isCreeping == true)
         {
-            isSliding = true;
-        }
-        if (isSliding && Keyboard.current.sKey.isPressed)
-        {
-            isSliding = true;
+            if (slideFrameOne == true)
+            {
+                slideFrameOne = false;
+            }
+
+            ChangeSlidingSprite(true);
+
+            Creeping();
         }
         else
         {
-            isSliding = false;
-
-            if(slideFrameOne == true)
-            {
-                ChangeSlidingSprite(false);
-            }
-            slideFrameOne = false;
+            ChangeSlidingSprite(false);
         }
 
-        // if speed is slow then stop sliding (and stand up)
-        if(Mathf.Abs(_characterController.actualVeclocity.x) < requiredMinimumVelocity)
-        {
-            if (isSliding == true)
-            {
-                slideExit = true;
-            }
-
-            isSliding = false;
-
-            if (slideFrameOne == true)
-            {
-                ChangeSlidingSprite(false);
-            }
-            slideFrameOne = false;
-        }
-
-        // if the player's slide was cancelled by lack of speed then they have to let go of the key to slide again
-        if(slideExit == true)
-        {
-            isSliding = false;
-            if (Keyboard.current.sKey.wasReleasedThisFrame)
-            {
-                slideExit = false;
-            }
-        }
-        
-
-        // if on a too steep slope then slide
-        if (_characterController._slopeAngle > _characterController.slopeAngleLimit && _characterController.below == true)
-        {
-            isSliding = true;
-        }
-
-
-        // transfer state to character controller 
-        if (isSliding == true) _characterController.isSliding = true;
-        else _characterController.isSliding = false;
-
-        // if ceiling hit then jumping no 
-        if (_characterController.above == true)
-        {
-            isSlideJumping = false;
-        }
+        SpriteRotater();
     }
-
+    #region Sliding And Creeping
     void SlideMovement()
     {
         if (isSliding == true)
@@ -537,13 +453,7 @@ public class PlayerController : MonoBehaviour
 
     void ChangeSlidingSprite(bool sliding)
     {
-        // change sprite to sliding sprite
-        // changing the sprite could handled by animation system instead
-        // that is probably a better way of doing this
-        // if we do that it's also better to have animation variables assigned in a seperate script that interfaces with this one
-        // it makes it simpler to visualise
-
-        // if we do that then remove the sprite stuff here but keep the capsule collider stuff
+        // in the future it is better to use animation system over changing sprite
 
         if (sliding == true)
         {
@@ -577,6 +487,24 @@ public class PlayerController : MonoBehaviour
             spriteObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
+
+    void Creeping()
+    {
+        if (_input.x < 0) // changed
+        {
+            //transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            spriteRenderer.flipX = true;
+            _facingRight = false;
+        }
+        else if (_input.x > 0) // changed
+        {
+            //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            spriteRenderer.flipX = false;
+            _facingRight = true;
+        }
+
+        _moveDirection.x = _input.x * creepSpeed;
+    }
     #endregion
 
     void OnGround()
@@ -588,8 +516,6 @@ public class PlayerController : MonoBehaviour
         if (isSliding == false)
         {
             _moveDirection.y = 0;
-
-            DuckingAndCreeping();
         }
     }
     #region On Ground
@@ -605,55 +531,7 @@ public class PlayerController : MonoBehaviour
         isGroundSlamming = false;
         _startGlide = true;
     }
-    private void DuckingAndCreeping()
-    {
-        /*
-        //ducking and creeping
-        if (_input.y < 0f)
-        {
-            if (!isDucking && !isCreeping)
-            {
-                _capsuleCollider.size = new Vector2(_capsuleCollider.size.x, _capsuleCollider.size.y / 2);
-                transform.position = new Vector2(transform.position.x, transform.position.y - (_originalColliderSize.y / 4));
-                isDucking = true;
-                _spriteRenderer.sprite = Resources.Load<Sprite>("directionSpriteUp_crouching");
-            }
-
-            _powerJumpTimer += Time.deltaTime;
-        }
-        else
-        {
-            if (isDucking || isCreeping)
-            {
-                RaycastHit2D hitCeiling = Physics2D.CapsuleCast(_capsuleCollider.bounds.center,
-                    transform.localScale, CapsuleDirection2D.Vertical, 0f, Vector2.up,
-                    _originalColliderSize.y / 2, _characterController.layerMask);
-
-                if (!hitCeiling.collider)
-                {
-                    _capsuleCollider.size = _originalColliderSize;
-                    transform.position = new Vector2(transform.position.x, transform.position.y + (_originalColliderSize.y / 4));
-                    _spriteRenderer.sprite = Resources.Load<Sprite>("Player_normal");
-                    isDucking = false;
-                    isCreeping = false;
-                }
-            }
-
-            _powerJumpTimer = 0f;
-        }
-
-        if (isDucking && _moveDirection.x != 0)
-        {
-            isCreeping = true;
-            _powerJumpTimer = 0f;
-        }
-        else
-        {
-            isCreeping = false;
-        }
-        */
-    }
-    #endregion
+    #endregion 
 
     void InAir()
     {
@@ -661,7 +539,7 @@ public class PlayerController : MonoBehaviour
 
         ClearGroundAbilityFlags();
 
-        if (isSliding == false)
+        if (isSliding == false && isCreeping == false)
         {
             AirJump();
 
@@ -673,11 +551,6 @@ public class PlayerController : MonoBehaviour
     #region In Air
     public void ClearGroundAbilityFlags() // CHANGED to public (this is so the antigrav can interact with it)
     {
-        if ((isDucking || isCreeping) && _moveDirection.y > 0)
-        {
-            StartCoroutine("ClearDuckingState");
-        }
-        //clear powerJumpTimer
         _powerJumpTimer = 0f;
     }
 
@@ -873,12 +746,89 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+    #endregion
 
+    #region Input
+    private void ApplyDeadzones()
+    {
+        if (_input.x > -deadzoneValue && _input.x < deadzoneValue)
+            _input.x = 0f;
 
-    #region Input Methods
+        if (_input.y > -deadzoneValue && _input.y < deadzoneValue)
+            _input.y = 0f;
+    }
+
+    void InputBufferingAndCoyote()
+    {
+        jumpBufferTimer = jumpBufferTimer - Time.deltaTime;
+
+        if (_startJump == true)
+        {
+            jumpBufferTimer = jumpBuffer;
+        }
+
+        if (_characterController.below == true)
+        {
+            coyoteTimer = coyoteTime;
+        }
+        else
+        {
+            coyoteTimer = coyoteTimer - Time.deltaTime;
+        }
+    }
+
+    void SlideInputAndState()
+    {
+        RaycastHit2D headSpaceChecker;
+        float capsuleColliderCircleRadius = _capsuleCollider.size.x / 2;
+        Vector2 ccTopCirclePoint = new Vector2(transform.position.x, transform.position.y) + _capsuleCollider.offset + new Vector2(0, capsuleColliderCircleRadius);
+
+        headSpaceChecker = Physics2D.CircleCast(ccTopCirclePoint, capsuleColliderCircleRadius, Vector2.up, 0, _characterController.layerMask);
+
+        if (Keyboard.current.sKey.isPressed == true || (headSpaceChecker.collider != null && (isSliding == true || isCreeping == true)))
+        {
+            if ((_characterController.below == true || isSliding == true) && Mathf.Abs(_characterController.actualVeclocity.x) > requiredMinimumVelocity && isCreeping == false)
+            {
+                isSliding = true;
+                isCreeping = false;
+            }
+            else if (_characterController.below == true && _characterController._slopeAngle != 0)
+            {
+                isSliding = true;
+                isCreeping = false;
+            }
+            else if (_characterController.below == true)
+            {
+                isSliding = false;
+                isCreeping = true;
+            }
+        }
+        else
+        {
+            isSliding = false;
+            isCreeping = false;
+
+            slideFrameOne = true;
+        }
+
+        if(_startJump == true && isCreeping == true)
+        {
+            isCreeping = false;
+            isSliding = false;
+        }
+
+        // transfer state to character controller 
+        if (isSliding == true) _characterController.isSliding = true;
+        else _characterController.isSliding = false;
+
+        // if ceiling hit then jumping no
+        // this is relevent in spaces where the ceiling is so low that the grounding raycast will still detect ground even if the player jumps
+        if (_characterController.slidingColAbove == true) { isSlideJumping = false; }
+    }
+
     void RunInput()
     {
-        if (Keyboard.current.leftShiftKey.isPressed == true && isSliding == false)
+        if (Keyboard.current.leftShiftKey.isPressed == true && isSliding == false && isCreeping == false)
         {
             isRunning = true;
         }
@@ -888,6 +838,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region Methods
     public void OnMovement(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
@@ -930,6 +881,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+    #endregion
 
     #region Coroutines
     IEnumerator WallJumpWaiter()
@@ -955,6 +907,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
 
+        /*
         RaycastHit2D hitCeiling = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, transform.localScale,
             CapsuleDirection2D.Vertical, 0f, Vector2.up, _originalColliderSize.y / 2, _characterController.layerMask);
         
@@ -965,6 +918,7 @@ public class PlayerController : MonoBehaviour
             isDucking = false;
             isCreeping = false;
         }
+        */
     }
 
     IEnumerator PowerJumpWaiter()

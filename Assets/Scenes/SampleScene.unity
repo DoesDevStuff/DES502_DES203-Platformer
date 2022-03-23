@@ -2307,7 +2307,7 @@ MonoBehaviour:
   runAccelleration: 0.2
   maxRunSpeed: 0.25
   pivotTime: 0.1
-  creepSpeed: 0.1
+  creepSpeed: 0.02
   jumpSpeed: 0.25
   doubleJumpSpeed: 10
   completeAirControlTime: 1
@@ -2579,6 +2579,7 @@ MonoBehaviour:
   left: 0
   right: 0
   above: 0
+  slidingColAbove: 0
   groundType: 0
   leftWallType: 0
   rightWallType: 0
@@ -5765,7 +5766,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3338371638071858081, guid: cddd301f292965145b294a015d237475, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338371638071858081, guid: cddd301f292965145b294a015d237475, type: 3}
+      propertyPath: creepingAndSlidingYOffset
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3338371638071858083, guid: cddd301f292965145b294a015d237475, type: 3}
       propertyPath: m_Name
