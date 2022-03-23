@@ -73,7 +73,7 @@ public class AntiGravAbility : MonoBehaviour
             {
                 antiGravActive = true;
 
-                moveForce = characterController2D._moveVelocity;
+                moveForce = characterController2D.actualVeclocity;
 
                 if (frameOneAntiGrav == true)
                 {
@@ -125,7 +125,7 @@ public class AntiGravAbility : MonoBehaviour
             playerController.isInAntiGrav = false;
             playerController.ClearAirAbilityFlags();
             playerController.ClearGroundAbilityFlags();
-            playerController._moveDirection = characterController2D._moveVelocity;
+            playerController._moveDirection = characterController2D.actualVeclocity;
 
             characterController2D.antiGravActive = false;
         }

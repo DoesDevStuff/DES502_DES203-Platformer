@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Properties")]
     [Header("Input")]
     public float deadzoneValue = 0.15f;
-    public float coyoteTime; // to be added
-    public float jumpBuffer; // to be added
+    public float coyoteTime; 
+    public float jumpBuffer; 
 
     [Header("Drag")] // to be added
     public float minWalkingDrag; 
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public float maxRunningDrag;
     public float maxUsedRunSpeed;
     [Space]
-    public float slidingDrag; 
+    public float slideDefaultDrag; 
 
     [Header("xMovement")]
     public float walkAccelleration = 10f;
@@ -39,22 +39,24 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jumping")]
     public float jumpSpeed = 15f;
-    public float minJumpTime;
     public float doubleJumpSpeed = 10f;
+    public float completeAirControlTime;
+    public float reducedAirControlPivotTime;
 
     [Header("Wall Jumping")]
     public float xWallJumpSpeed = 15f;
     public float yWallJumpSpeed = 15f;
     public float wallSlideAmount = 0.1f;
+    public float wallJumpedNullTime;
 
     [Header("Sliding")]
     public bool applyDeccelInAir;
-    public float minSpeedUsedSlideDrag;
-    public float maxSpeedUsedSlideDrag;
-    public float minSlideDrag;
-    public float maxSlideDrag;
+    public float minSpeedUsedSlideDeccel;
+    public float maxSpeedUsedSlideDeccel;
+    public float minSlideDeccel;
+    public float maxSlideDeccel;
     public float slideHopPower;
-    public float slideHopXPower;
+    public float slideHopSlopePower;
     public float requiredMinimumVelocity;
 
     [Header("Physics")]
@@ -116,6 +118,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region private properties
+    float completeAirControlTimer;
+
+    [HideInInspector] public float jumpBufferTimer;
+    [HideInInspector] public float coyoteTimer;
+
     bool slideFrameOne = false;
     bool slideExit = false;
 
@@ -160,12 +167,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        RunInput();
+
         if (isInAntiGrav == false)
         {
             if (_dashTimer > 0)
                 _dashTimer -= Time.deltaTime;
 
             ApplyDeadzones();
+            InputBufferingAndCoyote();
 
             Sliding();
 
@@ -173,6 +183,8 @@ public class PlayerController : MonoBehaviour
             {
                 ProcessHorizontalMovement();
             }
+
+            Jump(); // was removed from onground (it has to be like this for coyote time) (cause you're not grounded but can still jump)
 
             if (_characterController.below) //On the ground
             {
@@ -183,16 +195,13 @@ public class PlayerController : MonoBehaviour
                 InAir();
             }
 
+            Drag();
+
             _characterController.Move(_moveDirection); // Changed (it use to multiply the move direction by time.deltatime)
             // the reason it can't do that is because if we have velocity based movements multiplying it by time.deltatime will also then multiply the current velocity by that
             // what this means is everything (that's supposed to be timescaled) has to be multiplied by time.deltatime individually
             // this has already been implimented in this script
         }
-    }
-
-    void FixedUpdate()
-    {
-        if (isSliding == true) { SlideMovement(); }
     }
     #endregion
 
@@ -205,22 +214,185 @@ public class PlayerController : MonoBehaviour
             _input.y = 0f;
     }
 
+    void InputBufferingAndCoyote()
+    {
+        jumpBufferTimer = jumpBufferTimer - Time.deltaTime;
+
+        if (_startJump == true)
+        {
+            jumpBufferTimer = jumpBuffer;
+        }
+
+        if (_characterController.below == true)
+        {
+            coyoteTimer = coyoteTime;
+        }
+        else
+        {
+            coyoteTimer = coyoteTimer - Time.deltaTime;
+        }
+    }
+
+    private void ProcessHorizontalMovement()
+    {
+        if (!isWallJumping)
+        {
+            //_moveDirection.x = _input.x; //- Removed
+
+            if (_input.x < 0) // changed
+            {
+                //transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                spriteRenderer.flipX = true;
+                _facingRight = false;
+            }
+            else if (_input.x > 0) // changed
+            {
+                //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                spriteRenderer.flipX = false;
+                _facingRight = true;
+            }
+
+            if (isDashing)
+            {
+                if (_facingRight)
+                {
+                    _moveDirection.x = dashSpeed;
+                }
+                else
+                {
+                    _moveDirection.x = -dashSpeed;
+                }
+                _moveDirection.y = 0;
+            }
+            else if (isCreeping)
+            {
+                //_moveDirection.x = _input.x * creepSpeed; // changed
+            }
+            else
+            {
+                //_moveDirection.x *= walkAccelleration; //- Removed
+
+                //new from here
+                _moveDirection.x = _characterController._moveVelocity.x;
+
+                // pivot
+                if (_characterController.below == true || completeAirControlTimer > 0)
+                {
+                    if (_input.x > 0 && _characterController._moveVelocity.x < 0)
+                    {
+                        _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
+                    }
+                    if (_input.x < 0 && _characterController._moveVelocity.x > 0)
+                    {
+                        _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
+                    }
+                    if (_input.x == 0 && _characterController.below == true)
+                    {
+                        _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
+                    }
+                }
+                else // reduced pivot
+                {
+                    if (_input.x > 0 && _characterController._moveVelocity.x < 0)
+                    {
+                        _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, reducedAirControlPivotTime).x;
+                    }
+                    if (_input.x < 0 && _characterController._moveVelocity.x > 0)
+                    {
+                        _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, reducedAirControlPivotTime).x;
+                    }
+                    if (_input.x == 0 && _characterController.below == true)
+                    {
+                        _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, reducedAirControlPivotTime).x;
+                    }
+                }
+
+                // movement
+                float timeScaledWalkAccelleration = walkAccelleration * Time.deltaTime;
+                if (Mathf.Abs(_characterController._moveVelocity.x) < maxWalkSpeed)
+                {
+                    _moveDirection.x = _moveDirection.x + (timeScaledWalkAccelleration * _input.x);
+                }
+
+                if (isRunning == true)
+                {
+                    float timeScaledRunAccelleration = runAccelleration * Time.deltaTime;
+                    if (Mathf.Abs(_characterController._moveVelocity.x) < maxRunSpeed)
+                    {
+                        _moveDirection.x = _moveDirection.x + (timeScaledRunAccelleration * _input.x);
+                    }
+                }
+                // to here
+            }
+        }
+    }
+
+    private void Jump()
+    {
+        //jumping
+        if (jumpBufferTimer > 0 && coyoteTimer > 0)
+        {
+            Debug.Log("jump");
+
+            _startJump = false;
+            jumpBufferTimer = 0;
+            coyoteTimer = 0;
+
+            if (canPowerJump && isDucking &&
+                _characterController.groundType != GroundType.OneWayPlatform && (_powerJumpTimer > powerJumpWaitTime))
+            {
+                _moveDirection.y = powerJumpSpeed;
+                StartCoroutine("PowerJumpWaiter");
+            }
+            //check to see if we are on a one way platform
+            else if (isDucking && _characterController.groundType == GroundType.OneWayPlatform)
+            {
+                StartCoroutine(DisableOneWayPlatform(true));
+            }
+            else
+            {
+                _moveDirection.y = jumpSpeed;
+            }
+
+            isJumping = true;
+            _characterController.DisableGroundCheck();
+            _characterController.ClearMovingPlatform();
+            _ableToWallRun = true;
+        }
+    }
+
     void Drag()
     {
-        if(isRunning == false)
+        int direction = 1;
+        if (_characterController._moveVelocity.x < 0) { direction = -1; }
+
+        if (isSliding == true)
         {
-
+            _moveDirection.x = _moveDirection.x - (slideDefaultDrag * Time.deltaTime * direction);
         }
-        if(isRunning == true)
+        else if (isRunning == false) // iswalking true
         {
+            float t = Mathf.Clamp(Mathf.Abs(_characterController._moveVelocity.x), 0.0001f, maxUsedWalkSpeed);
+            t = t / maxUsedWalkSpeed;
 
+            float dragLerp = Mathf.Lerp(minWalkingDrag, maxWalkingDrag, t);
+            dragLerp = dragLerp * Time.deltaTime;
+
+            _moveDirection.x = _moveDirection.x - (dragLerp * direction);
         }
-        if(isSliding == true)
+        else if(isRunning == true)
         {
+            float t = Mathf.Clamp(Mathf.Abs(_characterController._moveVelocity.x), 0.0001f, maxUsedRunSpeed);
+            t = t / maxUsedRunSpeed;
 
+            float dragLerp = Mathf.Lerp(minRunningDrag, maxRunningDrag, t);
+            dragLerp = dragLerp * Time.deltaTime;
+
+            _moveDirection.x = _moveDirection.x - (dragLerp * direction);
         }
 
-        // move velocity = itself minus some drag;
+        // move velocity = itself minus some drag
+        // for running and walking it is lerp (faster you are the stronger it is, to a certain point)
     }
 
     void Sliding()
@@ -236,12 +408,11 @@ public class PlayerController : MonoBehaviour
                 slideFrameOne = true;
             }
 
+            SlideMovement();
             SlideHop();
             SlideGravity();
         }
         SpriteRotater();
-
-        // slide movement is handled in fixed update
     }
     #region Sliding
     void SlideInputAndState()
@@ -316,42 +487,40 @@ public class PlayerController : MonoBehaviour
     {
         if (isSliding == true)
         {
+            int direction = 1;
+            if (_characterController._moveVelocity.x < 0) { direction = -1; }
+
             float speedUsed = Mathf.Abs(_characterController.actualVeclocity.x);
-            if (speedUsed < minSpeedUsedSlideDrag)
+            if (speedUsed < minSpeedUsedSlideDeccel)
             {
-                speedUsed = minSpeedUsedSlideDrag;
+                speedUsed = minSpeedUsedSlideDeccel;
             }
-            speedUsed = Mathf.Clamp(speedUsed, 0.001f, maxSpeedUsedSlideDrag);
-            float t = speedUsed / maxSpeedUsedSlideDrag;
-            float lerpDrag = Mathf.Lerp(minSlideDrag, maxSlideDrag, t);
+            speedUsed = Mathf.Clamp(speedUsed, 0.001f, maxSpeedUsedSlideDeccel);
+            float t = speedUsed / maxSpeedUsedSlideDeccel;
+            float lerpDrag = Mathf.Lerp(minSlideDeccel, maxSlideDeccel, t);
 
             if (_characterController.below == true || applyDeccelInAir == true)
             {
-                _moveDirection.x = _characterController.actualVeclocity.x * lerpDrag;
+                _moveDirection.x = _characterController.actualVeclocity.x - (direction * lerpDrag * Time.deltaTime);
             }
         }
     }
 
     void SlideHop()
     {
-        if (_startJump == true && _characterController.below == true && isSlideJumping == false)
+        if (jumpBufferTimer > 0 && coyoteTimer > 0)
         {
-            //normal jump
-            _moveDirection = _moveDirection + _characterController._slopeNormal * slideHopPower;
+            _startJump = false;
+            jumpBufferTimer = 0;
+            coyoteTimer = 0;
 
-            //x push part of jump
-            if(_facingRight == true)
-            {
-                _moveDirection.x = _moveDirection.x + slideHopXPower;
-            }
-            else
-            {
-                _moveDirection.x = _moveDirection.x - slideHopXPower;
-            }
+            //normal jump
+            _moveDirection.y = slideHopPower;
+
+            //push away from slope
+            _moveDirection = _moveDirection + (slideHopSlopePower * _characterController._slopeNormal);
 
             isSlideJumping = true;
-            _startJump = false;
-
             _characterController.DisableGroundCheck();
             _characterController.ClearMovingPlatform();
         }
@@ -359,7 +528,7 @@ public class PlayerController : MonoBehaviour
 
     void SlideGravity()
     {
-        if (isSlideJumping == false && _characterController.below == true)
+        if (_characterController.below == true)
         {
             _moveDirection.y = _characterController.actualVeclocity.y;
         }
@@ -410,16 +579,15 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-
     void OnGround()
     {
+        completeAirControlTimer = completeAirControlTime;
+
         ClearAirAbilityFlags();
 
         if (isSliding == false)
         {
             _moveDirection.y = 0;
-
-            Jump();
 
             DuckingAndCreeping();
         }
@@ -437,76 +605,6 @@ public class PlayerController : MonoBehaviour
         isGroundSlamming = false;
         _startGlide = true;
     }
-
-    private void ProcessHorizontalMovement()
-    {
-
-        if (!isWallJumping)
-        {
-            //_moveDirection.x = _input.x; //- Removed
-
-            if (_input.x < 0) // changed
-            {
-                //transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                spriteRenderer.flipX = true;
-                _facingRight = false;
-            }
-            else if (_input.x > 0) // changed
-            {
-                //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                spriteRenderer.flipX = false;
-                _facingRight = true;
-            }
-
-            if (isDashing)
-            {
-                if (_facingRight)
-                {
-                    _moveDirection.x = dashSpeed;
-                }
-                else
-                {
-                    _moveDirection.x = -dashSpeed;
-                }
-                _moveDirection.y = 0;
-            }
-            else if (isCreeping)
-            {
-                //_moveDirection.x = _input.x * creepSpeed; // changed
-            }
-            else
-            {
-                //_moveDirection.x *= walkAccelleration; //- Removed
-
-                //new from here
-                _moveDirection.x = _characterController._moveVelocity.x;
-
-                // pivot
-                if (_input.x > 0 && _characterController._moveVelocity.x < 0)
-                {
-                    _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
-                }
-                if (_input.x < 0 && _characterController._moveVelocity.x > 0)
-                {
-                    _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
-                }
-                if (_input.x == 0 && _characterController.below == true)
-                {
-                    _moveDirection.x = Vector2.SmoothDamp(_characterController._moveVelocity, new Vector2(0, _characterController._moveVelocity.y), ref velocity, pivotTime).x;
-                }
-
-                // movement
-                float timeScaledWalkAccelleration = walkAccelleration * Time.deltaTime;
-                if (Mathf.Abs(_characterController._moveVelocity.x) < maxWalkSpeed)
-                {
-                    _moveDirection.x = _moveDirection.x + (timeScaledWalkAccelleration * _input.x);
-                }
-                // to here
-            }
-
-        }
-    }
-
     private void DuckingAndCreeping()
     {
         /*
@@ -555,40 +653,12 @@ public class PlayerController : MonoBehaviour
         }
         */
     }
-
-    private void Jump()
-    {
-        //jumping
-        if (_startJump)
-        {
-            _startJump = false;
-
-            if (canPowerJump && isDucking &&
-                _characterController.groundType != GroundType.OneWayPlatform && (_powerJumpTimer > powerJumpWaitTime))
-            {
-                _moveDirection.y = powerJumpSpeed;
-                StartCoroutine("PowerJumpWaiter");
-            }
-            //check to see if we are on a one way platform
-            else if (isDucking && _characterController.groundType == GroundType.OneWayPlatform)
-            {
-                StartCoroutine(DisableOneWayPlatform(true));
-            }
-            else
-            {
-                _moveDirection.y = jumpSpeed;
-            }
-
-            isJumping = true;
-            _characterController.DisableGroundCheck();
-            _characterController.ClearMovingPlatform();
-            _ableToWallRun = true;
-        }
-    }
     #endregion
 
     void InAir()
     {
+        completeAirControlTimer = completeAirControlTimer - Time.deltaTime;
+
         ClearGroundAbilityFlags();
 
         if (isSliding == false)
@@ -615,14 +685,10 @@ public class PlayerController : MonoBehaviour
     {
         if (_releaseJump)
         {
-            Debug.Log("JumpRelease");
-
             _releaseJump = false;
 
-            if (_moveDirection.y > 0)
+            if (_moveDirection.y > 0 && isSliding == false)
             {
-                Debug.Log("glimtooka");
-
                 _moveDirection.y *= 0.5f;
             }
 
@@ -631,8 +697,6 @@ public class PlayerController : MonoBehaviour
         //pressed jump button in air
         if (_startJump)
         {
-            Debug.Log("AirJump");
-
             #region TripleJump
             if (canTripleJump && (!_characterController.left && !_characterController.right))
             {
@@ -658,9 +722,12 @@ public class PlayerController : MonoBehaviour
             #region Wall Jump
             if (canWallJump && (_characterController.left || _characterController.right))
             {
+                coyoteTimer = 0;
+                jumpBufferTimer = 0;
+                completeAirControlTimer = 0;
+
                 if (_moveDirection.x <= 0 && _characterController.left)
                 {
-
                     _moveDirection.x = xWallJumpSpeed;
                     _moveDirection.y = yWallJumpSpeed;
                     //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -668,7 +735,6 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (_moveDirection.x >= 0 && _characterController.right)
                 {
-
                     _moveDirection.x = -xWallJumpSpeed;
                     _moveDirection.y = yWallJumpSpeed;
                     // transform.rotation = Quaternion.Euler(0f, 180f, 0f);
@@ -686,8 +752,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
             #endregion
-
-            _startJump = false;
         }
     }
 
@@ -802,18 +866,28 @@ public class PlayerController : MonoBehaviour
         {
             _moveDirection.y -= gravity * Time.deltaTime;
 
-            if(_characterController.actualVeclocity.y < 0)
+            if(_characterController.actualVeclocity.y < 0 && coyoteTimer < 0)
             {
                 _moveDirection.y -= peakGravity * Time.deltaTime;
             }
         }
-
-        
     }
     #endregion
 
 
     #region Input Methods
+    void RunInput()
+    {
+        if (Keyboard.current.leftShiftKey.isPressed == true && isSliding == false)
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
+    }
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
@@ -858,11 +932,10 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Coroutines
-    
     IEnumerator WallJumpWaiter()
     {
         isWallJumping = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(wallJumpedNullTime);
         isWallJumping = false;
     }
 
