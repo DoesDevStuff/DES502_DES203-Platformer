@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}" SchemaVersion="103">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Walking_wav" ID="{E7A3985F-2246-40A5-A3D7-960C3CFBF510}" ShortID="914413196">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Walking_wav" ID="{E4F7A186-DD8D-44B9-8373-558C07921263}">
+							<Language>SFX</Language>
+							<AudioFile>Walking.wav.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="106599636"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Walking_wav" ID="{E4F7A186-DD8D-44B9-8373-558C07921263}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Jump" ID="{7F58C661-3948-47D0-B125-810AA1196AA6}" ShortID="54453650">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Jump" ID="{94C02AF5-42C0-41AD-9E6A-3D9B534313AE}">
+							<Language>SFX</Language>
+							<AudioFile>Jump.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="128705629"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Jump" ID="{94C02AF5-42C0-41AD-9E6A-3D9B534313AE}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Flare_shot" ID="{14BEF56E-4422-4075-A3F3-15B041B82F32}" ShortID="27219871">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Flare_shot" ID="{F91AF756-28BB-4631-B9A0-501D78331404}">
+							<Language>SFX</Language>
+							<AudioFile>Flare_shot.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="902729803"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Flare_shot" ID="{F91AF756-28BB-4631-B9A0-501D78331404}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
