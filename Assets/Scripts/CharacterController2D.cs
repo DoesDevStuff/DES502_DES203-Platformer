@@ -25,6 +25,12 @@ public class CharacterController2D : MonoBehaviour
     public bool hitGroundThisFrame;
     public bool hitWallThisFrame;
 
+    public float jumpPadAmount;
+    public float jumpPadUpperLimit;
+
+    public bool inWater;
+    public bool isSubmerged;
+
     private Vector2 _moveAmount;
     private Vector2 _currentPostion;
     private Vector2 _lastPosition;
@@ -101,9 +107,20 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        _currentPostion = _lastPosition + _moveAmount;
+        // handling water stuff
+        if (!inWater)
+        {
+            _currentPostion = _lastPosition + _moveAmount;
+            _rigidbody.MovePosition(_currentPostion);
+        }
+        else
+        {
+            if (_rigidbody.velocity.magnitude < 10f)
+            {
+                _rigidbody.AddForce(_moveAmount * 300f);
+            }
 
-        _rigidbody.MovePosition(_currentPostion);
+        }
 
         _moveAmount = Vector2.zero;
 
@@ -159,6 +176,12 @@ public class CharacterController2D : MonoBehaviour
                 below = true;
             }
 
+            if (groundType == GroundType.JumpPad)
+            {
+                JumpPad jumpPad = hit.collider.GetComponent<JumpPad>();
+                jumpPadAmount = jumpPad.jumpPadAmount;
+                jumpPadUpperLimit = jumpPad.jumpPadUpperLimit;
+            }
 
         }
         else
@@ -380,4 +403,38 @@ public class CharacterController2D : MonoBehaviour
             _tempMovingPlatform = null;
         }
     }
+
+    // water physics
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<BuoyancyEffector2D>())
+        {
+            inWater = true;
+        }
+    }
+
+    // checks if fully submerged or not Also only triggers if buoyancy effector exists
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.bounds.Contains(_capsuleCollider.bounds.min) &&
+            collision.bounds.Contains(_capsuleCollider.bounds.max) &&
+            collision.gameObject.GetComponent<BuoyancyEffector2D>()) 
+        {
+            isSubmerged = true;
+        }
+        else
+        {
+            isSubmerged = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<BuoyancyEffector2D>())
+        {
+            _rigidbody.velocity = Vector2.zero;
+            inWater = false;
+        }
+    }
+
 }
