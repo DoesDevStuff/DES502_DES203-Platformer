@@ -45,7 +45,7 @@ public class EnemyAggro : MonoBehaviour
     {
         // check distance to player
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        //Debug.Log("distanceToPlayer : " + distanceToPlayer);
+        Debug.Log("distanceToPlayer : " + distanceToPlayer);
 
         if(distanceToPlayer < aggroRange)
         {
