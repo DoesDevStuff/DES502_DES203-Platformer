@@ -16,7 +16,22 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2108779966" Language="SFX" Hash="390641664">
+		<SoundBank Id="1942692385" Language="SFX" Hash="678363792">
+			<ObjectPath>\SoundBanks\Default Work Unit\Dash</ObjectPath>
+			<ShortName>Dash</ShortName>
+			<Path>Dash.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1942692385" Name="Dash" ObjectPath="\Events\Default Work Unit\Dash" DurationType="OneShot" DurationMin="0.401791" DurationMax="0.401791">
+					<IncludedMemoryFiles>
+						<File Id="923590483" Language="SFX">
+							<ShortName>Dash.wav</ShortName>
+							<Path>SFX\Dash_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2108779966" Language="SFX" Hash="4014413902">
 			<ObjectPath>\SoundBanks\Default Work Unit\Walk</ObjectPath>
 			<ShortName>Walk</ShortName>
 			<Path>Walk.bnk</Path>
@@ -31,15 +46,35 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="3833651337" Language="SFX" Hash="1652906327">
+		<SoundBank Id="3833651337" Language="SFX" Hash="362529783">
 			<ObjectPath>\SoundBanks\Default Work Unit\Jump</ObjectPath>
 			<ShortName>Jump</ShortName>
 			<Path>Jump.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump" DurationType="OneShot" DurationMin="0.431565" DurationMax="0.431565">
+					<IncludedMemoryFiles>
+						<File Id="128705629" Language="SFX">
+							<ShortName>Jump.wav</ShortName>
+							<Path>SFX\Jump_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="3944494847" Language="SFX" Hash="2307262792">
+		<SoundBank Id="3944494847" Language="SFX" Hash="3175216632">
 			<ObjectPath>\SoundBanks\Default Work Unit\FlareShot</ObjectPath>
 			<ShortName>FlareShot</ShortName>
 			<Path>FlareShot.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3944494847" Name="FlareShot" ObjectPath="\Events\Default Work Unit\FlareShot" DurationType="OneShot" DurationMin="0.479025" DurationMax="0.479025">
+					<IncludedMemoryFiles>
+						<File Id="902729803" Language="SFX">
+							<ShortName>Flare_shot.wav</ShortName>
+							<Path>SFX\Flare_shot_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

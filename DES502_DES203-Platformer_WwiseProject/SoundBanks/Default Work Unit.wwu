@@ -11,12 +11,23 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Jump" ID="{67FA190D-5084-4F5B-B299-C19F5F82DAD3}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump" ID="{771DBE9C-6A7C-429B-B8BB-8DE9B463F845}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="FlareShot" ID="{98F5DD10-916E-416E-BAE9-F6EC3CD0FEF9}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="FlareShot" ID="{918F206B-A1B7-425A-B695-9EA46E9EA16D}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Dash" ID="{28FE9A40-F0D5-4133-A8C2-02C3A17CE38F}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Dash" ID="{5E564575-4513-43E9-A201-80AF44843A4B}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>

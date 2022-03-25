@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e4a07992987b8949a59c1527b55f40de
     GuidInternal: 
-    m_lastTime: -8585536494506804925
+    m_lastTime: -8585536355825583737
     List:
     - name: FlareShot
       guid: 10ddf5986e916e41bae9f6ec3cd0fef9
@@ -139,8 +139,8 @@ MonoBehaviour:
         guid: 6b208f91b7a15a42b6959ea46e9ea16d
       Path: Events\Default Work Unit\FlareShot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.479025
+      minDuration: 0.479025
     - name: Jump
       guid: 9cbe1d777c6a9b42b8bb8de9b463f845
       id: 3833651337
@@ -156,8 +156,8 @@ MonoBehaviour:
         guid: 9cbe1d777c6a9b42b8bb8de9b463f845
       Path: Events\Default Work Unit\Jump
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.431565
+      minDuration: 0.431565
     - name: Walk
       guid: 380bd1100161554f9f6a52c291592676
       id: 2108779966
@@ -173,8 +173,8 @@ MonoBehaviour:
         guid: 380bd1100161554f9f6a52c291592676
       Path: Events\Default Work Unit\Walk
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.172381
+      minDuration: 0.172381
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -232,7 +232,7 @@ MonoBehaviour:
     m_lastTime: -8585540820569854351
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 060000000a0000000b0000000d0000000e000000
+  ExpandedWaapiItemIds: 06000000070000000a0000000b0000000d0000000e0000000f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

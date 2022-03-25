@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<Event Name="Walk" ID="{10D10B38-6101-4F55-9F6A-52C291592676}">
 					<ChildrenList>
-						<Action Name="" ID="{FFF3F302-BA43-451D-8C6F-C684B85DC128}" ShortID="599547536">
+						<Action Name="" ID="{BE4AF4B9-1145-48C1-908A-423CEFE9972B}" ShortID="55809784">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Walking_wav" ID="{E7A3985F-2246-40A5-A3D7-960C3CFBF510}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
@@ -31,6 +31,17 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Flare_shot" ID="{14BEF56E-4422-4075-A3F3-15B041B82F32}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Dash" ID="{5E564575-4513-43E9-A201-80AF44843A4B}">
+					<ChildrenList>
+						<Action Name="" ID="{6D4CAF1F-A158-4FCC-B05B-1C392A7B1D4E}" ShortID="903182164">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dash" ID="{1F1A4756-0A81-4F38-B47D-084A10578A08}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -7,7 +7,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-
+    
     #region public properties
     [Header("Player Properties")]
     public float walkSpeed = 10f;
@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
     public bool isGroundSlamming;
     public bool isSwimming; //if we have separate swim animation here
 
+    [Header("Wwise Events")]  // this should call up the event from Wwise btu the sound wont play
+    public AK.Wwise.Event WalkSound;
+
     #endregion
 
     #region private properties
@@ -93,6 +96,9 @@ public class PlayerController : MonoBehaviour
     public Vector2 _tempVelocity;
 
     #endregion
+
+   
+   
 
     void Start()
     {
@@ -141,15 +147,21 @@ public class PlayerController : MonoBehaviour
         {
             _moveDirection.x = _input.x;
 
+           
+
+
             if (_moveDirection.x < 0)
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 _facingRight = false;
+                WalkSound.Post(gameObject); //this is the code for the walking sound
             }
             else if (_moveDirection.x > 0)
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 _facingRight = true;
+                WalkSound.Post(gameObject); //this is the code for the walking sound
+
             }
 
             if (isDashing)
@@ -172,6 +184,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 _moveDirection.x *= walkSpeed;
+
+                //AkSoundEngine.PostEvent("Walk", gameObject);
             }
 
         }

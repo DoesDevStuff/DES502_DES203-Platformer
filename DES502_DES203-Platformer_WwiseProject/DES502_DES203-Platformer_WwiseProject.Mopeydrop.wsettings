@@ -5,6 +5,7 @@
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="C:\Users\Mopeydrop\Downloads\LabChirp-1_60\LabChirp\"/>
 				<Property Name="Event Action List\{10D10B38-6101-4F55-9F6A-52C291592676}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{5E564575-4513-43E9-A201-80AF44843A4B}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{771DBE9C-6A7C-429B-B8BB-8DE9B463F845}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{918F206B-A1B7-425A-B695-9EA46E9EA16D}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
@@ -25,9 +26,9 @@
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="naZg55T6CkWH8dvGb/9foA=="/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="EN31mG6RbkG66fbsPND++Q0Z+meEUFtPspnBn1+C2tOhgS/4gUfLRJqFBU++ZsCe"/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="EN31mG6RbkG66fbsPND++Q0Z+meEUFtPspnBn1+C2tOhgS/4gUfLRJqFBU++ZsCeQJr+KNXwM0GowgLDoXzjjw=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
-				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="2P4usdweGUyQ4n24ncKzQwEnle//////0CSEZGnFq0m8AmJCK3gBQgEnle//////"/>
+				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="0CSEZGnFq0m8AmJCK3gBQgEnle//////2P4usdweGUyQ4n24ncKzQwEnle//////"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>

@@ -13,12 +13,16 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID FLARESHOT = 3944494847U;
+        static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID WALK = 2108779966U;
     } // namespace EVENTS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID DASH = 1942692385U;
         static const AkUniqueID FLARESHOT = 3944494847U;
         static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID WALK = 2108779966U;
