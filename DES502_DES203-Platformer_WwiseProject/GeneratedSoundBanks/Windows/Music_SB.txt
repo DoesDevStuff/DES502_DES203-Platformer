@@ -1,0 +1,25 @@
+Event	ID	Name			Wwise Object Path	Notes
+	741402614	Play_Music_Tracks			\Default Work Unit\Music Events\Play_Music_Tracks	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1369099578	Current_Location			\Default Work Unit\Current_Location	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Current_Location			
+	950168122	Exploration77	Current_Location			
+	1439958606	Boss_Room60	Current_Location			
+	3613112691	Boss_Intro60	Current_Location			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	1470250	BehemothRGuitar1	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\BehemothRGuitar1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\BehemothCombat\BehemothLeads\BehemothRGuitar1		3274432
+	125502241	NomadMelodyC2	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\NomadMelodyC2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\Nomad\NomadMelodyC2		2339480
+	270289494	BehemothLGuitar	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\BehemothLGuitar1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\BehemothCombat\BehemothLeads\BehemothLGuitar		2317776
+	360426051	NomadBassC2	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\NomadBassC2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\Nomad\NomadBassC2		2591900
+	525260849	NomadAC1	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\NomadAC1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\Nomad\NomadAC1		2537880
+	540218004	BehemothBass	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\BehemothBass1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\BehemothCombat\BehemothLeads\BehemothBass		2670232
+	624257490	NomadBassC	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\NomadBassC_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\Nomad\NomadBassC		3003052
+	806345144	NomadMelodyC1	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\NomadMelodyC1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\Nomad\NomadMelodyC1		2556712
+	861188728	BehemothLGuitar	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\BehemothLGuitar2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\BehemothCombat\BehemothLeads\BehemothLGuitar		2811352
+	899658591	BehemothBass	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\BehemothBass2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\BehemothCombat\BehemothLeads\BehemothBass		2145092
+	1039712504	BehemothBassIntro	E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\BehemothBassIntro_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Music Tracks\BehemothIntro\BehemothIntro\BehemothBassIntro		2822464
+
