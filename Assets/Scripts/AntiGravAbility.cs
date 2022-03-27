@@ -10,6 +10,7 @@ public class AntiGravAbility : MonoBehaviour
     [Header("Misc")]
     public LayerMask groundMask;
     public GameObject bubblePrefab;
+    public Vector2 heightDetectorBoxSize;
 
     [Header("Controls (these don't actually do anything)")]
     public KeyCode antiGravKey;
@@ -22,38 +23,54 @@ public class AntiGravAbility : MonoBehaviour
     [Header("Movement")]
     public float kickOffForce;
     [Space]
-    public float pivotTime;
+    public float pivotStrength;
     [Space]
     public float maxPushableSpeed;
     public float pushForce;
     public float downwardsPushMultiplier;
     public float maxPushableDownwardsSpeed;
 
-    [Header("Height Stress")]
-    public float maxGravity;
+    [Header("Positive Y Movement")]
+    public float maxYPushForce;
+    public float minYPushForce;
+    [Space]
+    public float yPushMaxUsedHeight;
+    public float yPushThresholdHeight;
+
+    [Header("Y Drag")]
+    public float maxYDrag;
+    public float minYDrag;
+    [Space]
+    public float dragMaxUsedSpeed;
+    public float dragThresholdSpeed;
+
+    [Header("Gravity")]
     public float minGravity;
+    public float maxGravity;
     [Space]
-    public float maxHeight;
-    public float minHeight;
-    [Space]
-    public float percentageHeightCutoffForUpForce;
+    public float gravMaxUsedHeight;
+    public float gravThresholdHeight;
+
+
     #endregion
 
     #region misc variables
     bool antiGravAbilityEnabled = true;
     bool antiGravActive = false;
 
+    bool antiGravUsed = false;
+
     bool frameOneAntiGrav = true;
+
+    float currentHeight;
+    float maxRelevantHeight;
 
     Vector2 moveForce;
 
     PlayerController playerController;
     CharacterController2D characterController2D;
 
-    Rigidbody2D rb2D;
     GameObject instantiatedBubble;
-
-    Vector2 velocity = Vector2.zero;
     #endregion
     #endregion
 
@@ -62,37 +79,38 @@ public class AntiGravAbility : MonoBehaviour
     {
         playerController = gameObject.GetComponent<PlayerController>();
         characterController2D = gameObject.GetComponent<CharacterController2D>();
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
+
+        if(yPushMaxUsedHeight > gravMaxUsedHeight) { maxRelevantHeight = yPushMaxUsedHeight; }
+        else { maxRelevantHeight = gravMaxUsedHeight; }
     }
 
     void Update()
     {
         if (Keyboard.current.vKey.isPressed)
         {
-            if (antiGravAbilityEnabled == true)
+            if (antiGravAbilityEnabled == true && (antiGravActive == true || antiGravUsed == false))
             {
-                antiGravActive = true;
-
                 moveForce = characterController2D.actualVeclocity;
+
+                antiGravActive = true;
 
                 if (frameOneAntiGrav == true)
                 {
+                    CharacterControllerInteraction();
+
                     if (characterController2D.below == true)
                     {
-                        //rb2D.AddForce(new Vector2(0, kickOffForce), ForceMode2D.Impulse);
                         moveForce.y = moveForce.y + kickOffForce;
                     }
 
                     instantiatedBubble = Instantiate(bubblePrefab, transform.position, transform.rotation, transform);
 
-                    CharacterControllerInteraction();
+                    antiGravUsed = true;
 
                     frameOneAntiGrav = false;
                 }
 
-
-                //rb2D.gravityScale = CalculateBubbleGravity(HeightDetection());
-                moveForce.y = moveForce.y - (CalculateBubbleGravity(HeightDetection()) * Time.deltaTime);
+                PassiveMovement();
                 AntiGravMovement();
 
                 characterController2D.Move(moveForce);
@@ -106,6 +124,27 @@ public class AntiGravAbility : MonoBehaviour
             if (instantiatedBubble != null) Destroy(instantiatedBubble);
             CharacterControllerInteraction();
         }
+
+        if(characterController2D.below == true && antiGravActive == false)
+        {
+            antiGravUsed = false;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 gravXOffset1 = Vector2.right * 0.15f;
+        Vector3 gravXOffset2 = Vector2.right * 0.3f;
+        Gizmos.DrawRay(transform.position + gravXOffset1, Vector2.down * gravMaxUsedHeight);
+        Gizmos.DrawRay(transform.position + gravXOffset2, Vector2.down * gravThresholdHeight);
+
+        Vector3 pushXOffset1 = Vector2.left * 0.15f;
+        Vector3 pushXOffset2 = Vector2.left * 0.3f;
+        Gizmos.DrawRay(transform.position + pushXOffset1, Vector2.down * yPushMaxUsedHeight);
+        Gizmos.DrawRay(transform.position + pushXOffset2, Vector2.down * yPushThresholdHeight);
+
+        Vector3 boxPosition = new Vector3(transform.position.x, transform.position.y - gravMaxUsedHeight);
+        Gizmos.DrawWireCube(boxPosition, heightDetectorBoxSize);
     }
     #endregion
 
@@ -132,52 +171,82 @@ public class AntiGravAbility : MonoBehaviour
     }
 
     #region Calculations
-    float HeightDetection()
+    void HeightDetection()
     {
-        RaycastHit2D groundCastResults = Physics2D.Raycast(transform.position, Vector2.down, 300, groundMask);
-
-        float detectedHeight;
+        RaycastHit2D groundCastResults = Physics2D.BoxCast(transform.position, heightDetectorBoxSize, 0, Vector2.down, maxRelevantHeight, groundMask);
 
         if (groundCastResults.collider != null)
         {
-            detectedHeight = transform.position.y - groundCastResults.point.y;
+            currentHeight = transform.position.y - groundCastResults.point.y;
         }
         else
         {
-            detectedHeight = maxHeight;
+            currentHeight = maxRelevantHeight;
         }
-
-        return detectedHeight;
     }
 
     float CalculateBubbleGravity(float height)
     {
-        float clampedHeight = Mathf.Clamp(height, 0, maxHeight);
-
         float calculatedGravity;
 
-        if (clampedHeight > minHeight)
+        calculatedGravity = minGravity;
+        if(height > gravThresholdHeight)
         {
-            float t = (clampedHeight - minHeight) / maxHeight;
-            t = Mathf.Clamp(t, 0, 1);
+            float t = (height - gravThresholdHeight) / gravMaxUsedHeight;
 
             calculatedGravity = Mathf.Lerp(minGravity, maxGravity, t);
-        }
-        else
-        {
-            calculatedGravity = minGravity;
         }
 
         return calculatedGravity;
     }
+
+    float CalculateYDrag(float ySpeed) 
+    {
+        float calculatedDrag;
+
+        calculatedDrag = minYDrag;
+        if (ySpeed > dragThresholdSpeed)
+        {
+            float t = (ySpeed - dragThresholdSpeed) / dragMaxUsedSpeed;
+
+            calculatedDrag = Mathf.Lerp(minYDrag, maxYDrag, t);
+        }
+
+        return calculatedDrag;
+    }
+
+    float CalculateYPushForce(float height)
+    {
+        float calculatedPushForce;
+
+        calculatedPushForce = maxYPushForce;
+        if(height > yPushThresholdHeight)
+        {
+            float t = (height - yPushThresholdHeight) / yPushMaxUsedHeight;
+
+            calculatedPushForce = Mathf.Lerp(maxYPushForce, minYPushForce, t);
+        }
+
+        return calculatedPushForce;
+    }
     #endregion
 
     #region Anti-Grav Movement
-    float UpwardsForceMultiplier()
+    void PassiveMovement()
     {
-        // the higher you go the weaker the up key's effect is
-        float t = CalculateBubbleGravity(HeightDetection()) / (maxGravity * percentageHeightCutoffForUpForce);
-        return Mathf.Lerp(1, 0, t);
+        HeightDetection();
+
+        moveForce.y -= CalculateBubbleGravity(currentHeight) * Time.deltaTime;
+
+        float yDrag = CalculateYDrag(Mathf.Abs(characterController2D.actualVeclocity.y));
+        if (characterController2D.actualVeclocity.y > 0)
+        {
+            moveForce.y -= yDrag * Time.deltaTime;
+        }
+        else
+        {
+            //moveForce.y += yDrag * Time.deltaTime;
+        }
     }
 
     void AntiGravMovement()
@@ -188,58 +257,50 @@ public class AntiGravAbility : MonoBehaviour
 
         if (Keyboard.current.wKey.isPressed)
         {
-            if (characterController2D._moveVelocity.y < maxPushableSpeed)
+            if (Mathf.Abs(characterController2D.actualVeclocity.y) < maxPushableSpeed)
             {
-                moveForce = moveForce + new Vector2(0, pushForce) * UpwardsForceMultiplier();
-                //rb2D.AddForce(new Vector2(0, pushForce) * UpwardsForceMultiplier(), ForceMode2D.Impulse);
+                moveForce = moveForce + new Vector2(0, CalculateYPushForce(currentHeight));
             }
 
-            if (characterController2D._moveVelocity.y < 0)
+            if (characterController2D.actualVeclocity.y < 0)
             {
-                moveForce = Vector2.SmoothDamp(moveForce, new Vector2(moveForce.x, 0), ref velocity, pivotTime);
-                //rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(rb2D.velocity.x, 0), ref velocity, pivotTime);
+                moveForce = moveForce + (new Vector2(0, CalculateYPushForce(currentHeight)) * pivotStrength);
             }
         }
         if (Keyboard.current.aKey.isPressed)
         {
-            if (characterController2D._moveVelocity.x > -maxPushableSpeed)
+            if (Mathf.Abs(characterController2D.actualVeclocity.x) < maxPushableSpeed)
             {
                 moveForce = moveForce + new Vector2(-pushForce, 0);
-                //rb2D.AddForce(new Vector2(-pushForce, 0), ForceMode2D.Impulse);
             }
 
-            if (characterController2D._moveVelocity.x > 0)
+            if (characterController2D.actualVeclocity.x > 0)
             {
-                moveForce = Vector2.SmoothDamp(moveForce, new Vector2(0, moveForce.y), ref velocity, pivotTime);
-                //rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(0, rb2D.velocity.y), ref velocity, pivotTime);
+                moveForce = moveForce + (new Vector2(-pushForce, 0) * pivotStrength);
             }
         }
         if (Keyboard.current.sKey.isPressed)
         {
-            if (characterController2D._moveVelocity.y > -maxPushableDownwardsSpeed)
+            if (Mathf.Abs(characterController2D.actualVeclocity.y) < maxPushableDownwardsSpeed)
             {
                 moveForce = moveForce + new Vector2(0, -pushForce);
-                //rb2D.AddForce(new Vector2(0, -pushForce) * downwardsPushMultiplier, ForceMode2D.Impulse);
             }
 
-            if (characterController2D._moveVelocity.y < 0)
+            if (characterController2D.actualVeclocity.y < 0)
             {
-                moveForce = Vector2.SmoothDamp(moveForce, new Vector2(moveForce.x, 0), ref velocity, pivotTime);
-                //rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(rb2D.velocity.x, 0), ref velocity, pivotTime);
+                moveForce = moveForce + (new Vector2(0, -pushForce) * pivotStrength);
             }
         }
         if (Keyboard.current.dKey.isPressed)
         {
-            if (characterController2D._moveVelocity.x < maxPushableSpeed)
+            if (Mathf.Abs(characterController2D.actualVeclocity.x) < maxPushableSpeed)
             {
                 moveForce = moveForce + new Vector2(pushForce, 0);
-                //rb2D.AddForce(new Vector2(pushForce, 0), ForceMode2D.Impulse);
             }
 
-            if (characterController2D._moveVelocity.x < 0)
+            if (characterController2D.actualVeclocity.x < 0)
             {
-                moveForce = Vector2.SmoothDamp(moveForce, new Vector2(0, moveForce.y), ref velocity, pivotTime);
-                //rb2D.velocity = Vector2.SmoothDamp(rb2D.velocity, new Vector2(0, rb2D.velocity.y), ref velocity, pivotTime);
+                moveForce = moveForce + (new Vector2(pushForce, 0) * pivotStrength);
             }
         }
     }

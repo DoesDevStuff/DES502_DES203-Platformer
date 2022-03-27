@@ -2308,7 +2308,7 @@ MonoBehaviour:
   maxRunSpeed: 0.25
   pivotTime: 0.1
   creepSpeed: 0.02
-  jumpSpeed: 0.25
+  jumpSpeed: 0.28
   doubleJumpSpeed: 10
   completeAirControlTime: 1
   reducedAirControlPivotTime: 0.5
@@ -2609,22 +2609,30 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bubblePrefab: {fileID: 3574847692718799187, guid: be53efdc140028d4f8fdf508e7390c9d, type: 3}
+  heightDetectorBoxSize: {x: 2, y: 0.1}
   antiGravKey: 0
   upKey: 0
   leftKey: 0
   downKey: 0
   rightKey: 0
   kickOffForce: 0.01
-  pivotTime: 0.2
-  maxPushableSpeed: 0.08
-  pushForce: 0.006
+  pivotStrength: 1.3
+  maxPushableSpeed: 0.04
+  pushForce: 0.002
   downwardsPushMultiplier: 2
   maxPushableDownwardsSpeed: 0.1
-  maxGravity: 1.1
-  minGravity: 0
-  maxHeight: 4.5
-  minHeight: 2.5
-  percentageHeightCutoffForUpForce: 0.5
+  maxYPushForce: 0.002
+  minYPushForce: 0.0001
+  yPushMaxUsedHeight: 1.8
+  yPushThresholdHeight: 1.7
+  maxYDrag: 0.3
+  minYDrag: 0
+  dragMaxUsedSpeed: 0.1
+  dragThresholdSpeed: 0.05
+  minGravity: -0.001
+  maxGravity: 0.75
+  gravMaxUsedHeight: 3.3
+  gravThresholdHeight: 2.3
 --- !u!1 &1027391806
 GameObject:
   m_ObjectHideFlags: 0
@@ -4108,7 +4116,7 @@ Transform:
   m_GameObject: {fileID: 1511410818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.00000011921, y: -1.214, z: 0}
-  m_LocalScale: {x: 2.275, y: 0.125, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 968554562}
   m_RootOrder: 3
@@ -5775,6 +5783,10 @@ PrefabInstance:
     - target: {fileID: 3338371638071858083, guid: cddd301f292965145b294a015d237475, type: 3}
       propertyPath: m_Name
       value: FlareGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338371638071858083, guid: cddd301f292965145b294a015d237475, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddd301f292965145b294a015d237475, type: 3}
