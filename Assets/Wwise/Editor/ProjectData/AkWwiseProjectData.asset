@@ -80,7 +80,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e4a07992987b8949a59c1527b55f40de
     GuidInternal: 
-    m_lastTime: -8585532028142169604
+    m_lastTime: -8585530401394370556
     List:
     - name: FlareShot
       guid: 10ddf5986e916e41bae9f6ec3cd0fef9
@@ -266,7 +266,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f8ceac177bda56488568e406211e181a
     GuidInternal: 
-    m_lastTime: -8585532028142054363
+    m_lastTime: -8585530243836779664
     List:
     - name: Current_Location
       guid: 2ceb4835c841024a828de5bb2c0a54e3
@@ -379,7 +379,7 @@ MonoBehaviour:
     m_lastTime: -8585536394529870721
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0f000000
+  ExpandedWaapiItemIds: 010000000600000007000000080000000a0000000b0000000c0000000d0000000e0000000f00000010000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -31,86 +31,51 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2996874622" Language="SFX" Hash="2689377369">
+		<SoundBank Id="2996874622" Language="SFX" Hash="364757856">
 			<ObjectPath>\SoundBanks\Default Work Unit\Music_SB</ObjectPath>
 			<ShortName>Music_SB</ShortName>
 			<Path>Music_SB.bnk</Path>
 			<IncludedEvents>
-				<Event Id="741402614" Name="Play_Music_Tracks" ObjectPath="\Events\Default Work Unit\Music Events\Play_Music_Tracks" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="1470250" Language="SFX">
-							<ShortName>BehemothRGuitar1.wav</ShortName>
-							<Path>SFX\BehemothRGuitar1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="125502241" Language="SFX">
-							<ShortName>NomadMelodyC2.wav</ShortName>
-							<Path>SFX\NomadMelodyC2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="270289494" Language="SFX">
-							<ShortName>BehemothLGuitar1.wav</ShortName>
-							<Path>SFX\BehemothLGuitar1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="360426051" Language="SFX">
-							<ShortName>NomadBassC2.wav</ShortName>
-							<Path>SFX\NomadBassC2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="525260849" Language="SFX">
-							<ShortName>NomadAC1.wav</ShortName>
-							<Path>SFX\NomadAC1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="540218004" Language="SFX">
-							<ShortName>BehemothBass1.wav</ShortName>
-							<Path>SFX\BehemothBass1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="624257490" Language="SFX">
-							<ShortName>NomadBassC.wav</ShortName>
-							<Path>SFX\NomadBassC_D79FB2B7.wem</Path>
-						</File>
-						<File Id="806345144" Language="SFX">
-							<ShortName>NomadMelodyC1.wav</ShortName>
-							<Path>SFX\NomadMelodyC1_D79FB2B7.wem</Path>
-						</File>
-						<File Id="861188728" Language="SFX">
-							<ShortName>BehemothLGuitar2.wav</ShortName>
-							<Path>SFX\BehemothLGuitar2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="899658591" Language="SFX">
-							<ShortName>BehemothBass2.wav</ShortName>
-							<Path>SFX\BehemothBass2_D79FB2B7.wem</Path>
-						</File>
-						<File Id="1039712504" Language="SFX">
-							<ShortName>BehemothBassIntro.wav</ShortName>
-							<Path>SFX\BehemothBassIntro_D79FB2B7.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-					<SwitchContainers>
-						<SwitchContainer SwitchValue="{0F8A4CD3-BF07-4EE3-AC25-EB495E574648}">
-							<Media>
-								<File Id="1470250"/>
-								<File Id="270289494"/>
-								<File Id="540218004"/>
-								<File Id="861188728"/>
-								<File Id="899658591"/>
-							</Media>
-						</SwitchContainer>
-						<SwitchContainer SwitchValue="{40E5F606-62CE-4999-AFA3-62D83FAEB88E}">
-							<Media>
-								<File Id="125502241"/>
-								<File Id="360426051"/>
-								<File Id="525260849"/>
-								<File Id="624257490"/>
-								<File Id="806345144"/>
-							</Media>
-						</SwitchContainer>
-						<SwitchContainer SwitchValue="{6E2EE52E-9E52-438A-97AA-051BDA165560}">
-							<Media>
-								<File Id="1470250"/>
-								<File Id="1039712504"/>
-							</Media>
-						</SwitchContainer>
-					</SwitchContainers>
-				</Event>
+				<Event Id="741402614" Name="Play_Music_Tracks" ObjectPath="\Events\Default Work Unit\Music Events\Play_Music_Tracks" DurationType="Infinite"/>
 			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="1470250" Language="SFX">
+					<ShortName>BehemothRGuitar1.wav</ShortName>
+					<Path>SFX\BehemothRGuitar1_D79FB2B7.wem</Path>
+				</File>
+				<File Id="270289494" Language="SFX">
+					<ShortName>BehemothLGuitar1.wav</ShortName>
+					<Path>SFX\BehemothLGuitar1_D79FB2B7.wem</Path>
+				</File>
+				<File Id="360426051" Language="SFX">
+					<ShortName>NomadBassC2.wav</ShortName>
+					<Path>SFX\NomadBassC2_D79FB2B7.wem</Path>
+				</File>
+				<File Id="525260849" Language="SFX">
+					<ShortName>NomadAC1.wav</ShortName>
+					<Path>SFX\NomadAC1_D79FB2B7.wem</Path>
+				</File>
+				<File Id="540218004" Language="SFX">
+					<ShortName>BehemothBass1.wav</ShortName>
+					<Path>SFX\BehemothBass1_D79FB2B7.wem</Path>
+				</File>
+				<File Id="624257490" Language="SFX">
+					<ShortName>NomadBassC.wav</ShortName>
+					<Path>SFX\NomadBassC_D79FB2B7.wem</Path>
+				</File>
+				<File Id="861188728" Language="SFX">
+					<ShortName>BehemothLGuitar2.wav</ShortName>
+					<Path>SFX\BehemothLGuitar2_D79FB2B7.wem</Path>
+				</File>
+				<File Id="899658591" Language="SFX">
+					<ShortName>BehemothBass2.wav</ShortName>
+					<Path>SFX\BehemothBass2_D79FB2B7.wem</Path>
+				</File>
+				<File Id="1039712504" Language="SFX">
+					<ShortName>BehemothBassIntro.wav</ShortName>
+					<Path>SFX\BehemothBassIntro_D79FB2B7.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 			<StateGroups>
 				<StateGroup Id="1369099578" Name="Current_Location" ObjectPath="\States\Default Work Unit\Current_Location" GUID="{3548EB2C-41C8-4A02-828D-E5BB2C0A54E3}">
 					<States>

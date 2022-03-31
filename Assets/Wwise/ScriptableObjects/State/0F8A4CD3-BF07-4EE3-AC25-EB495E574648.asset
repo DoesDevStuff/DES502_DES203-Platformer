@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bc65f59e0976642acda0ace3ed01a6, type: 3}
+  m_Name: 0F8A4CD3-BF07-4EE3-AC25-EB495E574648
+  m_EditorClassIdentifier: 
+  objectName: Boss_Room60
+  id: 1439958606
+  guid: 0F8A4CD3-BF07-4EE3-AC25-EB495E574648
+  WwiseStateGroupReference: {fileID: 11400000, guid: 0d1d900c5fd796f4a9c3192b51a049ba, type: 2}

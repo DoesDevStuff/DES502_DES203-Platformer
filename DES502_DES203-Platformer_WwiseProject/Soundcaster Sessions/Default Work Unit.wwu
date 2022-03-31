@@ -3,7 +3,7 @@
 	<SoundcasterSessions>
 		<WorkUnit Name="Default Work Unit" ID="{FD90CB95-9D89-45BF-B491-8EAFCD2ADE30}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundcasterSession Name="Main Sound Caster Sessoion" ID="{8C87B09D-2A8A-423A-AABA-613DDB804B61}">
+				<SoundcasterSession Name="Main Sound Caster Session" ID="{8C87B09D-2A8A-423A-AABA-613DDB804B61}">
 					<ModuleList>
 						<Module>
 							<ObjectRef Name="Play_Music_Tracks" ID="{ACD4DF06-9BBE-4BBF-9AE8-DD8F797AAF17}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}"/>
