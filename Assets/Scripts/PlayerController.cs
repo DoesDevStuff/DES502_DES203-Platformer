@@ -566,6 +566,23 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Wwise Music_Change Colliders - Behemoth Combat
+        if (other.gameObject.name == "Music_ChangeBC") 
+        {
+            MusicManager.SetBehemothCombat(); //Change Event State to Boss_Room60
+        } 
+        else if (other.gameObject.name == "Music_ChangeBI")
+        {
+            MusicManager.SetBehemothIntro(); // Change Event State to Boss_Intro60
+        }
+        else if (other.gameObject.name == "Music_ChangeNM")
+        {
+            MusicManager.SetNomadMain(); // Change Event State to Exploration77
+        }
+    }
+
     #region Input Methods
     public void OnMovement(InputAction.CallbackContext context)
     {

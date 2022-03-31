@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2108779966" Language="SFX" Hash="51247799">
+		<SoundBank Id="2108779966" Language="SFX" Hash="2608907564">
 			<ObjectPath>\SoundBanks\Default Work Unit\Walk</ObjectPath>
 			<ShortName>Walk</ShortName>
 			<Path>Walk.bnk</Path>
@@ -31,7 +31,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2996874622" Language="SFX" Hash="364757856">
+		<SoundBank Id="2996874622" Language="SFX" Hash="3261778582">
 			<ObjectPath>\SoundBanks\Default Work Unit\Music_SB</ObjectPath>
 			<ShortName>Music_SB</ShortName>
 			<Path>Music_SB.bnk</Path>

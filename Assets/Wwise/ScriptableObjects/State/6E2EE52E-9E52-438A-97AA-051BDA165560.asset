@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bc65f59e0976642acda0ace3ed01a6, type: 3}
+  m_Script: {fileID: 11500000, guid: b01b2972a6d2c2542bf3be443a5ac431, type: 3}
   m_Name: 6E2EE52E-9E52-438A-97AA-051BDA165560
   m_EditorClassIdentifier: 
   objectName: Boss_Intro60
   id: 3613112691
   guid: 6E2EE52E-9E52-438A-97AA-051BDA165560
-  WwiseStateGroupReference: {fileID: 11400000, guid: 0d1d900c5fd796f4a9c3192b51a049ba, type: 2}
+  WwiseStateGroupReference: {fileID: 11400000, guid: ac563f61b7e59c64d839e2334abae6f8, type: 2}
