@@ -98,8 +98,12 @@ public class PlayerController : MonoBehaviour
     #endregion
 
    
-   
+   void Awake()
+    {
 
+    }
+    
+  
     void Start()
     {
         _characterController = gameObject.GetComponent<CharacterController2D>();
@@ -112,7 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_dashTimer > 0)
             _dashTimer -= Time.deltaTime;
-
+        
         ApplyDeadzones();
 
         ProcessHorizontalMovement();

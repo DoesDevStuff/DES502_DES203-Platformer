@@ -66,8 +66,22 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e4a07992987b8949a59c1527b55f40de
     GuidInternal: 
-    m_lastTime: -8585536355825583737
+    m_lastTime: -8585533924816809602
     List:
+    - name: Dash
+      guid: 409afe28d5f03341a8c202c3a17ce38f
+      id: 1942692385
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e4a07992987b8949a59c1527b55f40de
+      - ElementName: Dash
+        ObjectType: 7
+        guid: 409afe28d5f03341a8c202c3a17ce38f
+      Path: SoundBanks\Default Work Unit\Dash
     - name: FlareShot
       guid: 10ddf5986e916e41bae9f6ec3cd0fef9
       id: 3944494847
@@ -122,8 +136,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ad458c387fc41349a1342956fffcf125
     GuidInternal: 
-    m_lastTime: -8585536494506674897
+    m_lastTime: -8585533924816999644
     List:
+    - name: Dash
+      guid: 7545565e1345e943a20180af44843a4b
+      id: 1942692385
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ad458c387fc41349a1342956fffcf125
+      - ElementName: Dash
+        ObjectType: 3
+        guid: 7545565e1345e943a20180af44843a4b
+      Path: Events\Default Work Unit\Dash
+      maxAttenuation: 0
+      maxDuration: 0.401791
+      minDuration: 0.401791
     - name: FlareShot
       guid: 6b208f91b7a15a42b6959ea46e9ea16d
       id: 3944494847
