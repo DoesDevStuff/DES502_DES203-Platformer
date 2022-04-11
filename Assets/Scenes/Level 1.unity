@@ -810,62 +810,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &42438428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 42438430}
-  - component: {fileID: 42438429}
-  m_Layer: 0
-  m_Name: WwiseGlobal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &42438429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42438428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2322ccf60a2cb1e40ab0979ffda44e8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 0d732e346a5227f49aa5b64fa5a1cfba, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
---- !u!4 &42438430
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42438428}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &49055048
 GameObject:
   m_ObjectHideFlags: 0
@@ -8518,11 +8462,13 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
+
+
+  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420035}
-  - component: {fileID: 519420029}
+
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8530,20 +8476,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &519420029
-MonoBehaviour:
+
+
+--- !u!81 &519420029
+AudioListener:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d97abddffe3904d805361036f4d74d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
+
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8679,28 +8623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a06ce01ff17af45a9d5d786a4fb13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb36bce7d4de89499c7a8223ff8ccb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
+
 --- !u!1 &525278881
 GameObject:
   m_ObjectHideFlags: 0
@@ -15193,7 +15116,7 @@ MonoBehaviour:
   dashCooldownTime: 1
   groundSlamSpeed: 60
   deadzoneValue: 0.15
-  swimSpeed: 140
+
   canDoubleJump: 1
   canTripleJump: 1
   canWallJump: 1
@@ -15207,7 +15130,7 @@ MonoBehaviour:
   canGroundDash: 1
   canAirDash: 1
   canGroundSlam: 1
-  canSwim: 0
+
   isJumping: 0
   isDoubleJumping: 0
   isTripleJumping: 0
@@ -15220,8 +15143,7 @@ MonoBehaviour:
   isPowerJumping: 0
   isDashing: 0
   isGroundSlamming: 0
-  isSwimming: 0
-  _tempVelocity: {x: 0, y: 0}
+
 --- !u!50 &968554559
 Rigidbody2D:
   serializedVersion: 4
@@ -15488,10 +15410,7 @@ MonoBehaviour:
   ceilingType: 0
   hitGroundThisFrame: 0
   hitWallThisFrame: 0
-  jumpPadAmount: 0
-  jumpPadUpperLimit: 0
-  inWater: 0
-  isSubmerged: 0
+
 --- !u!114 &968554565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21496,7 +21415,9 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+
+    m_SensorSize: {x: 1.6926978, y: 1}
+
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
