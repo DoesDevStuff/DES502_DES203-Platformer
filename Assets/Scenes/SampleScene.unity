@@ -3868,12 +3868,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1625538218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9f635d5e53f7a46a640041ac2cfdef, type: 3}
+  m_Script: {fileID: 11500000, guid: bac8fc6c0a60bd343a7b3595c43d5b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 968554562}
-  aggroRange: 8
-  moveSpeed: 3
+  aggroRange: 6
+  moveSpeed: 4
 --- !u!50 &1625538220
 Rigidbody2D:
   serializedVersion: 4
@@ -3962,7 +3962,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 258bffb2147da2f42b578ebaac82db94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13663e3ee52376d4e832d0477eb479f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
