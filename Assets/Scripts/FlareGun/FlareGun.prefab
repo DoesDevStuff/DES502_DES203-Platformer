@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flarePrefab: {fileID: 1510893407955046586, guid: e17ac1201ef35304699da68eefb89097, type: 3}
   maxSpawnedFlares: 6
+  creepingAndSlidingYOffset: 0
   shootStickyFlares: 0
   switchStickyAndBouncy: 98
   fireRate: 1.2
@@ -137,6 +138,8 @@ MonoBehaviour:
   noAimIncrements: 12
   useDownwardsBlindAngle: 1
   blindAngle: 15
+  playerLightLevelTracker: {fileID: 0}
+  trackFlareLight: 0
   debugMode: 1
   stickyFlareGunColor: {r: 0.59568024, g: 0.8490566, b: 0, a: 0}
   bouncyFlareGunColor: {r: 1, g: 0.4754678, b: 0, a: 0}
