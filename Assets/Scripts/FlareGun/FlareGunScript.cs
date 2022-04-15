@@ -83,7 +83,7 @@ public class FlareGunScript : MonoBehaviour
                     foreach (GameObject flare in spawnedFlares)
                     {
                         AddFlareToLightTracker(flare, flare.GetComponent<FlareScript>()); 
-                        // this could be made more effecient by having a list parralel to spawned flares that stores the flareScript instead of gameobject
+                        // this could be made more effecient by having a list parralel to spawnedflares that stores the flareScript instead of gameobject
                     }
                 }
                 else
@@ -345,7 +345,6 @@ public class FlareGunScript : MonoBehaviour
     void AddFlareToLightTracker(GameObject flareObject , FlareScript flareScript)
     {
         PlayerLightLevelTracker.LightObject flareLightObject = playerLightLevelTracker.BuildLightObject(flareObject, defaultFlareLightFallOff, defaultFlareMaximumLightRange);
-        flareLightObject.source = flareObject;
 
         flareScript.lightLevelTrackerReference = playerLightLevelTracker;
         flareScript.selfLightObjectReference = flareLightObject;

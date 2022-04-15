@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3497247245389914353}
   - component: {fileID: 3497247245389914250}
   - component: {fileID: 3497247245389914251}
+  - component: {fileID: -7764863425132024638}
   - component: {fileID: 3497247245389914252}
   m_Layer: 3
   m_Name: Player
@@ -325,6 +326,29 @@ MonoBehaviour:
   _slopeNormal: {x: 0, y: 0}
   actualPositions: []
   actualVeclocity: {x: 0, y: 0}
+--- !u!114 &-7764863425132024638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3497247245389914354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef128b3d72ca544894d38e26d78f9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachedToPlayer: 1
+  playerObjectReference: {fileID: 0}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  doLineOfSightChecks: 0
+  lightObstructing:
+    serializedVersion: 2
+    m_Bits: 64
+  lightObjects: []
+  currentPlayerLightLevel: 0
 --- !u!114 &3497247245389914252
 MonoBehaviour:
   m_ObjectHideFlags: 0
