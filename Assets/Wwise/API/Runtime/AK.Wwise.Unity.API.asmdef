@@ -1,10 +1,25 @@
 {
     "name": "AK.Wwise.Unity.API",
-    "references": [ 
-    ],
-    "optionalUnityReferences": [],
+    "rootNamespace": "",
+    "references": [],
     "includePlatforms": [],
-    "excludePlatforms": [],
+    "excludePlatforms": [
+        "Android",
+        "CloudRendering",
+        "GameCoreScarlett",
+        "GameCoreXboxOne",
+        "iOS",
+        "LinuxStandalone64",
+        "Lumin",
+        "macOSStandalone",
+        "PS4",
+        "PS5",
+        "Stadia",
+        "Switch",
+        "tvOS",
+        "WebGL",
+        "XboxOne"
+    ],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
@@ -21,5 +36,6 @@
             "expression": "1.0.0",
             "define": "AK_WWISE_ADDRESSABLES"
         }
-    ]
+    ],
+    "noEngineReferences": false
 }
