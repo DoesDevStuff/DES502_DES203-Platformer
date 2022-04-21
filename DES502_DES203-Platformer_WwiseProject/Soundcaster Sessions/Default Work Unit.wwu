@@ -12,7 +12,7 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="Boss_Room60" ID="{0F8A4CD3-BF07-4EE3-AC25-EB495E574648}"/>
+						<CurrentStateRef Name="Boss_Intro60" ID="{6E2EE52E-9E52-438A-97AA-051BDA165560}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>

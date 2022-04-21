@@ -575,7 +575,6 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.name == "Music_ChangeBI")
         {
             MusicManager.SetBehemothIntro(); // Change Event State to Boss_Intro60
-            print("BossIntro");
         }
         else if (other.gameObject.name == "Music_ChangeNM")
         {
