@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1645260788	Menu_Sound			\Default Work Unit\Menu_Sound	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	161053722	Menu_Sound	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\Menu_Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu_Sound		16626
+

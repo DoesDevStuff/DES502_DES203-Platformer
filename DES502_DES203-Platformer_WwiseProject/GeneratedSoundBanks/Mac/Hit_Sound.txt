@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3867410532	Hit_Sound			\Default Work Unit\Hit_Sound	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	920084266	Hit_Sound	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Hit_Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hit_Sound		34012
+

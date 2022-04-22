@@ -11,12 +11,93 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Jump" ID="{67FA190D-5084-4F5B-B299-C19F5F82DAD3}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump" ID="{771DBE9C-6A7C-429B-B8BB-8DE9B463F845}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="FlareShot" ID="{98F5DD10-916E-416E-BAE9-F6EC3CD0FEF9}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="FlareShot" ID="{918F206B-A1B7-425A-B695-9EA46E9EA16D}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Something" ID="{5CF2D446-ABBB-4AE9-BB55-6774F4C17608}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Something" ID="{B56B6CCC-9532-4AA0-B753-13B6B63CEDBF}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Monster_Howl" ID="{8C2516CE-7DEF-4900-B017-2E25D7C886B3}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Monster_Howl" ID="{24D164C7-6D32-4131-99A4-D4898FD97931}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Bat_Ambient" ID="{CA120658-FA67-4882-894E-B30BAEDD4C3D}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Bat_Ambient" ID="{0924A49A-A269-458E-A0D5-138C46C99AA0}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Menu_Sound" ID="{986C46E9-408C-4275-96A2-B72C268BB96C}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Menu_Sound" ID="{729C3D45-7928-4E92-A667-4E12680C7F54}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Eerie_Sound" ID="{FA9E6C3F-0901-471B-8811-AFAB4E6CE3BB}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Eerie_Sound" ID="{11122A8B-850A-44C6-9525-0C025A73B5E0}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Tethered_Sound" ID="{2A3D7871-36AF-41F9-BDB8-3DD0F0F84629}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Tethered_Sound" ID="{0CB17F72-2B80-450C-86DB-4488E5A2942C}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Flare_Explosion" ID="{A2BF743A-DE98-4C81-B5BB-42249F86EFE4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Flare_Explosion" ID="{54C2DF0F-AE86-4B48-BED4-DAD2913DE54A}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Hit_Sound" ID="{C17362BF-F119-4DFD-9D58-2DF97E61CB2A}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Hit_Sound" ID="{D902EC60-8736-4CF8-850A-2C39CD96F383}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Fg_1" ID="{99B6CC06-8133-4E12-BDBD-93AE3CE9B6C5}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Fg_1" ID="{3FBDF35E-1444-43C6-8656-30CBD84D8BBB}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Dash" ID="{E73D5F18-752A-4C21-8E03-5DA28DFB6EA0}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Dash" ID="{674F911D-83EB-42B8-AA18-EA7F3E712FC0}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Wind_Sound" ID="{978751AD-6593-4633-9335-63E4609367FE}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Wind_Sound" ID="{48BCF057-3EF9-45E0-B418-DA1CD73EFEAD}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>

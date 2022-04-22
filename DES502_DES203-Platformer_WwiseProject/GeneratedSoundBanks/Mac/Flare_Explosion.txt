@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1207279315	Flare_Explosion			\Default Work Unit\Flare_Explosion	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	674923877	Flare_Explosion	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Flare_Explosion_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flare_Explosion		44864
+

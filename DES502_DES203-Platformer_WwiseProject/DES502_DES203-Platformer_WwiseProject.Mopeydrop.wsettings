@@ -4,9 +4,21 @@
 		<UserProjectSettings Name="" ID="{659A7D46-8FE8-4656-A596-4F06E03077B0}">
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="C:\Users\Mopeydrop\Downloads\LabChirp-1_60\LabChirp\"/>
+				<Property Name="Event Action List\{0924A49A-A269-458E-A0D5-138C46C99AA0}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{0CB17F72-2B80-450C-86DB-4488E5A2942C}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{10D10B38-6101-4F55-9F6A-52C291592676}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{11122A8B-850A-44C6-9525-0C025A73B5E0}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{24D164C7-6D32-4131-99A4-D4898FD97931}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{3FBDF35E-1444-43C6-8656-30CBD84D8BBB}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{48BCF057-3EF9-45E0-B418-DA1CD73EFEAD}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{54C2DF0F-AE86-4B48-BED4-DAD2913DE54A}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{5E564575-4513-43E9-A201-80AF44843A4B}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{674F911D-83EB-42B8-AA18-EA7F3E712FC0}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{729C3D45-7928-4E92-A667-4E12680C7F54}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{771DBE9C-6A7C-429B-B8BB-8DE9B463F845}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{918F206B-A1B7-425A-B695-9EA46E9EA16D}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{B56B6CCC-9532-4AA0-B753-13B6B63CEDBF}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{D902EC60-8736-4CF8-850A-2C39CD96F383}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
@@ -25,9 +37,9 @@
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="naZg55T6CkWH8dvGb/9foA=="/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="EN31mG6RbkG66fbsPND++Q0Z+meEUFtPspnBn1+C2tOhgS/4gUfLRJqFBU++ZsCe"/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="EN31mG6RbkG66fbsPND++Q0Z+meEUFtPspnBn1+C2tOhgS/4gUfLRJqFBU++ZsCeRtTyXLur6Uq7VWd09MF2CM4WJYzvfQBJsBcuJdfIhrNYBhLKZ/qCSIlOswuu3Uw96UZsmIxAdUKWorcsJou5bD9snvoBCRtHiBGvq05s47txeD0qrzb5Qb24PdDw+EYpOnS/opjegUy1u0Ikn4bv5L9ic8EZ8f1NnVgt+X5hyyoGzLaZM4ESTr29k6486bbFGF895yp1IUyOA12ijftuoK1Rh5eTZTNGkzVj5GCTZ/4="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
-				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="2P4usdweGUyQ4n24ncKzQwEnle//////0CSEZGnFq0m8AmJCK3gBQgEnle//////"/>
+				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="2P4usdweGUyQ4n24ncKzQwEnFOL/////0CSEZGnFq0m8AmJCK3gBQgEnFOL/////"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>
