@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
 {
     public float raycastDistance = 0.2f;
     public LayerMask layerMask;
+
     public float slopeAngleLimit = 45f;
     public float downForceAdjustment = 1.2f;
 
