@@ -8,7 +8,7 @@ public class FlareScript : MonoBehaviour
     // while in this state it also rotates to match its velocity
     // after the flare has bounced more than the max bounces the raycast is disabled and a collider is attached to the flare
 
-    // sticky flares just make themselves childs of any object hit
+    // sticky flares just parent themselves on hit
     // they dont work properly if the object is scaled
 
     #region attributes
@@ -28,9 +28,6 @@ public class FlareScript : MonoBehaviour
 
     #region misc variables
     [HideInInspector] public FlareGunScript flareGunReference;
-    [HideInInspector] public PlayerLightLevelTracker lightLevelTrackerReference;
-    [HideInInspector] public PlayerLightLevelTracker.LightObject selfLightObjectReference;
-
     Rigidbody2D rb2D;
 
     int bounceCounter = 0;
@@ -43,7 +40,6 @@ public class FlareScript : MonoBehaviour
     bool stuck;
     #endregion
 
-    #region Execution
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +65,7 @@ public class FlareScript : MonoBehaviour
 
                 if (lifetimer <= 0)
                 {
+                    flareGunReference.spawnedFlares.Remove(gameObject);
                     Destroy(gameObject);
                 }
             }
@@ -81,6 +78,7 @@ public class FlareScript : MonoBehaviour
 
                 if (lifetimer <= 0)
                 {
+                    flareGunReference.spawnedFlares.Remove(gameObject);
                     Destroy(gameObject);
                 }
             }
@@ -100,28 +98,17 @@ public class FlareScript : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-        flareGunReference.spawnedFlares.Remove(gameObject);
-
-        if (lightLevelTrackerReference != null)
-        {
-            lightLevelTrackerReference.lightObjects.Remove(selfLightObjectReference);
-        }
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, bounceColliderRadius);
         Gizmos.DrawWireCube(transform.position, boxColliderSize * transform.localScale);
     }
-    #endregion
 
     void Bounce()
     {
         RaycastHit2D bounceCollider = Physics2D.CircleCast(transform.position, bounceColliderRadius, new Vector2(rb2D.velocity.x, rb2D.velocity.y), 0, bounceMask);
 
-        if (bounceCollider.collider != null && bounceEntrance == false)
+        if(bounceCollider.collider != null && bounceEntrance == false)
         {
             bounceEntrance = true;
 
@@ -136,7 +123,7 @@ public class FlareScript : MonoBehaviour
             bounceCounter++;
             bounciness = bounciness * bounceChangeFactor;
 
-            if (bounceCounter >= maxBounces)
+            if(bounceCounter >= maxBounces)
             {
                 BoxCollider2D boxColl2D = gameObject.AddComponent<BoxCollider2D>();
                 boxColl2D.size = boxColliderSize;
@@ -152,7 +139,7 @@ public class FlareScript : MonoBehaviour
     {
         RaycastHit2D stickCollider = Physics2D.CircleCast(transform.position, bounceColliderRadius, new Vector2(rb2D.velocity.x, rb2D.velocity.y), 0, bounceMask);
 
-        if (stickCollider.collider != null)
+        if(stickCollider.collider != null)
         {
             gameObject.transform.SetParent(stickCollider.collider.gameObject.transform);
 

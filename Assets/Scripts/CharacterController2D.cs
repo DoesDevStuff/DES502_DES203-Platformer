@@ -16,8 +16,6 @@ public class CharacterController2D : MonoBehaviour
     public bool right;
     public bool above;
 
-    public bool slidingColAbove;
-
     public GroundType groundType;
     public WallType leftWallType;
     public WallType rightWallType;
@@ -27,30 +25,27 @@ public class CharacterController2D : MonoBehaviour
     public bool hitGroundThisFrame;
     public bool hitWallThisFrame;
 
+    public float jumpPadAmount;
+    public float jumpPadUpperLimit;
+
+    public bool inWater;
+    public bool isSubmerged;
+
     private Vector2 _moveAmount;
     private Vector2 _currentPostion;
     private Vector2 _lastPosition;
-    [HideInInspector] public Vector2 _moveVelocity; //NEW
 
     private Rigidbody2D _rigidbody;
     private CapsuleCollider2D _capsuleCollider;
-    CapsuleCollider2D _slidingCollider;
 
     private Vector2[] _raycastPosition = new Vector2[3];
     private RaycastHit2D[] _raycastHits = new RaycastHit2D[3];
 
     private bool _disableGroundCheck;
 
-    public bool antiGravActive = false; // NEW
-    public bool isSliding = false;
-
-    public float _slopeAngle; // CHANGED to public
-    public Vector2 _slopeNormal; // CHANGED to public
-
-    public List<Vector2> actualPositions = new List<Vector2>();
-    public Vector2 actualVeclocity;
-
     //TODO: Change to private
+    private Vector2 _slopeNormal;
+    private float _slopeAngle;
 
     private bool _inAirLastFrame;
     private bool _noSideCollisionLastFrame;
@@ -58,15 +53,12 @@ public class CharacterController2D : MonoBehaviour
     private Transform _tempMovingPlatform;
     private Vector2 _movingPlatformVelocity;
 
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
-        _slidingCollider = transform.Find("SlidingCollider").gameObject.GetComponent<CapsuleCollider2D>();
-
-        ActualMovementStoring(); //NEW
-        ActualMovementStoring(); //NEW
     }
 
     // Update is called once per frame
@@ -78,37 +70,35 @@ public class CharacterController2D : MonoBehaviour
 
         _lastPosition = _rigidbody.position;
 
-        if (antiGravActive == false && isSliding == false) //NEW
+        //slope adjustments
+        if (_slopeAngle != 0 && below == true)
         {
-            //slope adjustments
-            if (_slopeAngle != 0 && below == true)
+            if((_moveAmount.x > 0f && _slopeAngle > 0f) || (_moveAmount.x < 0f && _slopeAngle < 0f))
             {
-                if ((_moveAmount.x > 0f && _slopeAngle > 0f) || (_moveAmount.x < 0f && _slopeAngle < 0f))
-                {
-                    _moveAmount.y = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * _moveAmount.x);
-                    _moveAmount.y *= downForceAdjustment;
-                }
+                _moveAmount.y = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * _moveAmount.x);
+                _moveAmount.y *= downForceAdjustment;
             }
+
         }
 
         //moving platform adjustment
-        if (groundType == GroundType.MovingPlatform)
+        if(groundType == GroundType.MovingPlatform)
         {
             //offset the player's movement on the X with the moving platform velocity
             _moveAmount.x += MovingPlatformAdjust().x;
 
             //if platform is moving down
-            if (MovingPlatformAdjust().y < 0f)
+            if(MovingPlatformAdjust().y < 0f)
             {
                 //offset the player's movement on the Y
                 _moveAmount.y += MovingPlatformAdjust().y;
                 _moveAmount.y *= downForceAdjustment;
             }
-
-
+            
+                
         }
         //y dir stuff
-        if (groundType == GroundType.CollapsablePlatform)
+        if(groundType == GroundType.CollapsablePlatform)
         {
             if (MovingPlatformAdjust().y < 0f) // are we moving away from player
             {
@@ -117,9 +107,20 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        _currentPostion = _lastPosition + _moveAmount;
+        // handling water stuff
+        if (!inWater)
+        {
+            _currentPostion = _lastPosition + _moveAmount;
+            _rigidbody.MovePosition(_currentPostion);
+        }
+        else
+        {
+            if (_rigidbody.velocity.magnitude < 10f)
+            {
+                _rigidbody.AddForce(_moveAmount * 300f);
+            }
 
-        _rigidbody.MovePosition(_currentPostion);
+        }
 
         _moveAmount = Vector2.zero;
 
@@ -133,12 +134,12 @@ public class CharacterController2D : MonoBehaviour
         if (below && _inAirLastFrame)
         {
             hitGroundThisFrame = true;
-        }
+        } 
         else
         {
             hitGroundThisFrame = false;
         }
-
+        
         if ((right || left) && _noSideCollisionLastFrame)
         {
             hitWallThisFrame = true;
@@ -147,28 +148,13 @@ public class CharacterController2D : MonoBehaviour
         {
             hitWallThisFrame = false;
         }
-
-        _moveVelocity = _currentPostion - _lastPosition; //NEW
-        ActualMovementStoring(); //NEW
-    }
-
-    void ActualMovementStoring()
-    {
-        actualPositions.Add(_rigidbody.position);
-
-        if (actualPositions.Count > 2)
-        {
-            actualPositions.RemoveAt(0);
-
-            actualVeclocity = actualPositions[1] - actualPositions[0];
-        }
     }
 
     public void Move(Vector2 movement)
     {
         _moveAmount += movement;
     }
-
+    
     private void CheckGrounded()
     {
         RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical,
@@ -190,6 +176,12 @@ public class CharacterController2D : MonoBehaviour
                 below = true;
             }
 
+            if (groundType == GroundType.JumpPad)
+            {
+                JumpPad jumpPad = hit.collider.GetComponent<JumpPad>();
+                jumpPadAmount = jumpPad.jumpPadAmount;
+                jumpPadUpperLimit = jumpPad.jumpPadUpperLimit;
+            }
 
         }
         else
@@ -203,7 +195,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
     }
-
+    
     private void CheckOtherCollisions()
     {
         //check left
@@ -250,16 +242,6 @@ public class CharacterController2D : MonoBehaviour
         {
             ceilingType = GroundType.None;
             above = false;
-        }
-
-        RaycastHit2D aboveSlideHit = Physics2D.CapsuleCast(_slidingCollider.bounds.center, _slidingCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.up, raycastDistance, layerMask);
-        if (aboveSlideHit.collider)
-        {
-            slidingColAbove = true;
-        }
-        else
-        {
-            slidingColAbove = false;
         }
     }
 
@@ -363,6 +345,7 @@ public class CharacterController2D : MonoBehaviour
                     if (groundType == GroundType.CollapsablePlatform)
                     {
                         _tempMovingPlatform.GetComponent<CollapsablePlatform>().CollapsePlatform();
+
                     }
                 }
             }
@@ -400,7 +383,7 @@ public class CharacterController2D : MonoBehaviour
             _movingPlatformVelocity = _tempMovingPlatform.GetComponent<MovingPlatform>().difference;
             return _movingPlatformVelocity;
         }
-        else if (_tempMovingPlatform && groundType == GroundType.CollapsablePlatform)
+        else if(_tempMovingPlatform && groundType == GroundType.CollapsablePlatform)
         {
             _movingPlatformVelocity = _tempMovingPlatform.GetComponent<CollapsablePlatform>().difference;
             return _movingPlatformVelocity;
@@ -420,4 +403,38 @@ public class CharacterController2D : MonoBehaviour
             _tempMovingPlatform = null;
         }
     }
+
+    // water physics
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<BuoyancyEffector2D>())
+        {
+            inWater = true;
+        }
+    }
+
+    // checks if fully submerged or not Also only triggers if buoyancy effector exists
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.bounds.Contains(_capsuleCollider.bounds.min) &&
+            collision.bounds.Contains(_capsuleCollider.bounds.max) &&
+            collision.gameObject.GetComponent<BuoyancyEffector2D>()) 
+        {
+            isSubmerged = true;
+        }
+        else
+        {
+            isSubmerged = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<BuoyancyEffector2D>())
+        {
+            _rigidbody.velocity = Vector2.zero;
+            inWater = false;
+        }
+    }
+
 }
