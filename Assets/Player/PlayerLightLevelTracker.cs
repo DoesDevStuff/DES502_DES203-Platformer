@@ -55,6 +55,8 @@ public class PlayerLightLevelTracker : MonoBehaviour
                 currentPlayerLightLevel = playerLightLevel;
             }
         }
+
+        Debug.Log(currentPlayerLightLevel);
     }
 
     IEnumerator LightCast(LightObject _lightObject)

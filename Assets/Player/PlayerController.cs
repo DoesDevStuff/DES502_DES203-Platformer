@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Properties")]
     [Header("Input")]
-    public float deadzoneValue;
+    public float deadzoneValue = 0.15f;
     public float coyoteTime;
     public float jumpBuffer;
 
@@ -30,22 +30,23 @@ public class PlayerController : MonoBehaviour
     public float slideDefaultDrag;
 
     [Header("xMovement")]
-    public float walkAccelleration;
+    public float walkAccelleration = 10f;
     public float maxWalkSpeed;
     public float runAccelleration;
     public float maxRunSpeed;
     public float pivotTime;
-    public float creepSpeed;
+    public float creepSpeed = 5f;
 
     [Header("Jumping")]
-    public float jumpSpeed;
+    public float jumpSpeed = 15f;
+    public float doubleJumpSpeed = 10f;
     public float completeAirControlTime;
     public float reducedAirControlPivotTime;
 
     [Header("Wall Jumping")]
-    public float xWallJumpSpeed;
-    public float yWallJumpSpeed;
-    public float wallSlideAmount;
+    public float xWallJumpSpeed = 15f;
+    public float yWallJumpSpeed = 15f;
+    public float wallSlideAmount = 0.1f;
     public float wallJumpedNullTime;
 
     [Header("Sliding")]
@@ -59,11 +60,10 @@ public class PlayerController : MonoBehaviour
     public float requiredMinimumVelocity;
 
     [Header("Physics")]
-    public float gravity;
+    public float gravity = 20f;
     public float peakGravity;
 
     [Header("Other")]
-    public float doubleJumpSpeed;
     public float wallRunAmount = 8f;
     public float glideTime = 2f;
     public float glideDescentAmount = 2f;
@@ -298,6 +298,8 @@ public class PlayerController : MonoBehaviour
         //jumping
         if (jumpBufferTimer > 0 && coyoteTimer > 0)
         {
+            Debug.Log("jump");
+
             _startJump = false;
             jumpBufferTimer = 0;
             coyoteTimer = 0;
@@ -368,6 +370,8 @@ public class PlayerController : MonoBehaviour
             {
                 _moveDirection = _characterController.actualVeclocity;
                 slideFrameOne = false;
+
+                Debug.Log("elgringo");
             }
 
             ChangeSlidingSprite(true);
@@ -527,22 +531,6 @@ public class PlayerController : MonoBehaviour
         isGroundSlamming = false;
         _startGlide = true;
     }
-
-    bool CapsuleGrounded()
-    {
-        Vector3 bottomCirclePosition = transform.position + new Vector3(_capsuleCollider.offset.x, -(_capsuleCollider.offset.y/2));
-
-        RaycastHit2D circleCast = Physics2D.CircleCast(bottomCirclePosition, _capsuleCollider.size.x, Vector2.zero, 0, _characterController.layerMask);
-        if(circleCast.collider != null)
-        {
-            Debug.Log("true");
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
     #endregion 
 
     void InAir()
@@ -626,8 +614,6 @@ public class PlayerController : MonoBehaviour
                     spriteRenderer.flipX = true;
                 }
 
-                _startJump = false;
-
                 //isWallJumping = true;
 
                 StartCoroutine("WallJumpWaiter");
@@ -704,7 +690,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //apply wall slide adjustment
-        if (canWallSlide && isWallJumping == false && ((_characterController.left && _input.x < 0) || (_characterController.right && _input.x > 0)) ) // NEW (is wall jumping clause added)
+        if (canWallSlide && isWallJumping == false && (_characterController.left || _characterController.right)) // NEW (is wall jumping clause added)
         {
             if (_characterController.hitWallThisFrame)
             {

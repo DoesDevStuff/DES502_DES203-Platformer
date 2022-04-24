@@ -222,7 +222,7 @@ MonoBehaviour:
   spriteObject: {fileID: 1297816529933724471}
   deadzoneValue: 0.15
   coyoteTime: 0.15
-  jumpBuffer: 0.1
+  jumpBuffer: 0.15
   minWalkingDrag: 0
   maxWalkingDrag: 0.4
   maxUsedWalkSpeed: 0.3
@@ -236,11 +236,12 @@ MonoBehaviour:
   maxRunSpeed: 0.25
   pivotTime: 0.1
   creepSpeed: 0.02
-  jumpSpeed: 0.31
+  jumpSpeed: 0.28
+  doubleJumpSpeed: 10
   completeAirControlTime: 1
   reducedAirControlPivotTime: 0.8
   xWallJumpSpeed: 0.2
-  yWallJumpSpeed: 0.27
+  yWallJumpSpeed: 0.325
   wallSlideAmount: 0.1
   wallJumpedNullTime: 0.18
   applyDeccelInAir: 0
@@ -253,7 +254,6 @@ MonoBehaviour:
   requiredMinimumVelocity: 0.05
   gravity: 0.85
   peakGravity: 0.95
-  doubleJumpSpeed: 10
   wallRunAmount: 8
   glideTime: 2
   glideDescentAmount: 2
@@ -266,7 +266,7 @@ MonoBehaviour:
   canDoubleJump: 0
   canTripleJump: 0
   canWallJump: 1
-  canJumpAfterWallJump: 0
+  canJumpAfterWallJump: 1
   canWallRun: 0
   canMultipleWallRun: 0
   canWallSlide: 1
@@ -347,9 +347,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  platformMask:
-    serializedVersion: 2
-    m_Bits: 256
   slopeAngleLimit: 45
   downForceAdjustment: 1.2
   below: 0
