@@ -36,6 +36,21 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Music Events" ID="{B1DC4DE1-D422-4B52-BEBC-BD7AADB4807C}" ShortID="835800177">
+					<ChildrenList>
+						<Event Name="Play_Music_Tracks" ID="{ACD4DF06-9BBE-4BBF-9AE8-DD8F797AAF17}">
+							<ChildrenList>
+								<Action Name="" ID="{42AC8C99-B0FD-4641-9C6E-2DD483F68492}" ShortID="151201533">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music Tracks" ID="{FB22FD60-415B-491C-A71C-291EB4F7BA87}" WorkUnitID="{98DE85CC-EF70-48C5-991D-6A3DD7F80AE3}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

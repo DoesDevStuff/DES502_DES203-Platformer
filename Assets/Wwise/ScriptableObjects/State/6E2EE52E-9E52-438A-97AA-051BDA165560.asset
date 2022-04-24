@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf619497337f382419aebfce3ef8a21e, type: 3}
+  m_Name: 6E2EE52E-9E52-438A-97AA-051BDA165560
+  m_EditorClassIdentifier: 
+  objectName: Boss_Intro60
+  id: 3613112691
+  guid: 6E2EE52E-9E52-438A-97AA-051BDA165560
+  WwiseStateGroupReference: {fileID: 11400000, guid: 2afc0ddb3032a91449b78a24f05cb6f3, type: 2}

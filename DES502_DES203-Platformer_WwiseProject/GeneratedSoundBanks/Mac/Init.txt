@@ -1,5 +1,15 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1369099578	Current_Location			\Default Work Unit\Current_Location	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Current_Location			
+	950168122	Exploration77	Current_Location			
+	1439958606	Boss_Room60	Current_Location			
+	3613112691	Boss_Intro60	Current_Location			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Music	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
