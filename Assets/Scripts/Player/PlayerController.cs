@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     public float peakGravity;
 
     [Header("Other")]
+    public float swimSpeed;
     public float doubleJumpSpeed;
     public float wallRunAmount = 8f;
     public float glideTime = 2f;
@@ -93,12 +94,14 @@ public class PlayerController : MonoBehaviour
     public bool canAirDash;
     public bool canGroundSlam;
     public bool canSlide;
+    public bool canSwim;
 
     [Space]
     [Space]
     [Space]
     [Space]
     [Header("Player State")]
+    public bool isSwimming;
     public bool isRunning;
     public bool isJumping;
     public bool isDoubleJumping;
@@ -128,6 +131,7 @@ public class PlayerController : MonoBehaviour
     //input flags
     private bool _startJump;
     private bool _releaseJump;
+    bool _holdJump;
 
     private Vector2 _input;
     private CharacterController2D _characterController;
@@ -762,6 +766,44 @@ public class PlayerController : MonoBehaviour
     #endregion
     #endregion
 
+    void InWater()
+    {
+        ClearGroundAbilityFlags();
+
+        // need ability to jump and leave water even if not on ground
+        AirJump();
+
+        if (_input.y != 0f && canSwim && !_holdJump)
+        {
+            if (_input.y > 0 && !_characterController.isSubmerged)
+            {
+                _moveDirection.y = 0f;
+            }
+            else
+            {
+                // smooth motion (disregards frame rate)
+                _moveDirection.y = (_input.y * swimSpeed) * Time.deltaTime;
+            }
+
+        }
+
+        // natural water behaviour 
+        else if (_moveDirection.y < 0 && _input.y == 0f) // if going down and no player input
+        {
+            ///add own upward force for every frame + no up or down key pressed
+            _moveDirection.y += 2f;
+        }
+
+        if (_characterController.isSubmerged && canSwim)
+        {
+            isSwimming = true;
+        }
+        else
+        {
+            isSwimming = false;
+        }
+    }
+
     #region Input
     private void ApplyDeadzones()
     {
@@ -864,11 +906,13 @@ public class PlayerController : MonoBehaviour
         {
             _startJump = true;
             _releaseJump = false;
+            _holdJump = true;
         }
         else if (context.canceled)
         {
             _releaseJump = true;
             _startJump = false;
+            _holdJump = false;
         }
     }
 

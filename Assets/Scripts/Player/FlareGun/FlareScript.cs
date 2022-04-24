@@ -28,8 +28,6 @@ public class FlareScript : MonoBehaviour
 
     #region misc variables
     [HideInInspector] public FlareGunScript flareGunReference;
-    [HideInInspector] public PlayerLightLevelTracker lightLevelTrackerReference;
-    [HideInInspector] public PlayerLightLevelTracker.LightObject selfLightObjectReference;
 
     Rigidbody2D rb2D;
 
@@ -103,11 +101,6 @@ public class FlareScript : MonoBehaviour
     void OnDestroy()
     {
         flareGunReference.spawnedFlares.Remove(gameObject);
-
-        if (lightLevelTrackerReference != null)
-        {
-            lightLevelTrackerReference.lightObjects.Remove(selfLightObjectReference);
-        }
     }
 
     private void OnDrawGizmos()

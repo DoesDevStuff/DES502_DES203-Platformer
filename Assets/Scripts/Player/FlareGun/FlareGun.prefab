@@ -128,44 +128,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flarePrefab: {fileID: 1510893407955046586, guid: e17ac1201ef35304699da68eefb89097, type: 3}
-  maxSpawnedFlares: 6
-  creepingAndSlidingYOffset: -0.8
+  maxSpawnedFlares: 3
+  creepingAndSlidingYOffset: -1.05
   shootStickyFlares: 0
-  switchStickyAndBouncy: 98
-  fireRate: 1.2
-  aimAgainWindow: 1
-  gunImpulsePower: 18
-  noAimIncrements: 12
+  switchStickyAndBouncy: 0
+  fireRate: 1
+  aimAgainWindow: 0.2
+  gunImpulsePower: 20
+  noAimIncrements: 8
   useDownwardsBlindAngle: 1
-  blindAngle: 15
-  playerLightLevelTracker: {fileID: 0}
-  trackFlareLight: 0
-  defaultFlareLightFallOff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.14485696
-      outSlope: -0.14485696
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.07526201
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -2.6091561
-      outSlope: -2.6091561
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.047898114
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  defaultFlareMaximumLightRange: 6
-  debugMode: 1
-  stickyFlareGunColor: {r: 0.59568024, g: 0.8490566, b: 0, a: 0}
-  bouncyFlareGunColor: {r: 1, g: 0.4754678, b: 0, a: 0}
+  blindAngle: 10
+  debugMode: 0
+  stickyFlareGunColor: {r: 0, g: 0, b: 0, a: 0}
+  bouncyFlareGunColor: {r: 0, g: 0, b: 0, a: 0}
   spawnedFlares: []

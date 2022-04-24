@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SquareTile
+  m_Name: 15 Slope C
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7482667652216324306, guid: 4f4a3689598d50841be2bd3ad6f462d5, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: e26738b5f621fda4b97d8b2b8e3e684e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

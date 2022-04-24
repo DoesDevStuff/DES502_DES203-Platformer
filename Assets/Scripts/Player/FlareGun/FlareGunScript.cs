@@ -27,13 +27,6 @@ public class FlareGunScript : MonoBehaviour
     public bool useDownwardsBlindAngle = true;
     public float blindAngle = 10;
 
-    [Header("LightLevel")]
-    public PlayerLightLevelTracker playerLightLevelTracker;
-    [SerializeField] bool trackFlareLight;
-    [Space]
-    public AnimationCurve defaultFlareLightFallOff;
-    public float defaultFlareMaximumLightRange;
-
     [Header("Debug")]
     [Tooltip("Turning this on during play will cause errors")] public bool debugMode;
     public Color stickyFlareGunColor;
@@ -41,62 +34,6 @@ public class FlareGunScript : MonoBehaviour
     #endregion
 
     #region misc variables
-    public bool TrackFlareLight // it probably doesn't need to be this complicated, i don't think it'll cause problems though
-    {
-        get
-        {
-            return trackFlareLight;
-        }
-        set
-        {
-            bool adjustedValue = value;
-
-            if (value == false)
-            {
-                // if set to false then clear the light object list of flares
-                if (playerLightLevelTracker != null)
-                {
-                    List<PlayerLightLevelTracker.LightObject> lightObjectsToRemove = new List<PlayerLightLevelTracker.LightObject>();
-
-                    foreach (GameObject flare in spawnedFlares)
-                    {
-                        foreach (PlayerLightLevelTracker.LightObject lightObject in playerLightLevelTracker.lightObjects)
-                        {
-                            if (lightObject.source == flare)
-                            {
-                                lightObjectsToRemove.Add(lightObject);
-                            }
-                        }
-                    }
-
-                    foreach (PlayerLightLevelTracker.LightObject lightObject in lightObjectsToRemove)
-                    {
-                        playerLightLevelTracker.lightObjects.Remove(lightObject);
-                    }
-                }
-            }
-            if (value == true)
-            {
-                // if set to true then add the current flares to the light object list
-                if (playerLightLevelTracker != null)
-                {
-                    foreach (GameObject flare in spawnedFlares)
-                    {
-                        AddFlareToLightTracker(flare, flare.GetComponent<FlareScript>());
-                        // this could be made more effecient by having a list parralel to spawnedflares that stores the flareScript instead of gameobject
-                    }
-                }
-                else
-                {
-                    Debug.Log("error. no tracker component reference");
-                    adjustedValue = false;
-                }
-            }
-
-            trackFlareLight = adjustedValue;
-        }
-    }
-
     [HideInInspector] public List<GameObject> spawnedFlares = new List<GameObject>();
 
     PlayerController playerController;
@@ -277,8 +214,6 @@ public class FlareGunScript : MonoBehaviour
         FlareScript flareScript = instantiatedFlare.GetComponent<FlareScript>();
         flareScript.flareGunReference = this;
 
-        if (trackFlareLight == true) { AddFlareToLightTracker(instantiatedFlare, flareScript); }
-
         flareScript.stickyFlare = shootStickyFlares;
 
         spawnedFlares.Add(instantiatedFlare);
@@ -344,17 +279,6 @@ public class FlareGunScript : MonoBehaviour
                 lastValidLeftAngle = angleLoop;
             }
         }
-    }
-
-    void AddFlareToLightTracker(GameObject flareObject, FlareScript flareScript)
-    {
-        PlayerLightLevelTracker.LightObject flareLightObject = new PlayerLightLevelTracker.LightObject(flareObject, defaultFlareLightFallOff, defaultFlareMaximumLightRange);
-        //playerLightLevelTracker.BuildLightObject(flareObject, defaultFlareLightFallOff, defaultFlareMaximumLightRange);
-
-        flareScript.lightLevelTrackerReference = playerLightLevelTracker;
-        flareScript.selfLightObjectReference = flareLightObject;
-
-        playerLightLevelTracker.lightObjects.Add(flareLightObject);
     }
 
     void DebugStuff()

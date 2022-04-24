@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Slope30 a
+  m_Name: 20 Slope Aux1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7482667652216324306, guid: d87fa45c107ebf2478b0d411f96fe5e7, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 4db664dfb47de5c47b7d17cd28844fc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

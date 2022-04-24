@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Slope20 aux2
+  m_Name: 20 Slope C
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7482667652216324306, guid: 76369b4033ef1a042a69fc50328de099, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 70ed79c943210b043899c61ad2b57db8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

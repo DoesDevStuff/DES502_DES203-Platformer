@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 6163249144619957165}
   - component: {fileID: 2274154608716214554}
   - component: {fileID: 6163249144619957207}
-  - component: {fileID: 5059515459666170029}
   - component: {fileID: 6163249144619957200}
   m_Layer: 3
   m_Name: Player
@@ -216,13 +215,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 6163249144619957166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec62aef707498fd478bbb78ba3d87f7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 100fd8b6ff3273c45a1107feca8ec2f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 0.2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  slopeAngleLimit: 45
+  downForceAdjustment: 1.2
+  below: 0
+  left: 0
+  right: 0
+  above: 0
+  slidingColAbove: 0
+  groundType: 0
+  leftWallType: 0
+  rightWallType: 0
+  ceilingType: 0
+  hitGroundThisFrame: 0
+  hitWallThisFrame: 0
+  _moveVelocity: {x: 0, y: 0}
+  inWater: 0
+  isSubmerged: 0
+  antiGravActive: 0
+  isSliding: 0
+  _slopeAngle: 0
+  _slopeNormal: {x: 0, y: 0}
+  actualPositions: []
+  actualVeclocity: {x: 0, y: 0}
+--- !u!114 &2274154608716214554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163249144619957166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985c8003628bb484c8c377b1397881e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteObject: {fileID: 1297816529933724471}
   deadzoneValue: 0.15
   coyoteTime: 0.15
-  jumpBuffer: 0.1
+  jumpBuffer: 0.15
   minWalkingDrag: 0
   maxWalkingDrag: 0.4
   maxUsedWalkSpeed: 0.3
@@ -236,13 +273,13 @@ MonoBehaviour:
   maxRunSpeed: 0.25
   pivotTime: 0.1
   creepSpeed: 0.02
-  jumpSpeed: 0.31
+  jumpSpeed: 0.28
   completeAirControlTime: 1
   reducedAirControlPivotTime: 0.8
-  xWallJumpSpeed: 0.2
-  yWallJumpSpeed: 0.27
-  wallSlideAmount: 0.1
-  wallJumpedNullTime: 0.18
+  xWallJumpSpeed: 0
+  yWallJumpSpeed: 0
+  wallSlideAmount: 0
+  wallJumpedNullTime: 0
   applyDeccelInAir: 0
   minSpeedUsedSlideDeccel: 0
   maxSpeedUsedSlideDeccel: 0.5
@@ -253,7 +290,8 @@ MonoBehaviour:
   requiredMinimumVelocity: 0.05
   gravity: 0.85
   peakGravity: 0.95
-  doubleJumpSpeed: 10
+  swimSpeed: 0
+  doubleJumpSpeed: 0
   wallRunAmount: 8
   glideTime: 2
   glideDescentAmount: 2
@@ -269,14 +307,16 @@ MonoBehaviour:
   canJumpAfterWallJump: 0
   canWallRun: 0
   canMultipleWallRun: 0
-  canWallSlide: 1
+  canWallSlide: 0
   canGlide: 0
   canGlideAfterWallContact: 0
   canPowerJump: 0
   canGroundDash: 0
   canAirDash: 0
   canGroundSlam: 0
-  canSlide: 0
+  canSlide: 1
+  canSwim: 1
+  isSwimming: 0
   isRunning: 0
   isJumping: 0
   isDoubleJumping: 0
@@ -296,7 +336,7 @@ MonoBehaviour:
   jumpBufferTimer: 0
   coyoteTimer: 0
   _moveDirection: {x: 0, y: 0}
---- !u!114 &2274154608716214554
+--- !u!114 &6163249144619957207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,13 +345,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6163249144619957166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7307a0f65d415df4c94b0a6659e78ab4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b48dc5b06fd009459d8a922adbea9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  bubblePrefab: {fileID: 4091547867525665341, guid: 2eba9fd179c26374387e5ba9f8b91397, type: 3}
+  bubblePrefab: {fileID: 4091547867525665341, guid: 537e36db41ff601409b47fcb3073a510, type: 3}
   heightDetectorBoxSize: {x: 2, y: 0.1}
   kickOffForce: 0.01
   pivotStrength: 3
@@ -324,75 +364,13 @@ MonoBehaviour:
   yPushMaxUsedHeight: 1.8
   yPushThresholdHeight: 1.7
   maxYDrag: 1.5
-  minYDrag: 0
+  minYDrag: 0.15
   dragMaxUsedSpeed: 0.15
   dragThresholdSpeed: 0.05
   minGravity: -0.001
   maxGravity: 0.75
   gravMaxUsedHeight: 3.3
   gravThresholdHeight: 2.3
---- !u!114 &6163249144619957207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6163249144619957166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8661c5b33ba56940acb28262fef5ac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastDistance: 0.2
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  platformMask:
-    serializedVersion: 2
-    m_Bits: 256
-  slopeAngleLimit: 45
-  downForceAdjustment: 1.2
-  below: 0
-  left: 0
-  right: 0
-  above: 0
-  slidingColAbove: 0
-  groundType: 0
-  leftWallType: 0
-  rightWallType: 0
-  ceilingType: 0
-  hitGroundThisFrame: 0
-  hitWallThisFrame: 0
-  _moveVelocity: {x: 0, y: 0}
-  antiGravActive: 0
-  isSliding: 0
-  _slopeAngle: 0
-  _slopeNormal: {x: 0, y: 0}
-  actualPositions: []
-  actualVeclocity: {x: 0, y: 0}
---- !u!114 &5059515459666170029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6163249144619957166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457553ff1a7bee845be9105e98848691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachedToPlayer: 1
-  playerObjectReference: {fileID: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  doLineOfSightChecks: 0
-  lightObstructing:
-    serializedVersion: 2
-    m_Bits: 64
-  lightObjects: []
-  currentPlayerLightLevel: 0
 --- !u!114 &6163249144619957200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +398,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6163249144619957165}
+      - m_Target: {fileID: 2274154608716214554}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
@@ -436,7 +414,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6163249144619957165}
+      - m_Target: {fileID: 2274154608716214554}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
@@ -492,7 +470,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6163249144619957165}
+      - m_Target: {fileID: 2274154608716214554}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnDash
         m_Mode: 0
@@ -508,7 +486,7 @@ MonoBehaviour:
     m_ActionName: Player/Dash[/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6163249144619957165}
+      - m_Target: {fileID: 2274154608716214554}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
@@ -585,7 +563,7 @@ PrefabInstance:
     - target: {fileID: 3338371638071858081, guid: cddd301f292965145b294a015d237475, type: 3}
       propertyPath: playerLightLevelTracker
       value: 
-      objectReference: {fileID: 5059515459666170029}
+      objectReference: {fileID: 0}
     - target: {fileID: 3338371638071858083, guid: cddd301f292965145b294a015d237475, type: 3}
       propertyPath: m_Name
       value: FlareGun

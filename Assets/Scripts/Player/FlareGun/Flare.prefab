@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9b8ce8bb3317146a24577d818f8d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetimeOnSettle: 120
+  lifetimeOnSettle: 30
   stickyFlare: 0
   boxColliderSize: {x: 1, y: 1}
   bounceColliderRadius: 0.1
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Bits: 64
   maxBounces: 2
   baseBounciness: 0.8
-  bounceChangeFactor: 0.4
+  bounceChangeFactor: 0.5
   flareGunReference: {fileID: 0}
 --- !u!50 &8627238365499446218
 Rigidbody2D:
