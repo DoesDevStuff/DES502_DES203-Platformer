@@ -15,4 +15,4 @@ MonoBehaviour:
   objectName: Exploration77
   id: 950168122
   guid: 40E5F606-62CE-4999-AFA3-62D83FAEB88E
-  WwiseStateGroupReference: {fileID: 11400000, guid: 36bae22b28f0ed5448f0cb5e9cfd5d8b, type: 2}
+  WwiseStateGroupReference: {fileID: 11400000, guid: 814746d32b3db9340b329ef15af6e565, type: 2}

@@ -12181,7 +12181,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 56e38ca74c4f49347a706870a3826e13, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 5a52018a6de4c3641b4ce54f90ed2280, type: 2}
   useCallbacks: 0
   Callbacks: []
   playingId: 0
@@ -12236,7 +12236,7 @@ MonoBehaviour:
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 86546a812da8c2f448b65c9c85cf7284, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: f26735ca729fdf246acd6f2da1cdd121, type: 2}
   valueIdInternal: 0
   groupIdInternal: 0
   valueGuidInternal: 
@@ -12258,7 +12258,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: b15561f5a38964d43b2ca20d8bd5b723, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: b817e60fd9f9fd345a88e09f3afca078, type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
@@ -12274,7 +12274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 804131836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b69314995cb62a4b905fbe6b4e735ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 78d25787eac087e4e826181af2f756e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &804131842
