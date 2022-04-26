@@ -17,7 +17,14 @@ public class CharacterController2D : MonoBehaviour
     public bool right;
     public bool above;
 
+    public bool slidingColBelow;
     public bool slidingColAbove;
+    public bool slidingColLeft;
+    public bool slidingColRight;
+    public Vector2 slidingBelowNormal;
+    public float slidingBelowAngle;
+    public Vector2 slidingLeftNormal;
+    public Vector2 slidingRightNormal;
 
     public GroundType groundType;
     public WallType leftWallType;
@@ -185,9 +192,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void CheckGrounded()
     {
-        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical,
-           0f, Vector2.down, raycastDistance, layerMask);
-
+        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical,0f, Vector2.down, raycastDistance, layerMask);
         if (hit.collider)
         {
             groundType = DetermineGroundType(hit.collider);
@@ -203,8 +208,6 @@ public class CharacterController2D : MonoBehaviour
             {
                 below = true;
             }
-
-
         }
         else
         {
@@ -216,6 +219,29 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
+
+        // this (and the other sliding casts) have to exist because the player is shorter when sliding
+        // what this means is if there is a ceiling above them then the default ground cast will catch on that ceiling because it is being casted from the player's would be center if they were standing up
+        // but they're not so that cast happens above the player while sliding, being able to get caught on low ceilings
+        // you could fix this by having the casts not come out from the center of the collider, and/or have them adjust to the sliding collider based on state, or have the same collider used but resized when sliding, or just have the raycasts be configured manually via inspector
+        // but it isn't important, although messy this fix is good enough
+
+        // this is the below check for the sliding collider
+        RaycastHit2D slideHit = Physics2D.CapsuleCast(_slidingCollider.bounds.center, _slidingCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, raycastDistance, layerMask);
+        if (slideHit.collider != null)
+        {
+            slidingColBelow = true;
+
+            slidingBelowNormal = slideHit.normal;
+            slidingBelowAngle = Vector2.SignedAngle(slidingBelowNormal, Vector2.up);
+        }
+        else
+        {
+            slidingColBelow = false;
+
+            slidingBelowNormal = Vector2.zero;
+            slidingBelowAngle = 0;
+        }
     }
 
     private void CheckOtherCollisions()
@@ -266,15 +292,50 @@ public class CharacterController2D : MonoBehaviour
             above = false;
         }
 
+        #region sliding collider hits
+        // check above
         RaycastHit2D aboveSlideHit = Physics2D.CapsuleCast(_slidingCollider.bounds.center, _slidingCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.up, raycastDistance, layerMask);
         if (aboveSlideHit.collider)
         {
+            ceilingType = DetermineGroundType(aboveSlideHit.collider);
             slidingColAbove = true;
         }
         else
         {
             slidingColAbove = false;
         }
+
+        // the reason the normals of the walls is needed is because of a bug
+        // if you hit a wall while sliding you don't lose speed
+        // you will stop but if the wall moves out the way then you'll launch off at the speed you previously had
+        // the normals are used to stop the player's speed (while sliding) if they hit a vertical wall
+
+        //check left
+        RaycastHit2D leftSlideHit = Physics2D.BoxCast(_slidingCollider.bounds.center, _slidingCollider.size * 0.75f, 0f, Vector2.left, raycastDistance * 2, layerMask);
+        if (leftSlideHit.collider)
+        {
+            slidingColLeft = true;
+            slidingLeftNormal = leftSlideHit.normal;
+        }
+        else
+        {
+            slidingColLeft = true;
+            slidingLeftNormal = Vector2.zero;
+        }
+
+        //check right
+        RaycastHit2D rightSlidetHit = Physics2D.BoxCast(_slidingCollider.bounds.center, _slidingCollider.size * 0.75f, 0f, Vector2.right, raycastDistance * 2, layerMask);
+        if (rightSlidetHit.collider)
+        {
+            slidingColRight = true;
+            slidingRightNormal = rightSlidetHit.normal;
+        }
+        else
+        {
+            slidingColRight = false;
+            slidingRightNormal = Vector2.zero;
+        }
+        #endregion
     }
 
     /*

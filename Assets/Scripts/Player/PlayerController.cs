@@ -181,13 +181,17 @@ public class PlayerController : MonoBehaviour
 
             SlidingAndCreeping();
 
-            if (isSliding == false && isCreeping == false) { ProcessHorizontalMovement(); }
+            if (isSliding == false && isCreeping == false && isSwimming == false) { ProcessHorizontalMovement(); }
 
-            if (isSliding == false) { Jump(); } // was removed from onground (it has to be like this for coyote time) (cause you're not grounded but can still jump)
+            if (isSliding == false && isSwimming == false) { Jump(); } // was removed from onground (it has to be like this for coyote time) (cause you're not grounded but can still jump)
 
             if (_characterController.below) //On the ground
             {
                 OnGround();
+            }
+            else if (_characterController.inWater == true)
+            {
+                InWater();
             }
             else //In the air
             {
@@ -197,10 +201,13 @@ public class PlayerController : MonoBehaviour
             if (isCreeping == false) { Drag(); }
 
 
-            _characterController.Move(_moveDirection); // Changed (it use to multiply the move direction by time.deltatime)
+            _characterController.Move(_moveDirection); 
+            // Changed (it use to multiply the move direction by time.deltatime)
             // the reason it can't do that is because if we have velocity based movements multiplying it by time.deltatime will also then multiply the current velocity by that
             // what this means is everything (that's supposed to be timescaled) has to be multiplied by time.deltatime individually
             // this has already been implimented in this script
+            // this isn't perfect, it would need to be a fixed update for it to be correct
+            // it's not detrimental though
         }
     }
     #endregion
@@ -364,9 +371,47 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    void InWater()
+    {
+        ClearGroundAbilityFlags();
+
+        // need ability to jump and leave water even if not on ground
+        AirJump();
+
+        if (_input.y != 0f && canSwim && !_holdJump)
+        {
+            if (_input.y > 0 && !_characterController.isSubmerged)
+            {
+                _moveDirection.y = 0f;
+            }
+            else
+            {
+                // smooth motion (disregards frame rate)
+                _moveDirection.y = (_input.y * swimSpeed) * Time.deltaTime;
+            }
+
+        }
+
+        // natural water behaviour 
+        else if (_moveDirection.y < 0 && _input.y == 0f) // if going down and no player input
+        {
+            ///add own upward force for every frame + no up or down key pressed
+            _moveDirection.y += 2f;
+        }
+
+        if (_characterController.isSubmerged && canSwim)
+        {
+            isSwimming = true;
+        }
+        else
+        {
+            isSwimming = false;
+        }
+    }
+
     void SlidingAndCreeping()
     {
-        if (isSliding == true)
+        if (isSliding == true && isSwimming == false)
         {
             if (slideFrameOne == true)
             {
@@ -415,9 +460,19 @@ public class PlayerController : MonoBehaviour
             float t = speedUsed / maxSpeedUsedSlideDeccel;
             float lerpDrag = Mathf.Lerp(minSlideDeccel, maxSlideDeccel, t);
 
-            if (_characterController.below == true || applyDeccelInAir == true)
+            if (_characterController.slidingColBelow == true && _characterController.below == true)
             {
                 _moveDirection.x = _characterController.actualVeclocity.x - (direction * lerpDrag * Time.deltaTime);
+            }
+
+            // stop if wall
+            if (_characterController.slidingLeftNormal == Vector2.right && _characterController.actualVeclocity.x < 0)
+            {
+                _moveDirection.x = 0;
+            }
+            if(_characterController.slidingRightNormal == Vector2.left && _characterController.actualVeclocity.x > 0)
+            {
+                _moveDirection.x = 0;
             }
         }
     }
@@ -434,7 +489,7 @@ public class PlayerController : MonoBehaviour
             _moveDirection.y = slideHopPower;
 
             //push away from slope
-            _moveDirection = _moveDirection + (slideHopSlopePower * _characterController._slopeNormal);
+            _moveDirection = _moveDirection + (slideHopSlopePower * _characterController.slidingBelowNormal);
 
             isSlideJumping = true;
             _characterController.DisableGroundCheck();
@@ -469,13 +524,13 @@ public class PlayerController : MonoBehaviour
 
     void SpriteRotater()
     {
-        // i want to add somekind of visual drag to this so it doesn't 'snap'
+        // it would be nice to add somekind of visual drag to this so it doesn't snap, maybe
 
         if (isSliding == true)
         {
-            if (_characterController.below == true)
+            if (_characterController.slidingColBelow == true)
             {
-                spriteObject.transform.eulerAngles = new Vector3(0, 0, -_characterController._slopeAngle);
+                spriteObject.transform.eulerAngles = new Vector3(0, 0, -_characterController.slidingBelowAngle);
             }
             else
             {
@@ -586,6 +641,17 @@ public class PlayerController : MonoBehaviour
         //pressed jump button in air
         if (_startJump)
         {
+            #region Water Jump
+            if (_characterController.inWater)
+            {
+                isDoubleJumping = false;
+                isTripleJumping = false;
+                _moveDirection.y = jumpSpeed; // lets us do a regular jump
+
+                _startJump = false;
+            }
+            #endregion
+
             #region TripleJump
             if (canTripleJump && (!_characterController.left && !_characterController.right))
             {
@@ -593,6 +659,8 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isTripleJumping = true;
+
+                    _startJump = false;
                 }
             }
             #endregion
@@ -604,12 +672,13 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isDoubleJumping = true;
+                    _startJump = false;
                 }
             }
             #endregion
 
             #region Wall Jump
-            if (canWallJump && (_characterController.left || _characterController.right))
+            if (canWallJump && (_characterController.left || _characterController.right)) 
             {
                 coyoteTimer = 0;
                 jumpBufferTimer = 0;
@@ -765,44 +834,6 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
     #endregion
-
-    void InWater()
-    {
-        ClearGroundAbilityFlags();
-
-        // need ability to jump and leave water even if not on ground
-        AirJump();
-
-        if (_input.y != 0f && canSwim && !_holdJump)
-        {
-            if (_input.y > 0 && !_characterController.isSubmerged)
-            {
-                _moveDirection.y = 0f;
-            }
-            else
-            {
-                // smooth motion (disregards frame rate)
-                _moveDirection.y = (_input.y * swimSpeed) * Time.deltaTime;
-            }
-
-        }
-
-        // natural water behaviour 
-        else if (_moveDirection.y < 0 && _input.y == 0f) // if going down and no player input
-        {
-            ///add own upward force for every frame + no up or down key pressed
-            _moveDirection.y += 2f;
-        }
-
-        if (_characterController.isSubmerged && canSwim)
-        {
-            isSwimming = true;
-        }
-        else
-        {
-            isSwimming = false;
-        }
-    }
 
     #region Input
     private void ApplyDeadzones()

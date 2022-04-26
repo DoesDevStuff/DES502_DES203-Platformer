@@ -259,7 +259,7 @@ MonoBehaviour:
   spriteObject: {fileID: 1297816529933724471}
   deadzoneValue: 0.15
   coyoteTime: 0.15
-  jumpBuffer: 0.15
+  jumpBuffer: 0.05
   minWalkingDrag: 0
   maxWalkingDrag: 0.4
   maxUsedWalkSpeed: 0.3
@@ -276,11 +276,11 @@ MonoBehaviour:
   jumpSpeed: 0.28
   completeAirControlTime: 1
   reducedAirControlPivotTime: 0.8
-  xWallJumpSpeed: 0
-  yWallJumpSpeed: 0
-  wallSlideAmount: 0
-  wallJumpedNullTime: 0
-  applyDeccelInAir: 0
+  xWallJumpSpeed: 0.18
+  yWallJumpSpeed: 0.28
+  wallSlideAmount: 0.2
+  wallJumpedNullTime: 0.1
+  applyDeccelInAir: 1
   minSpeedUsedSlideDeccel: 0
   maxSpeedUsedSlideDeccel: 0.5
   minSlideDeccel: 0.02
@@ -307,7 +307,7 @@ MonoBehaviour:
   canJumpAfterWallJump: 0
   canWallRun: 0
   canMultipleWallRun: 0
-  canWallSlide: 0
+  canWallSlide: 1
   canGlide: 0
   canGlideAfterWallContact: 0
   canPowerJump: 0
