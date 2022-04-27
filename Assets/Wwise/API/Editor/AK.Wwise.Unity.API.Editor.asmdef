@@ -1,5 +1,6 @@
 {
     "name": "AK.Wwise.Unity.API.Editor",
+    "rootNamespace": "",
     "references": [
         "AK.Wwise.Unity.API",
         "AK.Wwise.Unity.API.WwiseTypes",
@@ -7,7 +8,22 @@
         "Ak.Wwise.Api.WAAPI"
     ],
     "includePlatforms": [
-        "Editor"
+        "Android",
+        "CloudRendering",
+        "Editor",
+        "GameCoreScarlett",
+        "GameCoreXboxOne",
+        "iOS",
+        "LinuxStandalone64",
+        "Lumin",
+        "macOSStandalone",
+        "PS4",
+        "PS5",
+        "Stadia",
+        "Switch",
+        "tvOS",
+        "WebGL",
+        "XboxOne"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
