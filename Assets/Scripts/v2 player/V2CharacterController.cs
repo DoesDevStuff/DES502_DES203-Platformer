@@ -80,7 +80,7 @@ public class V2CharacterController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         _inAirLastFrame = !below;
 

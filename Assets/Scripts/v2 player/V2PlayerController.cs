@@ -170,13 +170,25 @@ public class V2PlayerController : MonoBehaviour
         RunInput();
         SlideInputAndState();
         InputBufferingAndCoyote();
+        ApplyDeadzones();
 
+        if (isSliding == true && isSwimming == false)
+        {
+            SlideHop();
+        }
+
+        if (isSliding == false && isCreeping == false)
+        {
+            AirJump();
+        }
+    }
+
+    void FixedUpdate()
+    {
         if (isInAntiGrav == false)
         {
             if (_dashTimer > 0)
                 _dashTimer -= Time.deltaTime;
-
-            ApplyDeadzones();
 
             SlidingAndCreeping();
 
@@ -201,12 +213,6 @@ public class V2PlayerController : MonoBehaviour
 
 
             _characterController.Move(_moveDirection);
-            // Changed (it use to multiply the move direction by time.deltatime)
-            // the reason it can't do that is because if we have velocity based movements multiplying it by time.deltatime will also then multiply the current velocity by that
-            // what this means is everything (that's supposed to be timescaled) has to be multiplied by time.deltatime individually
-            // this has already been implimented in this script
-            // this isn't perfect, it would need to be a fixed update for it to be correct
-            // it's not detrimental though
         }
     }
     #endregion
@@ -284,7 +290,7 @@ public class V2PlayerController : MonoBehaviour
                 }
 
                 // movement
-                float timeScaledWalkAccelleration = walkAccelleration * Time.deltaTime;
+                float timeScaledWalkAccelleration = walkAccelleration;
                 if (Mathf.Abs(_characterController._moveVelocity.x) < maxWalkSpeed)
                 {
                     _moveDirection.x = _moveDirection.x + (timeScaledWalkAccelleration * _input.x);
@@ -292,7 +298,7 @@ public class V2PlayerController : MonoBehaviour
 
                 if (isRunning == true)
                 {
-                    float timeScaledRunAccelleration = runAccelleration * Time.deltaTime;
+                    float timeScaledRunAccelleration = runAccelleration;
                     if (Mathf.Abs(_characterController._moveVelocity.x) < maxRunSpeed)
                     {
                         _moveDirection.x = _moveDirection.x + (timeScaledRunAccelleration * _input.x);
@@ -342,7 +348,7 @@ public class V2PlayerController : MonoBehaviour
 
         if (isSliding == true)
         {
-            _moveDirection.x = _moveDirection.x - (slideDefaultDrag * Time.deltaTime * direction);
+            _moveDirection.x = _moveDirection.x - (slideDefaultDrag * direction);
         }
         else if (isRunning == false) // iswalking true
         {
@@ -350,7 +356,6 @@ public class V2PlayerController : MonoBehaviour
             t = t / maxUsedWalkSpeed;
 
             float dragLerp = Mathf.Lerp(minWalkingDrag, maxWalkingDrag, t);
-            dragLerp = dragLerp * Time.deltaTime;
 
             _moveDirection.x = _moveDirection.x - (dragLerp * direction);
         }
@@ -360,7 +365,6 @@ public class V2PlayerController : MonoBehaviour
             t = t / maxUsedRunSpeed;
 
             float dragLerp = Mathf.Lerp(minRunningDrag, maxRunningDrag, t);
-            dragLerp = dragLerp * Time.deltaTime;
 
             _moveDirection.x = _moveDirection.x - (dragLerp * direction);
         }
@@ -421,7 +425,6 @@ public class V2PlayerController : MonoBehaviour
             ChangeSlidingSprite(true);
 
             SlideMovement();
-            SlideHop();
             SlideGravity();
         }
         else if (isCreeping == true)
@@ -461,7 +464,7 @@ public class V2PlayerController : MonoBehaviour
 
             if (_characterController.slidingColBelow == true && _characterController.below == true)
             {
-                _moveDirection.x = _characterController.actualVeclocity.x - (direction * lerpDrag * Time.deltaTime);
+                _moveDirection.x = _characterController.actualVeclocity.x - (direction * lerpDrag);
             }
 
             // stop if wall
@@ -502,7 +505,7 @@ public class V2PlayerController : MonoBehaviour
         {
             _moveDirection.y = _characterController.actualVeclocity.y;
         }
-        _moveDirection.y = _moveDirection.y - (gravity * Time.deltaTime);
+        _moveDirection.y = _moveDirection.y - (gravity);
     }
 
     void ChangeSlidingSprite(bool sliding)
@@ -786,11 +789,11 @@ public class V2PlayerController : MonoBehaviour
 
             if (_moveDirection.y <= 0)
             {
-                _moveDirection.y -= (gravity * wallSlideAmount) * Time.deltaTime;
+                _moveDirection.y -= (gravity * wallSlideAmount);
             }
             else
             {
-                _moveDirection.y -= gravity * Time.deltaTime;
+                _moveDirection.y -= gravity;
             }
 
         }
@@ -823,11 +826,11 @@ public class V2PlayerController : MonoBehaviour
         }
         else if (!isDashing) //regular gravity
         {
-            _moveDirection.y -= gravity * Time.deltaTime;
+            _moveDirection.y -= gravity;
 
             if (_characterController.actualVeclocity.y < 0 && coyoteTimer < 0)
             {
-                _moveDirection.y -= peakGravity * Time.deltaTime;
+                _moveDirection.y -= peakGravity;
             }
         }
     }
