@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3944494847	FlareShot			\Default Work Unit\FlareShot	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	902729803	Flare_shot	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\Flare_shot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Flare_shot		42314
+

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\UnityProjects\Des203\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,22 +16,22 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2108779966" Language="SFX" Hash="1117331469">
+		<SoundBank Id="2108779966" Language="SFX" Hash="2195011869">
 			<ObjectPath>\SoundBanks\Default Work Unit\Walk</ObjectPath>
 			<ShortName>Walk</ShortName>
 			<Path>Walk.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2108779966" Name="Walk" ObjectPath="\Events\Default Work Unit\Walk" DurationType="OneShot" DurationMin="0.172381" DurationMax="0.172381">
+				<Event Id="2108779966" Name="Walk" ObjectPath="\Events\Default Work Unit\Walk" DurationType="OneShot" DurationMin="5.22585" DurationMax="5.22585">
 					<IncludedMemoryFiles>
-						<File Id="106599636" Language="SFX">
-							<ShortName>Walking.wav.wav</ShortName>
-							<Path>SFX\Walking.wav_10C4C929.wem</Path>
+						<File Id="776572811" Language="SFX">
+							<ShortName>Walking.2.wav</ShortName>
+							<Path>SFX\Walking.2_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2996874622" Language="SFX" Hash="2714905105">
+		<SoundBank Id="2996874622" Language="SFX" Hash="2570286953">
 			<ObjectPath>\SoundBanks\Default Work Unit\Music_SB</ObjectPath>
 			<ShortName>Music_SB</ShortName>
 			<Path>Music_SB.bnk</Path>
@@ -87,15 +87,35 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3833651337" Language="SFX" Hash="1652906327">
+		<SoundBank Id="3833651337" Language="SFX" Hash="362529783">
 			<ObjectPath>\SoundBanks\Default Work Unit\Jump</ObjectPath>
 			<ShortName>Jump</ShortName>
 			<Path>Jump.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump" DurationType="OneShot" DurationMin="0.431565" DurationMax="0.431565">
+					<IncludedMemoryFiles>
+						<File Id="128705629" Language="SFX">
+							<ShortName>Jump.wav</ShortName>
+							<Path>SFX\Jump_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="3944494847" Language="SFX" Hash="2307262792">
+		<SoundBank Id="3944494847" Language="SFX" Hash="3175216632">
 			<ObjectPath>\SoundBanks\Default Work Unit\FlareShot</ObjectPath>
 			<ShortName>FlareShot</ShortName>
 			<Path>FlareShot.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3944494847" Name="FlareShot" ObjectPath="\Events\Default Work Unit\FlareShot" DurationType="OneShot" DurationMin="0.479025" DurationMax="0.479025">
+					<IncludedMemoryFiles>
+						<File Id="902729803" Language="SFX">
+							<ShortName>Flare_shot.wav</ShortName>
+							<Path>SFX\Flare_shot_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
