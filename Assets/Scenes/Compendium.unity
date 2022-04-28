@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 9701922}
   - component: {fileID: 9701921}
   m_Layer: 5
-  m_Name: Characters
+  m_Name: Characters(Template)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7489,11 +7489,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1106107799382646756, guid: ebf7e27e5e5d846ca9a011b1a5610689, type: 3}
       propertyPath: m_text
-      value: Trapped in an otherworldly dimension a team of expeditionists attempt
+      value: 'Trapped in an otherworldly dimension a team of expeditionists attempt
         to create a link home. Venturing through ancient tombs laced with outlandish
-        architecture and deadly traps to find the artefacts (macguffins) the player
-        needs to complete the mission, though these items are embedded deep with
-        monolith eldritch beasts.
+        architecture and deadly traps to find the artefacts the player needs to complete
+        the mission, though these items are embedded deep with monolith eldritch
+        beasts. '
       objectReference: {fileID: 0}
     - target: {fileID: 4634101461291279508, guid: ebf7e27e5e5d846ca9a011b1a5610689, type: 3}
       propertyPath: m_Pivot.x
@@ -8486,7 +8486,7 @@ GameObject:
   - component: {fileID: 1487766683}
   - component: {fileID: 1487766682}
   m_Layer: 5
-  m_Name: Enemies
+  m_Name: Enemies(Template)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10106,7 +10106,7 @@ GameObject:
   - component: {fileID: 1877106861}
   - component: {fileID: 1877106860}
   m_Layer: 5
-  m_Name: Story
+  m_Name: Story(Template)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
