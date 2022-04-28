@@ -74,11 +74,10 @@ MonoBehaviour:
 
 
     Praesent
-    eget leo ipsum. Suspendisse potenti. Duis odio libero, aliquet a venenatis consequat,
-    hendrerit vel tellus. '
+    eget leo ipsum. Suspendisse potenti. Duis odio libero, aliquet a '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2b2b417cd082d4a059db88be85c256a7, type: 2}
-  m_sharedMaterial: {fileID: 3484483544675928042, guid: 2b2b417cd082d4a059db88be85c256a7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15e7b13fed3874e9689dcb99667b46e8, type: 2}
+  m_sharedMaterial: {fileID: 3484483544675928042, guid: 15e7b13fed3874e9689dcb99667b46e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
