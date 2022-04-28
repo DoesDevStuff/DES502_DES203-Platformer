@@ -8,6 +8,8 @@ public class V2PlayerController : MonoBehaviour
 {
     #region variables/properties
     #region public properties
+    public AntiGravAbility antiGrav;
+    [Space]
     public GameObject spriteObject;
     SpriteRenderer spriteRenderer;
 
@@ -172,19 +174,24 @@ public class V2PlayerController : MonoBehaviour
         InputBufferingAndCoyote();
         ApplyDeadzones();
 
-        if (isSliding == true && isSwimming == false)
+        if (isInAntiGrav == false)
         {
-            SlideHop();
-        }
+            if (isSliding == true && isSwimming == false)
+            {
+                SlideHop();
+            }
 
-        if (isSliding == false && isCreeping == false)
-        {
-            AirJump();
+            if (isSliding == false && isCreeping == false && _characterController.below == false && _characterController.inWater == false)
+            {
+                AirJump();
+            }
         }
     }
 
     void FixedUpdate()
     {
+        if (isSliding == false && isSwimming == false) { Jump(); }
+
         if (isInAntiGrav == false)
         {
             if (_dashTimer > 0)
@@ -193,8 +200,6 @@ public class V2PlayerController : MonoBehaviour
             SlidingAndCreeping();
 
             if (isSliding == false && isCreeping == false && isSwimming == false) { ProcessHorizontalMovement(); }
-
-            if (isSliding == false && isSwimming == false) { Jump(); } // was removed from onground (it has to be like this for coyote time) (cause you're not grounded but can still jump)
 
             if (_characterController.below) //On the ground
             {
@@ -338,6 +343,11 @@ public class V2PlayerController : MonoBehaviour
             _characterController.DisableGroundCheck();
             _characterController.ClearMovingPlatform();
             _ableToWallRun = true;
+
+            if(isInAntiGrav == true && antiGrav != null)
+            {
+                antiGrav.moveForce.y = _moveDirection.y;
+            }
         }
     }
 
@@ -437,6 +447,10 @@ public class V2PlayerController : MonoBehaviour
             ChangeSlidingSprite(true);
 
             Creeping();
+            if (_characterController.slidingColBelow != true)
+            {
+                SlideGravity();
+            }
         }
         else
         {
@@ -614,8 +628,6 @@ public class V2PlayerController : MonoBehaviour
 
         if (isSliding == false && isCreeping == false)
         {
-            AirJump();
-
             WallRunning();
 
             GravityCalculations();
@@ -881,7 +893,7 @@ public class V2PlayerController : MonoBehaviour
                 isSliding = true;
                 isCreeping = false;
             }
-            else if (_characterController.below == true && _characterController._slopeAngle != 0)
+            else if (_characterController.below == true && _characterController.slidingBelowAngle != 0)
             {
                 isSliding = true;
                 isCreeping = false;
