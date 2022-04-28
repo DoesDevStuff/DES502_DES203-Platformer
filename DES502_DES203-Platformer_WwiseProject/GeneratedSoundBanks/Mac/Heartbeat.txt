@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2179486487	Heartbeat			\Default Work Unit\Heartbeat	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	216395598	Heartbeat	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Heartbeat_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Heartbeat		26228
+

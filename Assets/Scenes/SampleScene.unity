@@ -182,19 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2322ccf60a2cb1e40ab0979ffda44e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 0d732e346a5227f49aa5b64fa5a1cfba, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &106274197
 Transform:
   m_ObjectHideFlags: 0
@@ -1350,6 +1337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f91b7980b6a7f46860596595c952dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1486,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562b09133b5c94d44a2d712218389c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1509,8 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d97abddffe3904d805361036f4d74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
 --- !u!114 &519420037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,16 +1520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb36bce7d4de89499c7a8223ff8ccb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1 &609456145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2431,7 @@ GameObject:
   - component: {fileID: 968554558}
   - component: {fileID: 968554564}
   - component: {fileID: 968554563}
+  - component: {fileID: 968554565}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -2496,6 +2484,10 @@ MonoBehaviour:
   canAirDash: 1
   canGroundSlam: 1
   canSwim: 0
+  Walk:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ceac5b1fb3f91524b8bd4f8da35dc4cc, type: 2}
   isJumping: 0
   isDoubleJumping: 0
   isTripleJumping: 0
@@ -2780,6 +2772,30 @@ MonoBehaviour:
   jumpPadUpperLimit: 0
   inWater: 0
   isSubmerged: 0
+--- !u!114 &968554565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968554557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 756fb3c23b5aa1c4984c4bd98fe55dc7, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1027294535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,6 +2825,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb240cf32a8f404e96dcad4d714e510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: d4155a42657f4f340958cec654795e95, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
 --- !u!4 &1027294537
 Transform:
   m_ObjectHideFlags: 0
@@ -3800,7 +3829,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.5245641, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3871,9 +3900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac8fc6c0a60bd343a7b3595c43d5b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 968554562}
-  aggroRange: 6
-  moveSpeed: 4
 --- !u!50 &1625538220
 Rigidbody2D:
   serializedVersion: 4
@@ -3970,7 +3996,7 @@ SpriteRenderer:
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1625538223

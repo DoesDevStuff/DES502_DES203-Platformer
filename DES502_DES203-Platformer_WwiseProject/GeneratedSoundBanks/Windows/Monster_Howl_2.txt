@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2180250313	Monster_Howl_2			\Default Work Unit\Monster_Howl_2	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	529613551	Monster_Howl_2	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\Monster_Howl_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monster_Howl_2		120132
+

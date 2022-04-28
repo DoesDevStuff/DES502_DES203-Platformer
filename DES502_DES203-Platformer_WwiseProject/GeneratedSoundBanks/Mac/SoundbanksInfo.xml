@@ -11,21 +11,291 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
+		<SoundBank Id="101911589" Language="SFX" Hash="2164838991">
+			<ObjectPath>\SoundBanks\Default Work Unit\Eerie_Sound</ObjectPath>
+			<ShortName>Eerie_Sound</ShortName>
+			<Path>Eerie_Sound.bnk</Path>
+			<IncludedEvents>
+				<Event Id="101911589" Name="Eerie_Sound" ObjectPath="\Events\Default Work Unit\Eerie_Sound" DurationType="OneShot" DurationMin="16.704762" DurationMax="16.704762">
+					<IncludedMemoryFiles>
+						<File Id="815504349" Language="SFX">
+							<ShortName>Eerie_Sound.wav</ShortName>
+							<Path>SFX\Eerie_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="785538926" Language="SFX" Hash="1204283646">
+			<ObjectPath>\SoundBanks\Default Work Unit\Tethered_Sound</ObjectPath>
+			<ShortName>Tethered_Sound</ShortName>
+			<Path>Tethered_Sound.bnk</Path>
+			<IncludedEvents>
+				<Event Id="785538926" Name="Tethered_Sound" ObjectPath="\Events\Default Work Unit\Tethered_Sound" DurationType="OneShot" DurationMin="1.006168" DurationMax="1.006168">
+					<IncludedMemoryFiles>
+						<File Id="480135733" Language="SFX">
+							<ShortName>Tethered_Sound.wav</ShortName>
+							<Path>SFX\Tethered_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="822236408" Language="SFX" Hash="698493585">
+			<ObjectPath>\SoundBanks\Default Work Unit\Platform_Fall</ObjectPath>
+			<ShortName>Platform_Fall</ShortName>
+			<Path>Platform_Fall.bnk</Path>
+			<IncludedEvents>
+				<Event Id="822236408" Name="Platform_Fall" ObjectPath="\Events\Default Work Unit\Platform_Fall" DurationType="OneShot" DurationMin="0.554921" DurationMax="0.554921">
+					<IncludedMemoryFiles>
+						<File Id="955541812" Language="SFX">
+							<ShortName>Platform_Fall.wav</ShortName>
+							<Path>SFX\Platform_Fall_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="899159622" Language="SFX" Hash="1864860964">
+			<ObjectPath>\SoundBanks\Default Work Unit\Menu_Sound_ESC</ObjectPath>
+			<ShortName>Menu_Sound_ESC</ShortName>
+			<Path>Menu_Sound_ESC.bnk</Path>
+			<IncludedEvents>
+				<Event Id="899159622" Name="Menu_Sound_ESC" ObjectPath="\Events\Default Work Unit\Menu_Sound_ESC" DurationType="OneShot" DurationMin="0.435374" DurationMax="0.435374">
+					<IncludedMemoryFiles>
+						<File Id="979226539" Language="SFX">
+							<ShortName>Menu_Sound_ESC.wav</ShortName>
+							<Path>SFX\Menu_Sound_ESC_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1207279315" Language="SFX" Hash="3472679162">
+			<ObjectPath>\SoundBanks\Default Work Unit\Flare_Explosion</ObjectPath>
+			<ShortName>Flare_Explosion</ShortName>
+			<Path>Flare_Explosion.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1207279315" Name="Flare_Explosion" ObjectPath="\Events\Default Work Unit\Flare_Explosion" DurationType="OneShot" DurationMin="0.507937" DurationMax="0.507937">
+					<IncludedMemoryFiles>
+						<File Id="322882125" Language="SFX">
+							<ShortName>Flare_Explosion.wav</ShortName>
+							<Path>SFX\Flare_Explosion_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX" Hash="636181610">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2108779966" Language="SFX" Hash="2195011869">
+		<SoundBank Id="1645260788" Language="SFX" Hash="125461471">
+			<ObjectPath>\SoundBanks\Default Work Unit\Menu_Sound</ObjectPath>
+			<ShortName>Menu_Sound</ShortName>
+			<Path>Menu_Sound.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1645260788" Name="Menu_Sound" ObjectPath="\Events\Default Work Unit\Menu_Sound" DurationType="OneShot" DurationMin="0.187778" DurationMax="0.187778">
+					<IncludedMemoryFiles>
+						<File Id="1010063346" Language="SFX">
+							<ShortName>Menu_Sound.wav</ShortName>
+							<Path>SFX\Menu_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1829904715" Language="SFX" Hash="1777538255">
+			<ObjectPath>\SoundBanks\Default Work Unit\Bat_Ambient</ObjectPath>
+			<ShortName>Bat_Ambient</ShortName>
+			<Path>Bat_Ambient.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1829904715" Name="Bat_Ambient" ObjectPath="\Events\Default Work Unit\Bat_Ambient" DurationType="OneShot" DurationMin="0.999365" DurationMax="0.999365">
+					<IncludedMemoryFiles>
+						<File Id="473715196" Language="SFX">
+							<ShortName>Bat_Ambient.wav</ShortName>
+							<Path>SFX\Bat_Ambient_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1942692385" Language="SFX" Hash="3798730105">
+			<ObjectPath>\SoundBanks\Default Work Unit\Dash</ObjectPath>
+			<ShortName>Dash</ShortName>
+			<Path>Dash.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1942692385" Name="Dash" ObjectPath="\Events\Default Work Unit\Dash" DurationType="OneShot" DurationMin="0.401791" DurationMax="0.401791">
+					<IncludedMemoryFiles>
+						<File Id="775575857" Language="SFX">
+							<ShortName>Dash.wav</ShortName>
+							<Path>SFX\Dash_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2061769228" Language="SFX" Hash="1421694857">
+			<ObjectPath>\SoundBanks\Default Work Unit\Amb_2</ObjectPath>
+			<ShortName>Amb_2</ShortName>
+			<Path>Amb_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2061769228" Name="Amb_2" ObjectPath="\Events\Default Work Unit\Amb_2" DurationType="OneShot" DurationMin="0.702857" DurationMax="0.702857">
+					<IncludedMemoryFiles>
+						<File Id="769490010" Language="SFX">
+							<ShortName>Amb_2.wav</ShortName>
+							<Path>SFX\Amb_2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2061769229" Language="SFX" Hash="2717462158">
+			<ObjectPath>\SoundBanks\Default Work Unit\Amb_3</ObjectPath>
+			<ShortName>Amb_3</ShortName>
+			<Path>Amb_3.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2061769229" Name="Amb_3" ObjectPath="\Events\Default Work Unit\Amb_3" DurationType="OneShot" DurationMin="1.004218" DurationMax="1.004218">
+					<IncludedMemoryFiles>
+						<File Id="930311803" Language="SFX">
+							<ShortName>Amb_3.wav</ShortName>
+							<Path>SFX\Amb_3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2107543589" Language="SFX" Hash="2178958801">
+			<ObjectPath>\SoundBanks\Default Work Unit\Boss_Attack_1</ObjectPath>
+			<ShortName>Boss_Attack_1</ShortName>
+			<Path>Boss_Attack_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2107543589" Name="Boss_Attack_1" ObjectPath="\Events\Default Work Unit\Boss_Attack_1" DurationType="OneShot" DurationMin="1.073379" DurationMax="1.073379">
+					<IncludedMemoryFiles>
+						<File Id="765112489" Language="SFX">
+							<ShortName>Boss_Attack_1.wav</ShortName>
+							<Path>SFX\Boss_Attack_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2107543590" Language="SFX" Hash="2269889226">
+			<ObjectPath>\SoundBanks\Default Work Unit\Boss_Attack_2</ObjectPath>
+			<ShortName>Boss_Attack_2</ShortName>
+			<Path>Boss_Attack_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2107543590" Name="Boss_Attack_2" ObjectPath="\Events\Default Work Unit\Boss_Attack_2" DurationType="OneShot" DurationMin="1.236599" DurationMax="1.236599">
+					<IncludedMemoryFiles>
+						<File Id="531892022" Language="SFX">
+							<ShortName>Boss_Attack_2.wav</ShortName>
+							<Path>SFX\Boss_Attack_2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2108779966" Language="SFX" Hash="3630825913">
 			<ObjectPath>\SoundBanks\Default Work Unit\Walk</ObjectPath>
 			<ShortName>Walk</ShortName>
 			<Path>Walk.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2108779966" Name="Walk" ObjectPath="\Events\Default Work Unit\Walk" DurationType="OneShot" DurationMin="5.22585" DurationMax="5.22585">
+				<Event Id="2108779966" Name="Walk" ObjectPath="\Events\Default Work Unit\Walk" DurationType="OneShot" DurationMin="2.519274" DurationMax="2.519274">
 					<IncludedMemoryFiles>
-						<File Id="776572811" Language="SFX">
+						<File Id="776660199" Language="SFX">
 							<ShortName>Walking.2.wav</ShortName>
 							<Path>SFX\Walking.2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2179486487" Language="SFX" Hash="442355234">
+			<ObjectPath>\SoundBanks\Default Work Unit\Heartbeat</ObjectPath>
+			<ShortName>Heartbeat</ShortName>
+			<Path>Heartbeat.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2179486487" Name="Heartbeat" ObjectPath="\Events\Default Work Unit\Heartbeat" DurationType="OneShot" DurationMin="0.296644" DurationMax="0.296644">
+					<IncludedMemoryFiles>
+						<File Id="216395598" Language="SFX">
+							<ShortName>Heartbeat.wav</ShortName>
+							<Path>SFX\Heartbeat_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2180250313" Language="SFX" Hash="778188899">
+			<ObjectPath>\SoundBanks\Default Work Unit\Monster_Howl_2</ObjectPath>
+			<ShortName>Monster_Howl_2</ShortName>
+			<Path>Monster_Howl_2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2180250313" Name="Monster_Howl_2" ObjectPath="\Events\Default Work Unit\Monster_Howl_2" DurationType="OneShot" DurationMin="1.361315" DurationMax="1.361315">
+					<IncludedMemoryFiles>
+						<File Id="529613551" Language="SFX">
+							<ShortName>Monster_Howl_2.wav</ShortName>
+							<Path>SFX\Monster_Howl_2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2183591810" Language="SFX" Hash="847626634">
+			<ObjectPath>\SoundBanks\Default Work Unit\Monster_Howl</ObjectPath>
+			<ShortName>Monster_Howl</ShortName>
+			<Path>Monster_Howl.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2183591810" Name="Monster_Howl" ObjectPath="\Events\Default Work Unit\Monster_Howl" DurationType="OneShot" DurationMin="2.118821" DurationMax="2.118821">
+					<IncludedMemoryFiles>
+						<File Id="568587786" Language="SFX">
+							<ShortName>Monster_Howl.wav</ShortName>
+							<Path>SFX\Monster_Howl_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2213532973" Language="SFX" Hash="2845096899">
+			<ObjectPath>\SoundBanks\Default Work Unit\Jump_1</ObjectPath>
+			<ShortName>Jump_1</ShortName>
+			<Path>Jump_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2213532973" Name="Jump_1" ObjectPath="\Events\Default Work Unit\Jump_1" DurationType="OneShot" DurationMin="2.181587" DurationMax="2.181587">
+					<IncludedMemoryFiles>
+						<File Id="808222363" Language="SFX">
+							<ShortName>jump_1.wav</ShortName>
+							<Path>SFX\jump_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2227562272" Language="SFX" Hash="3682978349">
+			<ObjectPath>\SoundBanks\Default Work Unit\Fg_1</ObjectPath>
+			<ShortName>Fg_1</ShortName>
+			<Path>Fg_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2227562272" Name="Fg_1" ObjectPath="\Events\Default Work Unit\Fg_1" DurationType="OneShot" DurationMin="1.971202" DurationMax="1.971202">
+					<IncludedMemoryFiles>
+						<File Id="399174038" Language="SFX">
+							<ShortName>Fg_1.wav</ShortName>
+							<Path>SFX\Fg_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="2908999423" Language="SFX" Hash="2547197564">
+			<ObjectPath>\SoundBanks\Default Work Unit\Collecting</ObjectPath>
+			<ShortName>Collecting</ShortName>
+			<Path>Collecting.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2908999423" Name="Collecting" ObjectPath="\Events\Default Work Unit\Collecting" DurationType="OneShot" DurationMin="0.981678" DurationMax="0.981678">
+					<IncludedMemoryFiles>
+						<File Id="226885247" Language="SFX">
+							<ShortName>Collecting.wav</ShortName>
+							<Path>SFX\Collecting_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -87,6 +357,51 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
+		<SoundBank Id="3258480416" Language="SFX" Hash="765248086">
+			<ObjectPath>\SoundBanks\Default Work Unit\Powering_Up</ObjectPath>
+			<ShortName>Powering_Up</ShortName>
+			<Path>Powering_Up.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3258480416" Name="Powering_Up" ObjectPath="\Events\Default Work Unit\Powering_Up" DurationType="OneShot" DurationMin="1.571383" DurationMax="1.571383">
+					<IncludedMemoryFiles>
+						<File Id="847540047" Language="SFX">
+							<ShortName>Powering_Up.wav</ShortName>
+							<Path>SFX\Powering_Up_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="3392291667" Language="SFX" Hash="2863689871">
+			<ObjectPath>\SoundBanks\Default Work Unit\Wind_Sound</ObjectPath>
+			<ShortName>Wind_Sound</ShortName>
+			<Path>Wind_Sound.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3392291667" Name="Wind_Sound" ObjectPath="\Events\Default Work Unit\Wind_Sound" DurationType="OneShot" DurationMin="8.42585" DurationMax="8.42585">
+					<IncludedMemoryFiles>
+						<File Id="429939240" Language="SFX">
+							<ShortName>Wind_Sound.wav</ShortName>
+							<Path>SFX\Wind_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="3799599040" Language="SFX" Hash="2322784954">
+			<ObjectPath>\SoundBanks\Default Work Unit\Shot_Fired</ObjectPath>
+			<ShortName>Shot_Fired</ShortName>
+			<Path>Shot_Fired.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3799599040" Name="Shot_Fired" ObjectPath="\Events\Default Work Unit\Shot_Fired" DurationType="OneShot" DurationMin="0.26907" DurationMax="0.26907">
+					<IncludedMemoryFiles>
+						<File Id="20623665" Language="SFX">
+							<ShortName>Shot_Fired.wav</ShortName>
+							<Path>SFX\Shot_Fired_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
 		<SoundBank Id="3833651337" Language="SFX" Hash="362529783">
 			<ObjectPath>\SoundBanks\Default Work Unit\Jump</ObjectPath>
 			<ShortName>Jump</ShortName>
@@ -102,6 +417,36 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
+		<SoundBank Id="3856529392" Language="SFX" Hash="614416451">
+			<ObjectPath>\SoundBanks\Default Work Unit\Monster_Attack_1</ObjectPath>
+			<ShortName>Monster_Attack_1</ShortName>
+			<Path>Monster_Attack_1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3856529392" Name="Monster_Attack_1" ObjectPath="\Events\Default Work Unit\Monster_Attack_1" DurationType="OneShot" DurationMin="1.117914" DurationMax="1.117914">
+					<IncludedMemoryFiles>
+						<File Id="15293183" Language="SFX">
+							<ShortName>Monster_Attack_1.wav</ShortName>
+							<Path>SFX\Monster_Attack_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="3867410532" Language="SFX" Hash="4010175391">
+			<ObjectPath>\SoundBanks\Default Work Unit\Hit_Sound</ObjectPath>
+			<ShortName>Hit_Sound</ShortName>
+			<Path>Hit_Sound.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3867410532" Name="Hit_Sound" ObjectPath="\Events\Default Work Unit\Hit_Sound" DurationType="OneShot" DurationMin="0.384898" DurationMax="0.384898">
+					<IncludedMemoryFiles>
+						<File Id="956244661" Language="SFX">
+							<ShortName>Hit_Sound.wav</ShortName>
+							<Path>SFX\Hit_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
 		<SoundBank Id="3944494847" Language="SFX" Hash="3175216632">
 			<ObjectPath>\SoundBanks\Default Work Unit\FlareShot</ObjectPath>
 			<ShortName>FlareShot</ShortName>
@@ -112,6 +457,21 @@
 						<File Id="902729803" Language="SFX">
 							<ShortName>Flare_shot.wav</ShortName>
 							<Path>SFX\Flare_shot_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="4191063435" Language="SFX" Hash="3412202858">
+			<ObjectPath>\SoundBanks\Default Work Unit\Something</ObjectPath>
+			<ShortName>Something</ShortName>
+			<Path>Something.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4191063435" Name="Something" ObjectPath="\Events\Default Work Unit\Something" DurationType="OneShot" DurationMin="1.765669" DurationMax="1.765669">
+					<IncludedMemoryFiles>
+						<File Id="891508002" Language="SFX">
+							<ShortName>Something.wav</ShortName>
+							<Path>SFX\Something_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

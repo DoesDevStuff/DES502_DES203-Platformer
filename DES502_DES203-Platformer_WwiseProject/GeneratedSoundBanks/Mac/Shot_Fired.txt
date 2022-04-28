@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3799599040	Shot_Fired			\Default Work Unit\Shot_Fired	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	20623665	Shot_Fired	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Shot_Fired_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Shot_Fired		23796
+

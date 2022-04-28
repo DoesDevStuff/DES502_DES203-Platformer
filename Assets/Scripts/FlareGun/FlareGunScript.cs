@@ -35,6 +35,10 @@ public class FlareGunScript : MonoBehaviour
     public float aimAgainWindow;
     public float gunImpulsePower;
 
+    [Header("Wwise Events")]
+    public AK.Wwise.Event FlareShot;
+    public AK.Wwise.Event Powering_Up;
+
     [Header("Aiming")]
     public int noAimIncrements;
     [Space]
@@ -173,6 +177,8 @@ public class FlareGunScript : MonoBehaviour
 
                 aimAgainWindowTimer = aimAgainWindow;
                 aiming = true;
+                Powering_Up.Post(gameObject);
+                
             }
             else
             {
@@ -189,6 +195,8 @@ public class FlareGunScript : MonoBehaviour
 
             if (Mouse.current.leftButton.wasReleasedThisFrame)
             {
+                FlareShot.Post(gameObject);
+
                 if (fireRateTimer >= fireRate)
                 {
                     // fire gun

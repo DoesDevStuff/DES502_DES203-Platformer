@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	822236408	Platform_Fall			\Default Work Unit\Platform_Fall	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	955541812	Platform_Fall	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Platform_Fall_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Platform_Fall		49008
+

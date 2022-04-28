@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1829904715	Bat_Ambient			\Default Work Unit\Bat_Ambient	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	473715196	Bat_Ambient	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Windows\SFX\Bat_Ambient_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Bat_Ambient		88208
+

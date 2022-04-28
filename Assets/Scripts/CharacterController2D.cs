@@ -10,6 +10,8 @@ public class CharacterController2D : MonoBehaviour
     public float slopeAngleLimit = 45f;
     public float downForceAdjustment = 1.2f;
 
+   
+
     //flags
     public bool below;
     public bool left;
@@ -86,6 +88,7 @@ public class CharacterController2D : MonoBehaviour
         {
             //offset the player's movement on the X with the moving platform velocity
             _moveAmount.x += MovingPlatformAdjust().x;
+           
 
             //if platform is moving down
             if(MovingPlatformAdjust().y < 0f)
@@ -93,6 +96,8 @@ public class CharacterController2D : MonoBehaviour
                 //offset the player's movement on the Y
                 _moveAmount.y += MovingPlatformAdjust().y;
                 _moveAmount.y *= downForceAdjustment;
+               
+
             }
             
                 

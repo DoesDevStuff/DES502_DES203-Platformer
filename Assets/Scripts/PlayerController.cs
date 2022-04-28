@@ -46,6 +46,15 @@ public class PlayerController : MonoBehaviour
     public bool canGroundSlam;
     public bool canSwim; // if disabled can float only at top and not swim below surface
 
+    [Header("Wwise Events")]
+    public AK.Wwise.Event Walk;
+    public AK.Wwise.Event DasH;
+    public AK.Wwise.Event Jumping;
+    public AK.Wwise.Event JumpingOnPad;
+    
+    
+   
+
     [Header("Player State")]
     public bool isJumping;
     public bool isDoubleJumping;
@@ -64,6 +73,12 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region private properties
+
+    //Wwise
+    private bool WalkIsPlaying = false;
+    private float FinalStepTime = 0;
+    private float _speed;
+
     //input flags
     private bool _startJump;
     private bool _releaseJump;
@@ -94,12 +109,19 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    void Awake()
+    {
+        FinalStepTime = Time.time;
+    }
+
     void Start()
     {
         _characterController = gameObject.GetComponent<CharacterController2D>();
         _capsuleCollider = gameObject.GetComponent<CapsuleCollider2D>();
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _originalColliderSize = _capsuleCollider.size;
+
+        
     }
 
     void Update()
@@ -145,11 +167,50 @@ public class PlayerController : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 _facingRight = false;
+
+                if (!WalkIsPlaying)
+                {
+                    Walk.Post(gameObject);
+                    FinalStepTime = Time.time;
+                    WalkIsPlaying = true;
+
+                }
+                else
+                {
+                    if (_speed > 1)
+                    {
+                        if (Time.time - FinalStepTime > 500 / _speed * Time.deltaTime)
+                        {
+                            WalkIsPlaying = false;
+                        }
+                    }
+                    
+                }
             }
+
             else if (_moveDirection.x > 0)
             {
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 _facingRight = true;
+
+                if (!WalkIsPlaying)
+                {
+                    Walk.Post(gameObject);
+                    FinalStepTime = Time.time;
+                    WalkIsPlaying = true;
+
+                }
+                else
+                {
+                    if (_speed > 1)
+                    {
+                        if (Time.time - FinalStepTime > 500 / _speed * Time.deltaTime)
+                        {
+                            WalkIsPlaying = false;
+                        }
+                    }
+
+                }
             }
 
             if (isDashing)
@@ -157,12 +218,14 @@ public class PlayerController : MonoBehaviour
                 if (_facingRight)
                 {
                     _moveDirection.x = dashSpeed;
+                    DasH.Post(gameObject);
                 }
                 else
                 {
                     _moveDirection.x = -dashSpeed;
                 }
                 _moveDirection.y = 0;
+                DasH.Post(gameObject);
             }
             else if (isCreeping)
             {
@@ -234,6 +297,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_characterController.groundType == GroundType.JumpPad)
         {
+            JumpingOnPad.Post(gameObject);
             _jumpPadAmount = _characterController.jumpPadAmount;
 
             //if inverted downwards velocity is greater than jump pad amount
@@ -324,6 +388,7 @@ public class PlayerController : MonoBehaviour
             {
                 _moveDirection.y = powerJumpSpeed;
                 StartCoroutine("PowerJumpWaiter");
+                
             }
             //check to see if we are on a one way platform
             else if (isDucking && _characterController.groundType == GroundType.OneWayPlatform)
@@ -333,6 +398,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 _moveDirection.y = jumpSpeed;
+                Jumping.Post(gameObject);
             }
 
             isJumping = true;
@@ -434,6 +500,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isTripleJumping = true;
+                    Jumping.Post(gameObject);
                 }
             }
 
@@ -444,6 +511,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isDoubleJumping = true;
+                    Jumping.Post(gameObject);
                 }
             }
 

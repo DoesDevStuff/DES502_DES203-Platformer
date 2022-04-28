@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	101911589	Eerie_Sound			\Default Work Unit\Eerie_Sound	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	815504349	Eerie_Sound	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Eerie_Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Eerie_Sound		1473424
+

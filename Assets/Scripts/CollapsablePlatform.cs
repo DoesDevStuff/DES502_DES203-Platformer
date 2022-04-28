@@ -7,6 +7,8 @@ public class CollapsablePlatform : GroundEffector
     public float fallSpeed = 10f;
     public float delayTime = 0.5f;
 
+    [Header("Wwise Events")]
+    public AK.Wwise.Event JumpingOnFallingPlat;
 
     public Vector3 difference;
 
@@ -51,10 +53,12 @@ public class CollapsablePlatform : GroundEffector
     {
         //so when we start this we're making the platform a physical object essentially
         StartCoroutine("CollapsePlatformCoroutine");
+
     }
 
     public IEnumerator CollapsePlatformCoroutine()
     {
+        JumpingOnFallingPlat.Post(gameObject);
         yield return new WaitForSeconds(delayTime);
         _platformCollapsing = true;
 

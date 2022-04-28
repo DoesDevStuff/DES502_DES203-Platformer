@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1942692385	Dash			\Default Work Unit\Dash	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	775575857	Dash	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Dash_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dash		35502
+

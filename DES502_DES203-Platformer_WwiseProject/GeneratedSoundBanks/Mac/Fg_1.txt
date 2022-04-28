@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2227562272	Fg_1			\Default Work Unit\Fg_1	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	399174038	Fg_1	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Fg_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fg_1		173924
+

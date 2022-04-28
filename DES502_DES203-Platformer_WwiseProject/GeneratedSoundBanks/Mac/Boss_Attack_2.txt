@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2107543590	Boss_Attack_2			\Default Work Unit\Boss_Attack_2	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	531892022	Boss_Attack_2	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Boss_Attack_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Boss_Attack_2		109132
+
