@@ -13,6 +13,7 @@ public class AntiGravAbility : MonoBehaviour
     public LayerMask walls;
 
     [Header("Misc")]
+    public bool active;
     public LayerMask groundMask;
     public GameObject bubblePrefab;
     public Vector2 heightDetectorBoxSize;
@@ -71,13 +72,13 @@ public class AntiGravAbility : MonoBehaviour
 
     GameObject instantiatedBubble;
 
-    bool vIsPressed;
-    bool vIsReleased;
+    bool vIsPressed = false;
+    bool vIsReleased = false;
 
-    bool wIsPressed;
-    bool aIsPressed;
-    bool sIsPressed;
-    bool dIsPressed;
+    bool wIsPressed = false;
+    bool aIsPressed = false;
+    bool sIsPressed = false;
+    bool dIsPressed = false;
     #endregion
     #endregion
 
@@ -90,50 +91,53 @@ public class AntiGravAbility : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.vKey.isPressed)
+        if (active == true)
         {
-            vIsPressed = true;
-        }
-        else
-        {
-            vIsPressed = false;
-        }
-        if (Keyboard.current.vKey.wasReleasedThisFrame)
-        {
-            vIsReleased = true;
-        }
+            if (Keyboard.current.vKey.isPressed)
+            {
+                vIsPressed = true;
+            }
+            else
+            {
+                vIsPressed = false;
+            }
+            if (Keyboard.current.vKey.wasReleasedThisFrame)
+            {
+                vIsReleased = true;
+            }
 
-        if (Keyboard.current.wKey.isPressed)
-        {
-            wIsPressed = true;
-        }
-        else
-        {
-            wIsPressed = false;
-        }
-        if (Keyboard.current.aKey.isPressed)
-        {
-            aIsPressed = true;
-        }
-        else
-        {
-            aIsPressed = false;
-        }
-        if (Keyboard.current.sKey.isPressed)
-        {
-            sIsPressed = true;
-        }
-        else
-        {
-            sIsPressed = false;
-        }
-        if (Keyboard.current.dKey.isPressed)
-        {
-            dIsPressed = true;
-        }
-        else
-        {
-            dIsPressed = false;
+            if (Keyboard.current.wKey.isPressed)
+            {
+                wIsPressed = true;
+            }
+            else
+            {
+                wIsPressed = false;
+            }
+            if (Keyboard.current.aKey.isPressed)
+            {
+                aIsPressed = true;
+            }
+            else
+            {
+                aIsPressed = false;
+            }
+            if (Keyboard.current.sKey.isPressed)
+            {
+                sIsPressed = true;
+            }
+            else
+            {
+                sIsPressed = false;
+            }
+            if (Keyboard.current.dKey.isPressed)
+            {
+                dIsPressed = true;
+            }
+            else
+            {
+                dIsPressed = false;
+            }
         }
     }
 
@@ -222,9 +226,7 @@ public class AntiGravAbility : MonoBehaviour
             playerController.isInAntiGrav = false;
             playerController.ClearAirAbilityFlags();
             playerController.ClearGroundAbilityFlags();
-            playerController._moveDirection = moveForce;
-            characterController2D.Move(moveForce);
-
+            playerController._moveDirection = characterController2D._moveVelocity;
             characterController2D.antiGravActive = false;
         }
     }
