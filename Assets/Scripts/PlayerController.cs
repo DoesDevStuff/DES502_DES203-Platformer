@@ -274,7 +274,15 @@ public class PlayerController : MonoBehaviour
             if (!isDucking && !isCreeping)
             {
                 _capsuleCollider.size = new Vector2(_capsuleCollider.size.x, _capsuleCollider.size.y / 2);
-                transform.position = new Vector2(transform.position.x, transform.position.y - (_originalColliderSize.y / 4));
+
+                // offsetting the position in a way better for the code handling for animation handling.
+                //essentially manipulates the collider and is definately better but will need scott to help with png stuff 
+
+                _capsuleCollider.offset = new Vector2(2f, -_capsuleCollider.size.y / 2); // NEW But more efficient
+
+                /// here we change the size of the capsule the collider, might cause weird transitions from jump to crouch state, works still
+                //transform.position = new Vector2(transform.position.x, transform.position.y - (_originalColliderSize.y / 4));
+
                 isDucking = true;
                 _spriteRenderer.sprite = Resources.Load<Sprite>("Crouch1");
             }
@@ -292,7 +300,16 @@ public class PlayerController : MonoBehaviour
                 if (!hitCeiling.collider)
                 {
                     _capsuleCollider.size = _originalColliderSize;
-                    transform.position = new Vector2(transform.position.x, transform.position.y + (_originalColliderSize.y / 4));
+
+                    //reinstating transformed animation state, very beneficial for how we enter and exit our ducking and crouch walking (creeping states)
+                    _capsuleCollider.offset = new Vector2(0f, 0f);
+
+
+                    /// old way works fine with old crouch sprites, jitters a bit with the exit on jump animation
+                    /// the capsule stuff above is much smoother but will need the crouch to be offset a bit to work well
+
+                    //transform.position = new Vector2(transform.position.x, transform.position.y + (_originalColliderSize.y / 4));  
+
                     _spriteRenderer.sprite = Resources.Load<Sprite>("Player_normal");
                     isDucking = false;
                     isCreeping = false;
