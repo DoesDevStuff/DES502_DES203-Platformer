@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     public bool isGroundSlamming;
     public bool isSwimming; //if we have separate swim animation here
 
+    public Vector2 MoveDirection { get => _moveDirection; }
     #endregion
 
     #region private properties
