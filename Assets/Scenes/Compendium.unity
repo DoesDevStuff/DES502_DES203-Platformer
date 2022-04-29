@@ -162,8 +162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -392.68, y: 52.495}
-  m_SizeDelta: {x: 462.66, y: 346.995}
+  m_AnchoredPosition: {x: -392.68, y: 52.99201}
+  m_SizeDelta: {x: 462, y: 346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &28181325
 MonoBehaviour:
@@ -178,14 +178,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6132076, g: 0.44592962, b: 0.33842117, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ea2d29ccaa24d4ef5803338dbdb16f22, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -699,6 +699,10 @@ PrefabInstance:
     - target: {fileID: 2926919504865176879, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
       propertyPath: m_text
       value: Known as The Old Man
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057673033724991141, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
+      propertyPath: m_text
+      value: known as The Old Man
       objectReference: {fileID: 0}
     - target: {fileID: 7612590615870247518, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
       propertyPath: m_Name
@@ -1260,14 +1264,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6132076, g: 0.44592962, b: 0.33842117, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3057e4c8936b140fcb56f67cefafae52, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4440,6 +4444,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Lucy
       objectReference: {fileID: 0}
+    - target: {fileID: 4057673033724991141, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
+      propertyPath: m_text
+      value: Lucy
+      objectReference: {fileID: 0}
     - target: {fileID: 7612590615870247518, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
       propertyPath: m_Name
       value: Title 2
@@ -6401,6 +6409,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Introduction
       objectReference: {fileID: 0}
+    - target: {fileID: 4057673033724991141, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
+      propertyPath: m_text
+      value: Introduction
+      objectReference: {fileID: 0}
     - target: {fileID: 7612590615870247518, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
       propertyPath: m_Name
       value: Title 2
@@ -7919,14 +7931,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6132076, g: 0.44592962, b: 0.33842117, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f458d7e9c9475428ba63163d06fa8a3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11485,6 +11497,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1813437276}
     m_Modifications:
     - target: {fileID: 2926919504865176879, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
+      propertyPath: m_text
+      value: King Arthur
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057673033724991141, guid: 3a22a4f8e15944c07a70d13379f8999b, type: 3}
       propertyPath: m_text
       value: King Arthur
       objectReference: {fileID: 0}
