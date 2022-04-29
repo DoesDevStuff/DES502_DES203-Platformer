@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private float _jumpPadAdjustment = 0f;
     public Vector2 _tempVelocity;
 
+    public Vector2 MoveDirection { get => _moveDirection; }
     #endregion
 
     void Start()
@@ -275,7 +276,7 @@ public class PlayerController : MonoBehaviour
                 _capsuleCollider.size = new Vector2(_capsuleCollider.size.x, _capsuleCollider.size.y / 2);
                 transform.position = new Vector2(transform.position.x, transform.position.y - (_originalColliderSize.y / 4));
                 isDucking = true;
-                _spriteRenderer.sprite = Resources.Load<Sprite>("directionSpriteUp_crouching");
+                _spriteRenderer.sprite = Resources.Load<Sprite>("Untitled_Artwork-2");
             }
 
             _powerJumpTimer += Time.deltaTime;
@@ -292,7 +293,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _capsuleCollider.size = _originalColliderSize;
                     transform.position = new Vector2(transform.position.x, transform.position.y + (_originalColliderSize.y / 4));
-                    _spriteRenderer.sprite = Resources.Load<Sprite>("Player_normal");
+                    _spriteRenderer.sprite = Resources.Load<Sprite>("Untitled_Artwork-1");
                     isDucking = false;
                     isCreeping = false;
                 }
