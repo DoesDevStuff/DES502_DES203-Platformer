@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     public bool isGroundSlamming;
     public bool isSwimming; //if we have separate swim animation here
 
+    public Vector2 MoveDirection { get => _moveDirection; }
     #endregion
 
     #region private properties
@@ -275,7 +276,7 @@ public class PlayerController : MonoBehaviour
                 _capsuleCollider.size = new Vector2(_capsuleCollider.size.x, _capsuleCollider.size.y / 2);
                 transform.position = new Vector2(transform.position.x, transform.position.y - (_originalColliderSize.y / 4));
                 isDucking = true;
-                _spriteRenderer.sprite = Resources.Load<Sprite>("directionSpriteUp_crouching");
+                _spriteRenderer.sprite = Resources.Load<Sprite>("Crouch1");
             }
 
             _powerJumpTimer += Time.deltaTime;
