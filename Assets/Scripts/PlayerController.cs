@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
                 // offsetting the position in a way better for the code handling for animation handling.
                 //essentially manipulates the collider and is definately better but will need scott to help with png stuff 
 
-                _capsuleCollider.offset = new Vector2(2f, -_capsuleCollider.size.y / 2); // NEW But more efficient
+                _capsuleCollider.offset = new Vector2(0f, -_capsuleCollider.size.y / 2); // NEW But more efficient
 
                 /// here we change the size of the capsule the collider, might cause weird transitions from jump to crouch state, works still
                 //transform.position = new Vector2(transform.position.x, transform.position.y - (_originalColliderSize.y / 4));
