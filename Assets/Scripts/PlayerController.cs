@@ -49,8 +49,11 @@ public class PlayerController : MonoBehaviour
     [Header("Wwise Events")]
     public AK.Wwise.Event Walk;
     public AK.Wwise.Event DasH;
-    public AK.Wwise.Event Jumping;
+    public AK.Wwise.Event Jumping1;
+    public AK.Wwise.Event Jumping2;
+    public AK.Wwise.Event Jumping3;
     public AK.Wwise.Event JumpingOnPad;
+   
     
     
    
@@ -171,7 +174,7 @@ public class PlayerController : MonoBehaviour
                 if (!WalkIsPlaying)
                 {
                     Walk.Post(gameObject);
-                    FinalStepTime = Time.time;
+                    FinalStepTime = Time.deltaTime;
                     WalkIsPlaying = true;
 
                 }
@@ -179,7 +182,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (_speed > 1)
                     {
-                        if (Time.time - FinalStepTime > 500 / _speed * Time.deltaTime)
+                        if (Time.deltaTime - FinalStepTime > 500 / _speed * Time.deltaTime)
                         {
                             WalkIsPlaying = false;
                         }
@@ -196,7 +199,7 @@ public class PlayerController : MonoBehaviour
                 if (!WalkIsPlaying)
                 {
                     Walk.Post(gameObject);
-                    FinalStepTime = Time.time;
+                    FinalStepTime = Time.deltaTime;
                     WalkIsPlaying = true;
 
                 }
@@ -204,7 +207,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (_speed > 1)
                     {
-                        if (Time.time - FinalStepTime > 500 / _speed * Time.deltaTime)
+                        if (Time.deltaTime - FinalStepTime > 500 / _speed * Time.deltaTime)
                         {
                             WalkIsPlaying = false;
                         }
@@ -398,7 +401,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 _moveDirection.y = jumpSpeed;
-                Jumping.Post(gameObject);
+                Jumping1.Post(gameObject);
             }
 
             isJumping = true;
@@ -440,6 +443,7 @@ public class PlayerController : MonoBehaviour
             if (_input.y > 0 && _ableToWallRun)
             {
                 _moveDirection.y = wallRunAmount;
+                
 
                 if (_characterController.left)
                 {
@@ -500,7 +504,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isTripleJumping = true;
-                    Jumping.Post(gameObject);
+                    Jumping3.Post(gameObject);
                 }
             }
 
@@ -511,7 +515,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isDoubleJumping = true;
-                    Jumping.Post(gameObject);
+                    Jumping2.Post(gameObject);
                 }
             }
 
@@ -531,12 +535,14 @@ public class PlayerController : MonoBehaviour
                     _moveDirection.x = xWallJumpSpeed;
                     _moveDirection.y = yWallJumpSpeed;
                     transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    Jumping1.Post(gameObject);
                 }
                 else if (_moveDirection.x >= 0 && _characterController.right)
                 {
                     _moveDirection.x = -xWallJumpSpeed;
                     _moveDirection.y = yWallJumpSpeed;
                     transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                    Jumping1.Post(gameObject);
                 }
 
                 //isWallJumping = true;

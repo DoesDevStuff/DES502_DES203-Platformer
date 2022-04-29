@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ea51e76660d0145a3572e9390868ad, type: 3}
+  m_Name: FA0916BF-3EF3-4A37-B979-DAC4925CB4E4
+  m_EditorClassIdentifier: 
+  objectName: Jump3
+  id: 1071740824
+  guid: FA0916BF-3EF3-4A37-B979-DAC4925CB4E4

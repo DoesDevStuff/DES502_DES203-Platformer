@@ -1737,6 +1737,7 @@ GameObject:
   - component: {fileID: 85138570}
   - component: {fileID: 85138569}
   - component: {fileID: 85138568}
+  - component: {fileID: 85138573}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (2)
   m_TagString: Untagged
@@ -1782,6 +1783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &85138570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,6 +1866,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &85138573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85138567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &93592527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,6 +2867,7 @@ GameObject:
   - component: {fileID: 142058838}
   - component: {fileID: 142058835}
   - component: {fileID: 142058836}
+  - component: {fileID: 142058839}
   m_Layer: 6
   m_Name: FallingPlat
   m_TagString: Untagged
@@ -2991,6 +3021,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: 0
+--- !u!114 &142058839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142058832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 95f3cce0a6972c242bc55b3162ed591b, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &142576511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,6 +4610,7 @@ GameObject:
   - component: {fileID: 218701265}
   - component: {fileID: 218701264}
   - component: {fileID: 218701263}
+  - component: {fileID: 218701268}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (11)
   m_TagString: Untagged
@@ -4601,6 +4656,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &218701265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4680,6 +4739,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218701268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218701262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &228331981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,6 +4776,7 @@ GameObject:
   - component: {fileID: 228331984}
   - component: {fileID: 228331983}
   - component: {fileID: 228331982}
+  - component: {fileID: 228331987}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (5)
   m_TagString: Untagged
@@ -4738,6 +4822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &228331984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4817,6 +4905,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228331987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228331981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &232729959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6882,6 +6994,7 @@ GameObject:
   - component: {fileID: 394268068}
   - component: {fileID: 394268067}
   - component: {fileID: 394268066}
+  - component: {fileID: 394268071}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (15)
   m_TagString: Untagged
@@ -6927,6 +7040,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &394268068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7006,6 +7123,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &394268071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394268065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &402765772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7975,6 +8116,7 @@ GameObject:
   - component: {fileID: 467701316}
   - component: {fileID: 467701315}
   - component: {fileID: 467701314}
+  - component: {fileID: 467701319}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (8)
   m_TagString: Untagged
@@ -8020,6 +8162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &467701316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8099,6 +8245,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467701319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467701313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &469239174
 GameObject:
   m_ObjectHideFlags: 0
@@ -8832,6 +9002,7 @@ GameObject:
   - component: {fileID: 525278884}
   - component: {fileID: 525278883}
   - component: {fileID: 525278882}
+  - component: {fileID: 525278887}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (10)
   m_TagString: Untagged
@@ -8877,6 +9048,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &525278884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8956,6 +9131,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &525278887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525278881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &543370738
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,6 +9656,7 @@ GameObject:
   - component: {fileID: 603170874}
   - component: {fileID: 603170873}
   - component: {fileID: 603170872}
+  - component: {fileID: 603170877}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (7)
   m_TagString: Untagged
@@ -9502,6 +9702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &603170874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9581,6 +9785,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603170877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603170871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &604433048
 GameObject:
   m_ObjectHideFlags: 0
@@ -9718,6 +9946,7 @@ GameObject:
   - component: {fileID: 607113795}
   - component: {fileID: 607113794}
   - component: {fileID: 607113796}
+  - component: {fileID: 607113799}
   m_Layer: 6
   m_Name: Spikes 2 Cropped
   m_TagString: Untagged
@@ -9737,6 +9966,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &607113795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9842,6 +10075,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607113799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607113793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &610149207
 GameObject:
   m_ObjectHideFlags: 0
@@ -9938,6 +10195,7 @@ GameObject:
   - component: {fileID: 616995752}
   - component: {fileID: 616995751}
   - component: {fileID: 616995750}
+  - component: {fileID: 616995755}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (6)
   m_TagString: Untagged
@@ -9983,6 +10241,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &616995752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10062,6 +10324,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &616995755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616995749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &622936275
 GameObject:
   m_ObjectHideFlags: 0
@@ -12174,6 +12460,7 @@ GameObject:
   - component: {fileID: 788667435}
   - component: {fileID: 788667434}
   - component: {fileID: 788667433}
+  - component: {fileID: 788667438}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (1)
   m_TagString: Untagged
@@ -12219,6 +12506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &788667435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12298,6 +12589,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788667438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788667432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &798638061
 GameObject:
   m_ObjectHideFlags: 0
@@ -12865,6 +13180,7 @@ GameObject:
   - component: {fileID: 832155907}
   - component: {fileID: 832155906}
   - component: {fileID: 832155905}
+  - component: {fileID: 832155910}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (11)
   m_TagString: Untagged
@@ -12910,6 +13226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &832155907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12989,6 +13309,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832155910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832155904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &836038025
 GameObject:
   m_ObjectHideFlags: 0
@@ -14222,6 +14566,7 @@ GameObject:
   - component: {fileID: 894136314}
   - component: {fileID: 894136313}
   - component: {fileID: 894136312}
+  - component: {fileID: 894136317}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (5)
   m_TagString: Untagged
@@ -14267,6 +14612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &894136314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14346,6 +14695,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &894136317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894136311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &896748129
 GameObject:
   m_ObjectHideFlags: 0
@@ -14389,6 +14762,7 @@ GameObject:
   - component: {fileID: 898692895}
   - component: {fileID: 898692894}
   - component: {fileID: 898692893}
+  - component: {fileID: 898692898}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (8)
   m_TagString: Untagged
@@ -14434,6 +14808,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &898692895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14513,6 +14891,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &898692898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898692892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &910666157
 GameObject:
   m_ObjectHideFlags: 0
@@ -15561,6 +15963,8 @@ GameObject:
   - component: {fileID: 968554563}
   - component: {fileID: 968554567}
   - component: {fileID: 968554565}
+  - component: {fileID: 968554569}
+  - component: {fileID: 968554568}
   - component: {fileID: 968554566}
   m_Layer: 3
   m_Name: Player
@@ -15622,10 +16026,18 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 700e9b1daefdb44478604661053a10fe, type: 2}
-  Jumping:
+  Jumping1:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 90b6fcb628fd93e429e7714d3673d52a, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: f7e8d9222f0000448b72c7c83414d8b8, type: 2}
+  Jumping2:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: e7a10f2b317fb094abc7c9f7f9bd8774, type: 2}
+  Jumping3:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 8f4c6fd397f969a4aa066a30d0b40972, type: 2}
   JumpingOnPad:
     idInternal: 0
     valueGuidInternal: 
@@ -15955,7 +16367,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0169028324982d6468fa2f926344de23, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 31cc002990c6e804e914aa3fbc51d1fe, type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
@@ -15980,6 +16392,54 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 756fb3c23b5aa1c4984c4bd98fe55dc7, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &968554568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968554557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 089ab3ee72f9ca54782248bc13e7fe6a, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &968554569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968554557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c8d84b1223568ff44a21ed7ebf0557a1, type: 2}
   decodeBank: 0
   loadAsynchronous: 0
   saveDecodedBank: 0
@@ -16704,6 +17164,7 @@ GameObject:
   - component: {fileID: 1016407480}
   - component: {fileID: 1016407479}
   - component: {fileID: 1016407478}
+  - component: {fileID: 1016407483}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (13)
   m_TagString: Untagged
@@ -16749,6 +17210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1016407480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16828,6 +17293,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016407483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016407477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1027391806
 GameObject:
   m_ObjectHideFlags: 0
@@ -19925,6 +20414,7 @@ GameObject:
   - component: {fileID: 1320202671}
   - component: {fileID: 1320202670}
   - component: {fileID: 1320202669}
+  - component: {fileID: 1320202674}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (3)
   m_TagString: Untagged
@@ -19970,6 +20460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1320202671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20049,6 +20543,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1320202674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320202668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1001 &1326969730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20685,6 +21203,7 @@ GameObject:
   - component: {fileID: 1394976352}
   - component: {fileID: 1394976351}
   - component: {fileID: 1394976350}
+  - component: {fileID: 1394976355}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (2)
   m_TagString: Untagged
@@ -20730,6 +21249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1394976352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20809,6 +21332,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394976355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394976349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1399228044
 GameObject:
   m_ObjectHideFlags: 0
@@ -20822,6 +21369,7 @@ GameObject:
   - component: {fileID: 1399228047}
   - component: {fileID: 1399228046}
   - component: {fileID: 1399228045}
+  - component: {fileID: 1399228050}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (9)
   m_TagString: Untagged
@@ -20867,6 +21415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1399228047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20946,6 +21498,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1399228050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399228044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1415563964
 GameObject:
   m_ObjectHideFlags: 0
@@ -21800,6 +22376,7 @@ GameObject:
   - component: {fileID: 1485281973}
   - component: {fileID: 1485281972}
   - component: {fileID: 1485281971}
+  - component: {fileID: 1485281976}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (4)
   m_TagString: Untagged
@@ -21845,6 +22422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1485281973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21924,6 +22505,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485281976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485281970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1488266239
 GameObject:
   m_ObjectHideFlags: 0
@@ -22621,7 +23226,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.5245641, y: 1}
+    m_SensorSize: {x: 1.7892234, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -23189,6 +23794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!61 &1572170605
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24354,6 +24963,7 @@ GameObject:
   - component: {fileID: 1667444671}
   - component: {fileID: 1667444670}
   - component: {fileID: 1667444669}
+  - component: {fileID: 1667444674}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (10)
   m_TagString: Untagged
@@ -24399,6 +25009,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1667444671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24478,6 +25092,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667444674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667444668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1671319262
 GameObject:
   m_ObjectHideFlags: 0
@@ -24615,6 +25253,7 @@ GameObject:
   - component: {fileID: 1681185866}
   - component: {fileID: 1681185865}
   - component: {fileID: 1681185864}
+  - component: {fileID: 1681185869}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (16)
   m_TagString: Untagged
@@ -24660,6 +25299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1681185866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24739,6 +25382,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681185869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681185863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1689911873
 GameObject:
   m_ObjectHideFlags: 0
@@ -25143,6 +25810,7 @@ GameObject:
   - component: {fileID: 1734545114}
   - component: {fileID: 1734545113}
   - component: {fileID: 1734545112}
+  - component: {fileID: 1734545117}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (12)
   m_TagString: Untagged
@@ -25188,6 +25856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1734545114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25267,6 +25939,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734545117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734545111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1739848219
 GameObject:
   m_ObjectHideFlags: 0
@@ -26059,6 +26755,7 @@ GameObject:
   - component: {fileID: 1778199896}
   - component: {fileID: 1778199895}
   - component: {fileID: 1778199894}
+  - component: {fileID: 1778199899}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (7)
   m_TagString: Untagged
@@ -26104,6 +26801,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1778199896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26183,6 +26884,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1778199899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778199893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1818939827
 GameObject:
   m_ObjectHideFlags: 0
@@ -26350,6 +27075,7 @@ GameObject:
   - component: {fileID: 1829419449}
   - component: {fileID: 1829419448}
   - component: {fileID: 1829419447}
+  - component: {fileID: 1829419452}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (9)
   m_TagString: Untagged
@@ -26395,6 +27121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1829419449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26474,6 +27204,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829419452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829419446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1834612682
 GameObject:
   m_ObjectHideFlags: 0
@@ -26641,6 +27395,7 @@ GameObject:
   - component: {fileID: 1846338632}
   - component: {fileID: 1846338631}
   - component: {fileID: 1846338630}
+  - component: {fileID: 1846338635}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (6)
   m_TagString: Untagged
@@ -26686,6 +27441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1846338632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26765,6 +27524,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1846338635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846338629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1849613167
 GameObject:
   m_ObjectHideFlags: 0
@@ -26778,6 +27561,7 @@ GameObject:
   - component: {fileID: 1849613170}
   - component: {fileID: 1849613169}
   - component: {fileID: 1849613168}
+  - component: {fileID: 1849613173}
   m_Layer: 6
   m_Name: Spikes 2 Cropped (4)
   m_TagString: Untagged
@@ -26823,6 +27607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1849613170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26902,6 +27690,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849613173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849613167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1851693750
 GameObject:
   m_ObjectHideFlags: 0
@@ -26915,6 +27727,7 @@ GameObject:
   - component: {fileID: 1851693753}
   - component: {fileID: 1851693752}
   - component: {fileID: 1851693751}
+  - component: {fileID: 1851693756}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (1)
   m_TagString: Untagged
@@ -26960,6 +27773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1851693753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27039,6 +27856,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851693756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851693750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1879611055
 GameObject:
   m_ObjectHideFlags: 0
@@ -27982,6 +28823,7 @@ GameObject:
   - component: {fileID: 1936688436}
   - component: {fileID: 1936688435}
   - component: {fileID: 1936688437}
+  - component: {fileID: 1936688440}
   m_Layer: 6
   m_Name: Spikes 1 Cropped
   m_TagString: Untagged
@@ -28001,6 +28843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &1936688436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28106,6 +28952,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936688440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936688434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1939321496
 GameObject:
   m_ObjectHideFlags: 0
@@ -28991,6 +29861,7 @@ GameObject:
   - component: {fileID: 2013028936}
   - component: {fileID: 2013028935}
   - component: {fileID: 2013028934}
+  - component: {fileID: 2013028939}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (3)
   m_TagString: Untagged
@@ -29036,6 +29907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &2013028936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29115,6 +29990,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013028939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013028933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &2014793062
 GameObject:
   m_ObjectHideFlags: 0
@@ -30224,6 +31123,7 @@ GameObject:
   - component: {fileID: 2086829854}
   - component: {fileID: 2086829853}
   - component: {fileID: 2086829852}
+  - component: {fileID: 2086829857}
   m_Layer: 6
   m_Name: Spikes 1 Cropped (14)
   m_TagString: Untagged
@@ -30269,6 +31169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9119b4fc0b28240abbc401b382e9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Death_Player:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 57529a71c54436c4cafe44f62032003a, type: 2}
 --- !u!114 &2086829854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30348,6 +31252,30 @@ Transform:
   m_Father: {fileID: 961883618}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2086829857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086829851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb97b43225c7e4f8b15da9a6549172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c3df35b9d8c9f4dae98b6f79504a45, type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &2089232162
 GameObject:
   m_ObjectHideFlags: 0

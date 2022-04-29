@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID BOSS_ATTACK_2 = 2107543590U;
         static const AkUniqueID COLLECTING = 2908999423U;
         static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID DEATH_PLAYER = 3787035475U;
         static const AkUniqueID EERIE_SOUND = 101911589U;
         static const AkUniqueID FG_1 = 2227562272U;
         static const AkUniqueID FLARE_EXPLOSION = 1207279315U;
@@ -27,6 +28,9 @@ namespace AK
         static const AkUniqueID HEARTBEAT = 2179486487U;
         static const AkUniqueID HIT_SOUND = 3867410532U;
         static const AkUniqueID JUMP = 3833651337U;
+        static const AkUniqueID JUMP1 = 1071740826U;
+        static const AkUniqueID JUMP2 = 1071740825U;
+        static const AkUniqueID JUMP3 = 1071740824U;
         static const AkUniqueID JUMP_1 = 2213532973U;
         static const AkUniqueID MENU_SOUND = 1645260788U;
         static const AkUniqueID MENU_SOUND_ESC = 899159622U;
@@ -70,6 +74,7 @@ namespace AK
         static const AkUniqueID BOSS_ATTACK_2 = 2107543590U;
         static const AkUniqueID COLLECTING = 2908999423U;
         static const AkUniqueID DASH = 1942692385U;
+        static const AkUniqueID DEATH_PLAYER = 3787035475U;
         static const AkUniqueID EERIE_SOUND = 101911589U;
         static const AkUniqueID FG_1 = 2227562272U;
         static const AkUniqueID FLARE_EXPLOSION = 1207279315U;
@@ -77,6 +82,9 @@ namespace AK
         static const AkUniqueID HEARTBEAT = 2179486487U;
         static const AkUniqueID HIT_SOUND = 3867410532U;
         static const AkUniqueID JUMP = 3833651337U;
+        static const AkUniqueID JUMP1 = 1071740826U;
+        static const AkUniqueID JUMP2 = 1071740825U;
+        static const AkUniqueID JUMP3 = 1071740824U;
         static const AkUniqueID JUMP_1 = 2213532973U;
         static const AkUniqueID MENU_SOUND = 1645260788U;
         static const AkUniqueID MENU_SOUND_ESC = 899159622U;

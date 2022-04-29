@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1071740825	Jump2			\Default Work Unit\Jump2	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	442996516	Jump2	C:\Users\Mopeydrop\Documents\GitHub\DES502_DES203-Platformer\DES502_DES203-Platformer_WwiseProject\.cache\Mac\SFX\Jump2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump2		62944
+

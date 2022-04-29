@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
+    [Header("Wwise Events")]
+    public AK.Wwise.Event Death_Player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,7 @@ public class KillPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Death_Player.Post(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

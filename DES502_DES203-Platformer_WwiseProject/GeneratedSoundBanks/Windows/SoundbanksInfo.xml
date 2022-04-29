@@ -71,6 +71,51 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
+		<SoundBank Id="1071740824" Language="SFX" Hash="302430762">
+			<ObjectPath>\SoundBanks\Default Work Unit\Jump3</ObjectPath>
+			<ShortName>Jump3</ShortName>
+			<Path>Jump3.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1071740824" Name="Jump3" ObjectPath="\Events\Default Work Unit\Jump3" DurationType="OneShot" DurationMin="0.712925" DurationMax="0.712925">
+					<IncludedMemoryFiles>
+						<File Id="196045048" Language="SFX">
+							<ShortName>Jump3.wav</ShortName>
+							<Path>SFX\Jump3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1071740825" Language="SFX" Hash="2475055379">
+			<ObjectPath>\SoundBanks\Default Work Unit\Jump2</ObjectPath>
+			<ShortName>Jump2</ShortName>
+			<Path>Jump2.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1071740825" Name="Jump2" ObjectPath="\Events\Default Work Unit\Jump2" DurationType="OneShot" DurationMin="0.712925" DurationMax="0.712925">
+					<IncludedMemoryFiles>
+						<File Id="442996516" Language="SFX">
+							<ShortName>Jump2.wav</ShortName>
+							<Path>SFX\Jump2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="1071740826" Language="SFX" Hash="4241604126">
+			<ObjectPath>\SoundBanks\Default Work Unit\Jump1</ObjectPath>
+			<ShortName>Jump1</ShortName>
+			<Path>Jump1.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1071740826" Name="Jump1" ObjectPath="\Events\Default Work Unit\Jump1" DurationType="OneShot" DurationMin="0.712925" DurationMax="0.712925">
+					<IncludedMemoryFiles>
+						<File Id="981465896" Language="SFX">
+							<ShortName>Jump1.wav</ShortName>
+							<Path>SFX\Jump1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
 		<SoundBank Id="1207279315" Language="SFX" Hash="3472679162">
 			<ObjectPath>\SoundBanks\Default Work Unit\Flare_Explosion</ObjectPath>
 			<ShortName>Flare_Explosion</ShortName>
@@ -357,7 +402,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3258480416" Language="SFX" Hash="765248086">
+		<SoundBank Id="3258480416" Language="SFX" Hash="2140713120">
 			<ObjectPath>\SoundBanks\Default Work Unit\Powering_Up</ObjectPath>
 			<ShortName>Powering_Up</ShortName>
 			<Path>Powering_Up.bnk</Path>
@@ -382,6 +427,21 @@
 						<File Id="429939240" Language="SFX">
 							<ShortName>Wind_Sound.wav</ShortName>
 							<Path>SFX\Wind_Sound_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+		<SoundBank Id="3787035475" Language="SFX" Hash="590161631">
+			<ObjectPath>\SoundBanks\Default Work Unit\Death_Player</ObjectPath>
+			<ShortName>Death_Player</ShortName>
+			<Path>Death_Player.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3787035475" Name="Death_Player" ObjectPath="\Events\Default Work Unit\Death_Player" DurationType="OneShot" DurationMin="1.657596" DurationMax="1.657596">
+					<IncludedMemoryFiles>
+						<File Id="851600368" Language="SFX">
+							<ShortName>Death_Player.wav</ShortName>
+							<Path>SFX\Death_Player_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
