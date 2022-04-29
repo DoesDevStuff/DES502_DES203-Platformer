@@ -234,11 +234,27 @@ public class AntiGravAbility : MonoBehaviour
     #region Calculations
     void HeightDetection()
     {
-        RaycastHit2D groundCastResults = Physics2D.BoxCast(transform.position, heightDetectorBoxSize, 0, Vector2.down, float.MaxValue, groundMask);
+        RaycastHit2D groundCastBox = Physics2D.BoxCast(transform.position, heightDetectorBoxSize, 0, Vector2.down, float.MaxValue, groundMask);
 
-        if (groundCastResults.collider != null)
+        if (groundCastBox.collider != null)
         {
-            currentHeight = Mathf.Abs(transform.position.y - groundCastResults.point.y);
+            if (groundCastBox.normal == Vector2.left || groundCastBox.normal == Vector2.right)
+            {
+                RaycastHit2D groundCastRay = Physics2D.Raycast(transform.position, Vector2.down, float.MaxValue, groundMask);
+                if (groundCastRay.collider == null)
+                {
+                    currentHeight = float.MaxValue;
+                }
+                else
+                {
+                    currentHeight = Mathf.Abs(transform.position.y - groundCastRay.point.y);
+                }
+            }
+            else
+            {
+                currentHeight = Mathf.Abs(transform.position.y - groundCastBox.point.y);
+            }
+
         }
         else
         {

@@ -30,7 +30,10 @@ public class ActivateAntiGravAbility : MonoBehaviour
 
                 foreach(GameObject suspendedObject in suspendedObjects)
                 {
-                    suspendedObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                    Rigidbody2D suspendedBody = suspendedObject.GetComponent<Rigidbody2D>();
+                    suspendedBody.bodyType = RigidbodyType2D.Dynamic;
+                    suspendedBody.mass = 90000;
+                    suspendedBody.gravityScale = 2;
                 }
 
                 Destroy(gameObject);
