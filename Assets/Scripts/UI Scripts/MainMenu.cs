@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject lucy;
     public GameObject oldMan;
     public GameObject kingArthur;
+    public GameObject credits;
     
 
     void Start()
@@ -73,7 +74,7 @@ public class MainMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Opens canvas for old man
+    /// Opens canvas for King Arthur
     /// </summary>
     public void OpenKingArthur()
     {
@@ -84,6 +85,21 @@ public class MainMenu : MonoBehaviour
     public void CloseKingArthur()
     {
         kingArthur.SetActive(false);
+
+    }
+
+    /// <summary>
+    /// Opens canvas for Credits
+    /// </summary>
+    public void OpenCredits()
+    {
+
+        credits.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        credits.SetActive(false);
 
     }
 
