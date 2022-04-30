@@ -7,9 +7,9 @@ public class WalljumpTrigger : MonoBehaviour
    
     void Start()
     {
-        GameObject Player;
+       // GameObject Player;
 
-        Player.GetComponent<PlayerController>;
+        //Player.GetComponent<PlayerController>;
 
     }
 
@@ -19,7 +19,7 @@ public class WalljumpTrigger : MonoBehaviour
         
     }*/
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.CompareTag("Player"))
@@ -27,4 +27,5 @@ public class WalljumpTrigger : MonoBehaviour
            PlayerController.canWallJump = true;
         }
     }
+    */
 }
