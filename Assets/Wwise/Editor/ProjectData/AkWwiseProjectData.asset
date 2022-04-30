@@ -80,7 +80,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e4a07992987b8949a59c1527b55f40de
     GuidInternal: 
-    m_lastTime: -8585504522234353215
+    m_lastTime: -8585503640200435154
     List:
     - name: Amb_2
       guid: bf8c287163c50646922347e57d2e3abc
@@ -180,6 +180,20 @@ MonoBehaviour:
         ObjectType: 7
         guid: f34a7489329f2944a4f9af3bbf5248b5
       Path: SoundBanks\Default Work Unit\Dash
+    - name: Death_Player
+      guid: 0f7b945ef453144ebf5927b39b8988b1
+      id: 3787035475
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e4a07992987b8949a59c1527b55f40de
+      - ElementName: Death_Player
+        ObjectType: 7
+        guid: 0f7b945ef453144ebf5927b39b8988b1
+      Path: SoundBanks\Default Work Unit\Death_Player
     - name: Eerie_Sound
       guid: dc1a2dea96b6e549b8ab8e7ae8dc3e65
       id: 101911589
@@ -292,6 +306,48 @@ MonoBehaviour:
         ObjectType: 7
         guid: 4fd0d694ac39c046bf0be4d367a7fd74
       Path: SoundBanks\Default Work Unit\Jump_1
+    - name: Jump1
+      guid: 6ff88b0d524fb249b6e75dc33e097d27
+      id: 1071740826
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e4a07992987b8949a59c1527b55f40de
+      - ElementName: Jump1
+        ObjectType: 7
+        guid: 6ff88b0d524fb249b6e75dc33e097d27
+      Path: SoundBanks\Default Work Unit\Jump1
+    - name: Jump2
+      guid: 52f7e4490f2c274a8e9ea2d9f2d4ded3
+      id: 1071740825
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e4a07992987b8949a59c1527b55f40de
+      - ElementName: Jump2
+        ObjectType: 7
+        guid: 52f7e4490f2c274a8e9ea2d9f2d4ded3
+      Path: SoundBanks\Default Work Unit\Jump2
+    - name: Jump3
+      guid: bf1609faf33e374ab979dac4925cb4e4
+      id: 1071740824
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: e4a07992987b8949a59c1527b55f40de
+      - ElementName: Jump3
+        ObjectType: 7
+        guid: bf1609faf33e374ab979dac4925cb4e4
+      Path: SoundBanks\Default Work Unit\Jump3
     - name: Menu_Sound
       guid: 19389bc114b18149841dda20a7c3f93c
       id: 1645260788
@@ -486,7 +542,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: ad458c387fc41349a1342956fffcf125
     GuidInternal: 
-    m_lastTime: -8585504522232812767
+    m_lastTime: -8585503640200545175
     List:
     - name: Amb_2
       guid: ed3546708a6fe148b698e05bcae087c4
@@ -607,6 +663,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.401791
       minDuration: 0.401791
+    - name: Death_Player
+      guid: c10bc49f4109714389d946a74bbdcce0
+      id: 3787035475
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ad458c387fc41349a1342956fffcf125
+      - ElementName: Death_Player
+        ObjectType: 3
+        guid: c10bc49f4109714389d946a74bbdcce0
+      Path: Events\Default Work Unit\Death_Player
+      maxAttenuation: 0
+      maxDuration: 1.657596
+      minDuration: 1.657596
     - name: Eerie_Sound
       guid: dfb40aec33a3524ab6d8a797603f9717
       id: 101911589
@@ -743,6 +816,57 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.181587
       minDuration: 2.181587
+    - name: Jump1
+      guid: 94cdfc757bc52548841ed4e2ccadc248
+      id: 1071740826
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ad458c387fc41349a1342956fffcf125
+      - ElementName: Jump1
+        ObjectType: 3
+        guid: 94cdfc757bc52548841ed4e2ccadc248
+      Path: Events\Default Work Unit\Jump1
+      maxAttenuation: 0
+      maxDuration: 0.712925
+      minDuration: 0.712925
+    - name: Jump2
+      guid: d49557d6337e2d43b83f32358bb5cdf8
+      id: 1071740825
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ad458c387fc41349a1342956fffcf125
+      - ElementName: Jump2
+        ObjectType: 3
+        guid: d49557d6337e2d43b83f32358bb5cdf8
+      Path: Events\Default Work Unit\Jump2
+      maxAttenuation: 0
+      maxDuration: 0.712925
+      minDuration: 0.712925
+    - name: Jump3
+      guid: 442851491d9ae6489dbabc9c505459a1
+      id: 1071740824
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ad458c387fc41349a1342956fffcf125
+      - ElementName: Jump3
+        ObjectType: 3
+        guid: 442851491d9ae6489dbabc9c505459a1
+      Path: Events\Default Work Unit\Jump3
+      maxAttenuation: 0
+      maxDuration: 0.712925
+      minDuration: 0.712925
     - name: Menu_Sound
       guid: 8114f001336d96499064e1033ac97415
       id: 1645260788
@@ -897,8 +1021,8 @@ MonoBehaviour:
         guid: 29af773c2d32b44ea4c2e8c625f318fd
       Path: Events\Default Work Unit\Powering_Up
       maxAttenuation: 0
-      maxDuration: 1.571383
-      minDuration: 1.571383
+      maxDuration: 1.360544
+      minDuration: 1.360544
     - name: Shot_Fired
       guid: 73a52a9f25c09d4698ff25d771a64541
       id: 3799599040
@@ -1123,7 +1247,7 @@ MonoBehaviour:
     m_lastTime: -8585540820569854351
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 010000000600000007000000080000000f000000100000001d0000002000000027000000290000002b0000002c000000
+  ExpandedWaapiItemIds: 010000000600000007000000080000000f000000100000001d0000002000000027000000290000002b0000002c0000002d0000004e0000004f0000005b000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

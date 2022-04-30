@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
                             WalkIsPlaying = false;
                         }
                     }
-                    
+
                 }
             }
 

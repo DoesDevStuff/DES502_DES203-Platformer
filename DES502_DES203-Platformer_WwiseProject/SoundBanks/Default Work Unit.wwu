@@ -199,6 +199,34 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
+				<SoundBank Name="Jump1" ID="{0D8BF86F-4F52-49B2-B6E7-5DC33E097D27}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump1" ID="{75FCCD94-C57B-4825-841E-D4E2CCADC248}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Jump2" ID="{49E4F752-2C0F-4A27-8E9E-A2D9F2D4DED3}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump2" ID="{D65795D4-7E33-432D-B83F-32358BB5CDF8}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Jump3" ID="{FA0916BF-3EF3-4A37-B979-DAC4925CB4E4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump3" ID="{49512844-9A1D-48E6-9DBA-BC9C505459A1}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Death_Player" ID="{5E947B0F-53F4-4E14-BF59-27B39B8988B1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Death_Player" ID="{9FC40BC1-0941-4371-89D9-46A74BBDCCE0}" WorkUnitID="{388C45AD-C47F-4913-A134-2956FFFCF125}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>

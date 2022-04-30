@@ -241,7 +241,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2108779966" Language="SFX" Hash="3630825913">
+		<SoundBank Id="2108779966" Language="SFX" Hash="1332682264">
 			<ObjectPath>\SoundBanks\Default Work Unit\Walk</ObjectPath>
 			<ShortName>Walk</ShortName>
 			<Path>Walk.bnk</Path>
@@ -346,7 +346,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="2996874622" Language="SFX" Hash="2570286953">
+		<SoundBank Id="2996874622" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\Music_SB</ObjectPath>
 			<ShortName>Music_SB</ShortName>
 			<Path>Music_SB.bnk</Path>
@@ -402,12 +402,12 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3258480416" Language="SFX" Hash="2140713120">
+		<SoundBank Id="3258480416" Language="SFX" Hash="2227190499">
 			<ObjectPath>\SoundBanks\Default Work Unit\Powering_Up</ObjectPath>
 			<ShortName>Powering_Up</ShortName>
 			<Path>Powering_Up.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3258480416" Name="Powering_Up" ObjectPath="\Events\Default Work Unit\Powering_Up" DurationType="OneShot" DurationMin="1.571383" DurationMax="1.571383">
+				<Event Id="3258480416" Name="Powering_Up" ObjectPath="\Events\Default Work Unit\Powering_Up" DurationType="OneShot" DurationMin="1.360544" DurationMax="1.360544">
 					<IncludedMemoryFiles>
 						<File Id="847540047" Language="SFX">
 							<ShortName>Powering_Up.wav</ShortName>

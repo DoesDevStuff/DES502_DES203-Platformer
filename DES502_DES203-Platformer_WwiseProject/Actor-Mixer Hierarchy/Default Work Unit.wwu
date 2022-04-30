@@ -49,29 +49,6 @@
 						<ActiveSource Name="Flare_shot" ID="{F91AF756-28BB-4631-B9A0-501D78331404}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="Walking_2" ID="{396361D1-8CBC-4E4F-993E-528B5C886BF0}" ShortID="225007739">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Walking_2" ID="{2F790C4C-F955-4D3C-908A-D7273B8AE767}">
-							<Language>SFX</Language>
-							<AudioFile>Walking.2.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="776660199"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ObjectLists/>
-					<ActiveSourceList>
-						<ActiveSource Name="Walking_2" ID="{2F790C4C-F955-4D3C-908A-D7273B8AE767}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="Bat_Ambient" ID="{BF840BAC-11D6-4ABC-8FD7-E7EC9678469A}" ShortID="204560596">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -560,7 +537,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-10</Value>
+								<Value>-8</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -699,6 +676,154 @@
 					<ObjectLists/>
 					<ActiveSourceList>
 						<ActiveSource Name="Menu_Sound_ESC" ID="{3A30B479-17A6-4EB7-B1BB-0B3D68BD45C4}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Jump1" ID="{7ABADEF1-E289-4836-BD61-90E51F1F2D85}" ShortID="670765739">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Jump1" ID="{62B71CD6-6E85-45B6-8A8A-41E3EAB55A06}">
+							<Language>SFX</Language>
+							<AudioFile>Jump1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="981465896"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Jump1" ID="{62B71CD6-6E85-45B6-8A8A-41E3EAB55A06}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Jump2" ID="{4B0056E4-E1D4-4DE8-B1CD-7BEC4D3522FE}" ShortID="661593653">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Jump2" ID="{F3E92379-9CEF-4539-8F23-1B697B3A8DAB}">
+							<Language>SFX</Language>
+							<AudioFile>Jump2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="442996516"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Jump2" ID="{F3E92379-9CEF-4539-8F23-1B697B3A8DAB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Jump3" ID="{C3C4F0C8-16F3-4ED4-8905-CE5E15B09FAE}" ShortID="562302232">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Jump3" ID="{1AC86006-E732-472F-85D3-6CC177089C35}">
+							<Language>SFX</Language>
+							<AudioFile>Jump3.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="196045048"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Jump3" ID="{1AC86006-E732-472F-85D3-6CC177089C35}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Death_Player" ID="{4DEA30E1-42F4-403F-8DC8-D1FC7D86830F}" ShortID="589354177">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Death_Player" ID="{FCE2687C-8193-4AB8-81BF-B3323F83E4BD}">
+							<Language>SFX</Language>
+							<AudioFile>Death_Player.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="851600368"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Death_Player" ID="{FCE2687C-8193-4AB8-81BF-B3323F83E4BD}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Walking_2" ID="{396361D1-8CBC-4E4F-993E-528B5C886BF0}" ShortID="225007739">
+					<PropertyList>
+						<Property Name="3DPosition" Type="int16" Value="1"/>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3516A6D1-2659-4A0C-822B-9F3E67AEB8FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{292F5D08-AF86-4F54-AB51-6071EDF00C5D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Walking_2" ID="{2F790C4C-F955-4D3C-908A-D7273B8AE767}">
+							<Language>SFX</Language>
+							<AudioFile>Walking.2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="776660199"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<PositioningInfo>
+						<Position Name="" ID="{96B9063B-BBE1-4200-B902-4C55993988E4}">
+							<PropertyList>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+							</PropertyList>
+							<ChildrenList>
+								<Path2D Name="Left Step" ID="{511109D2-0513-4B10-940A-158381609C78}">
+									<PointList>
+										<Point>
+											<XPos>-11</XPos>
+											<YPos>50</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+								<Path2D Name="Right Step" ID="{56744E40-6A0E-495B-884D-426B02CEDFE9}">
+									<PointList>
+										<Point>
+											<XPos>11</XPos>
+											<YPos>50</YPos>
+											<Flags>12</Flags>
+											<Time>0</Time>
+										</Point>
+									</PointList>
+								</Path2D>
+							</ChildrenList>
+						</Position>
+					</PositioningInfo>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Walking_2" ID="{2F790C4C-F955-4D3C-908A-D7273B8AE767}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

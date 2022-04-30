@@ -315,6 +315,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Jump1" ID="{75FCCD94-C57B-4825-841E-D4E2CCADC248}">
+					<ChildrenList>
+						<Action Name="" ID="{7E175C9E-C84A-4455-9D0A-BC40169CAC11}" ShortID="1004701407">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jump1" ID="{7ABADEF1-E289-4836-BD61-90E51F1F2D85}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Jump2" ID="{D65795D4-7E33-432D-B83F-32358BB5CDF8}">
+					<ChildrenList>
+						<Action Name="" ID="{253FB675-53DF-4585-899E-D53B92A209A2}" ShortID="453075403">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jump2" ID="{4B0056E4-E1D4-4DE8-B1CD-7BEC4D3522FE}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Jump3" ID="{49512844-9A1D-48E6-9DBA-BC9C505459A1}">
+					<ChildrenList>
+						<Action Name="" ID="{BF909D6A-97F8-4960-99FE-75787216ADAC}" ShortID="357585445">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jump3" ID="{C3C4F0C8-16F3-4ED4-8905-CE5E15B09FAE}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Death_Player" ID="{9FC40BC1-0941-4371-89D9-46A74BBDCCE0}">
+					<ChildrenList>
+						<Action Name="" ID="{843924EA-C287-42F6-BF45-3981B486147F}" ShortID="270296784">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Death_Player" ID="{4DEA30E1-42F4-403F-8DC8-D1FC7D86830F}" WorkUnitID="{4D5B96D2-FBA9-4083-9ED6-A06557534594}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
