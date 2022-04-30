@@ -14,7 +14,7 @@ TagManager:
   - UI
   - LevelGeometry
   - Non Interactable Physics
-  - 
+  - Sliding
   - 
   - 
   - 
@@ -39,6 +39,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Very distant
+    uniqueID: 2046477593
+    locked: 0
+  - name: Parralax2
+    uniqueID: 4175523787
+    locked: 0
+  - name: Parralax1
+    uniqueID: 689393089
+    locked: 0
   - name: BackgroundDistant
     uniqueID: 3193886589
     locked: 0
@@ -50,6 +59,9 @@ TagManager:
     locked: 0
   - name: BackgroundImmediate
     uniqueID: 3662957303
+    locked: 0
+  - name: DebugBehind
+    uniqueID: 667798575
     locked: 0
   - name: Default
     uniqueID: 0
