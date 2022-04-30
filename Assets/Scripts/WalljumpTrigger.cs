@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class WalljumpTrigger : MonoBehaviour
 {
-    //PlayerController;
-
-    // Start is called before the first frame update
+   
     void Start()
     {
-        
+        GameObject Player;
+
+        Player.GetComponent<PlayerController>;
+
     }
 
-    // Update is called once per frame
+    /* Update is called once per frame
     void Update()
     {
         
-    }
+    }*/
 
-   /* void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("Player"))
         {
-            PlayerController.canWallJump = true;
+           PlayerController.canWallJump = true;
         }
     }
-   */
 }
