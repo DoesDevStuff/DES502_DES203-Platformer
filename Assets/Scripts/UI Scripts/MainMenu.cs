@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject oldMan;
     public GameObject kingArthur;
     public GameObject credits;
+    public GameObject controlsPage;
     
 
     void Start()
@@ -100,6 +101,21 @@ public class MainMenu : MonoBehaviour
     public void CloseCredits()
     {
         credits.SetActive(false);
+
+    }
+
+    /// <summary>
+    /// Opens canvas for Controls Menu
+    /// </summary>
+    public void OpenControls()
+    {
+
+        controlsPage.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsPage.SetActive(false);
 
     }
 

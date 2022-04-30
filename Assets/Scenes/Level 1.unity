@@ -16003,10 +16003,10 @@ MonoBehaviour:
   canGlide: 0
   canGlideAfterWallContact: 0
   canPowerJump: 0
-  canGroundDash: 0
+  canGroundDash: 1
   canAirDash: 0
   canGroundSlam: 0
-  canSwim: 0
+  canSwim: 1
   isJumping: 0
   isDoubleJumping: 0
   isTripleJumping: 0
