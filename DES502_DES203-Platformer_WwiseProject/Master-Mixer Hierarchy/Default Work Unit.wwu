@@ -11,6 +11,14 @@
 					</ReferenceList>
 					<ObjectLists/>
 				</Bus>
+				<Bus Name="Music" ID="{DC532299-CEBC-489C-BEF9-1E14514011FE}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{B90EAA81-8E7F-4703-801A-2B5826895198}" WorkUnitID="{79B83AC9-BA1E-4EAB-AF52-0F8D47169BB0}"/>
+						</Reference>
+					</ReferenceList>
+					<ObjectLists/>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>
