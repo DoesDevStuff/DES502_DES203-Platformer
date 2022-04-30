@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public string mainMenuScene;
     public GameObject pauseMenu;
+    public GameObject controlsPage;
     public bool isPaused;
 
     // Start is called before the first frame update
@@ -45,6 +46,19 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f; // set timescale back to 1 or normal
         SceneManager.LoadScene(mainMenuScene);
+    }
+
+
+    public void OpenControls()
+    {
+
+        controlsPage.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        controlsPage.SetActive(false);
+
     }
 
     public void ExitGame()
