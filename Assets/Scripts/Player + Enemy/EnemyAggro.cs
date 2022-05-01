@@ -16,7 +16,7 @@ public class EnemyAggro : MonoBehaviour
     // [SerializeField]
     // GameObject face;
 
-    // Animator faceAnimator; // so that you don't have a whole animator for face emotions
+    Animator hellhound; // so that you don't have a whole animator for face emotions
 
     #endregion
 
