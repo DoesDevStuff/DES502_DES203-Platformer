@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using GlobalTypes;
 using System;
 
@@ -61,7 +62,11 @@ public class PlayerController : MonoBehaviour
     public bool isGroundSlamming;
     public bool isSwimming; //if we have separate swim animation here
 
+    
     public Vector2 MoveDirection { get => _moveDirection; }
+
+    [Header("Scenemanagement trigger to Main Level")]
+    public string mainMenuTrigger;
     #endregion
 
     #region private properties
@@ -598,6 +603,11 @@ public class PlayerController : MonoBehaviour
         {
             MusicManager.SetNomadMain(); // Change Event State to Exploration77
         }
+        else if (other.gameObject.name == "MainMenu+Music_Change")
+        {
+            SceneManager.LoadScene(mainMenuTrigger); // Change Event State to Exploration77
+        }
+
     }
 
     #region Input Methods
