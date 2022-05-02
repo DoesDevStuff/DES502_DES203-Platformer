@@ -14501,33 +14501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RootBone: {fileID: 411139867}
-  m_BoneTransforms:
-  - {fileID: 2141433147}
-  - {fileID: 1798545336}
-  - {fileID: 1662874287}
-  - {fileID: 411139867}
-  - {fileID: 1654394444}
-  - {fileID: 1104397481}
-  - {fileID: 1987296581}
-  - {fileID: 104405595}
-  - {fileID: 301142277}
-  - {fileID: 1663462180}
-  - {fileID: 1000782049}
-  - {fileID: 255667884}
-  - {fileID: 402417424}
-  - {fileID: 1038379075}
-  - {fileID: 913660782}
-  - {fileID: 621728999}
-  - {fileID: 1140415142}
-  - {fileID: 872281242}
-  - {fileID: 399068066}
-  - {fileID: 1846554062}
-  - {fileID: 408095650}
-  - {fileID: 2126262413}
-  - {fileID: 1507343750}
-  - {fileID: 584674920}
-  - {fileID: 1166513069}
-  - {fileID: 1589685395}
+  m_BoneTransforms: []
   m_Bounds:
     m_Center: {x: -7.8778553, y: -0.055591106, z: 0}
     m_Extent: {x: 3.2732182, y: 2.3853528, z: 0}
@@ -14575,15 +14549,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8173353090802019188, guid: 97047cf84db01a8438d07f592e2a3c01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97047cf84db01a8438d07f592e2a3c01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.17, y: 7.31}
+  m_Size: {x: 7.35, y: 7.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &350253997
