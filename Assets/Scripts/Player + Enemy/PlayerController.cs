@@ -359,6 +359,7 @@ public class PlayerController : MonoBehaviour
             }
 
             isJumping = true;
+
             _characterController.DisableGroundCheck();
             _characterController.ClearMovingPlatform();
             _ableToWallRun = true;
@@ -368,6 +369,8 @@ public class PlayerController : MonoBehaviour
 
     private void ClearAirAbilityFlags()
     {
+       
+
         //clear flags for in air abilities
         isJumping = false;
         isDoubleJumping = false;
@@ -376,6 +379,7 @@ public class PlayerController : MonoBehaviour
         _currentGlideTime = glideTime;
         isGroundSlamming = false;
         _startGlide = true;
+        
     }
 
     void InAir()
@@ -394,6 +398,9 @@ public class PlayerController : MonoBehaviour
         //wall running
         if (canWallRun && (_characterController.left || _characterController.right))
         {
+
+            isGliding = false;
+
             if (_input.y > 0 && _ableToWallRun)
             {
                 _moveDirection.y = wallRunAmount;
@@ -457,6 +464,9 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isTripleJumping = true;
+
+                    
+
                 }
             }
 
@@ -467,6 +477,9 @@ public class PlayerController : MonoBehaviour
                 {
                     _moveDirection.y = doubleJumpSpeed;
                     isDoubleJumping = true;
+
+                    
+
                 }
             }
 

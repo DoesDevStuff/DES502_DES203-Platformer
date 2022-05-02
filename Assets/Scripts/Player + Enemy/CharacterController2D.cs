@@ -416,9 +416,23 @@ public class CharacterController2D : MonoBehaviour
     // checks if fully submerged or not Also only triggers if buoyancy effector exists
     private void OnTriggerStay2D(Collider2D collision)
     {
+        /*
         if (collision.bounds.Contains(_capsuleCollider.bounds.min) &&
             collision.bounds.Contains(_capsuleCollider.bounds.max) &&
             collision.gameObject.GetComponent<BuoyancyEffector2D>()) 
+        {
+            isSubmerged = true;
+        }
+        else
+        {
+            isSubmerged = false;
+        }
+        */
+        ///
+        // so can swim with the bounds are half way in the water too
+        ///
+        if (collision.bounds.Contains(_capsuleCollider.bounds.center) &&
+           collision.gameObject.GetComponent<BuoyancyEffector2D>())
         {
             isSubmerged = true;
         }
