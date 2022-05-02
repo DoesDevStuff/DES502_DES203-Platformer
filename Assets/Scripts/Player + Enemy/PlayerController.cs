@@ -657,7 +657,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnGroundSlam(InputAction.CallbackContext context)
     {
         if (context.performed && _input.y < 0f)
         {

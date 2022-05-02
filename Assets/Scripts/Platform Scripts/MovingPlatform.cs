@@ -24,7 +24,8 @@ public class MovingPlatform : MonoBehaviour
     {
         _lastposition = transform.position;
 
-        transform.position = Vector3.MoveTowards(transform.position, _currentWaypoint, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, 
+            _currentWaypoint, moveSpeed * Time.deltaTime);
 
         if(Vector3.Distance(transform.position, _currentWaypoint) < 0.1f)
         {

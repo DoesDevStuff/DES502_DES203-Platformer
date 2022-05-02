@@ -5,6 +5,7 @@ using GlobalTypes;
 
 public class CharacterController2D : MonoBehaviour
 {
+    #region public properties
     public float raycastDistance = 0.2f;
     public LayerMask layerMask;
     public float slopeAngleLimit = 45f;
@@ -30,7 +31,9 @@ public class CharacterController2D : MonoBehaviour
 
     public bool inWater;
     public bool isSubmerged;
+    #endregion
 
+    #region private properties
     private Vector2 _moveAmount;
     private Vector2 _currentPostion;
     private Vector2 _lastPosition;
@@ -43,7 +46,7 @@ public class CharacterController2D : MonoBehaviour
 
     private bool _disableGroundCheck;
 
-    //TODO: Change to private
+    
     private Vector2 _slopeNormal;
     private float _slopeAngle;
 
@@ -52,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
 
     private Transform _tempMovingPlatform;
     private Vector2 _movingPlatformVelocity;
-
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -157,8 +160,9 @@ public class CharacterController2D : MonoBehaviour
     
     private void CheckGrounded()
     {
-        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical,
-           0f, Vector2.down, raycastDistance, layerMask);
+        RaycastHit2D hit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, 
+            _capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, 
+            raycastDistance, layerMask);
 
         if (hit.collider)
         {
@@ -199,7 +203,8 @@ public class CharacterController2D : MonoBehaviour
     private void CheckOtherCollisions()
     {
         //check left
-        RaycastHit2D leftHit = Physics2D.BoxCast(_capsuleCollider.bounds.center, _capsuleCollider.size * 0.75f, 0f, Vector2.left,
+        RaycastHit2D leftHit = Physics2D.BoxCast(_capsuleCollider.bounds.center, 
+            _capsuleCollider.size * 0.75f, 0f, Vector2.left,
             raycastDistance * 2, layerMask);
 
         if (leftHit.collider)
@@ -215,7 +220,8 @@ public class CharacterController2D : MonoBehaviour
 
 
         //check right
-        RaycastHit2D rightHit = Physics2D.BoxCast(_capsuleCollider.bounds.center, _capsuleCollider.size * 0.75f, 0f, Vector2.right,
+        RaycastHit2D rightHit = Physics2D.BoxCast(_capsuleCollider.bounds.center, 
+            _capsuleCollider.size * 0.75f, 0f, Vector2.right,
             raycastDistance * 2, layerMask);
 
         if (rightHit.collider)
@@ -230,7 +236,8 @@ public class CharacterController2D : MonoBehaviour
         }
 
         //check above
-        RaycastHit2D aboveHit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, _capsuleCollider.size, CapsuleDirection2D.Vertical,
+        RaycastHit2D aboveHit = Physics2D.CapsuleCast(_capsuleCollider.bounds.center, 
+            _capsuleCollider.size, CapsuleDirection2D.Vertical,
            0f, Vector2.up, raycastDistance, layerMask);
 
         if (aboveHit.collider)

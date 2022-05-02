@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Attack",
+                    "name": "GroundSlam",
                     "type": "Button",
                     "id": "f5f1caa2-70a7-48f4-aa95-c944147c183a",
                     "expectedControlType": "Button",
@@ -178,7 +178,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Attack",
+                    "action": "GroundSlam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -189,7 +189,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Attack",
+                    "action": "GroundSlam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
