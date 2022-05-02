@@ -28,9 +28,17 @@ public class EnemyAggro : MonoBehaviour
 
     [SerializeField]
     float moveSpeed;
+
+    [SerializeField]
+    Transform raycastStartPoint;
     #endregion
 
     Rigidbody2D rb2d;
+
+    bool isFacingLeft;
+
+    private bool _isAggro = false;
+    private bool _isSearching = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +50,35 @@ public class EnemyAggro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (enemyLineOfSight(aggroRange))
+        {
+            //aggro
+            _isAggro = true;
+            
+        }
+        else
+        {
+            if (_isAggro)
+            {
+                _isSearching = true;
+                if (!_isSearching)
+                {
+                    _isSearching = true;
+                    // adding a delay to keep searching for player
+                    Invoke("StopChasingPlayer", 5);
+                }
+                
+            }
+        }
+
+        if (_isAggro)
+        {
+            ChasePlayer();
+        }
+        
+        /*
+        // OLD HANDLER FOR DISTANCE TO ENEMY CHECK
         // check distance to player
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         Debug.Log("distanceToPlayer : " + distanceToPlayer);
@@ -56,22 +93,62 @@ public class EnemyAggro : MonoBehaviour
             //stop chasing player
             StopChasingPlayer();
         }
+        */
+        
     }
 
+    // setting up line of sight
+    bool enemyLineOfSight(float distance)
+    {
+        bool val = false;
+        var castDist = distance; // function specific
+
+        if (isFacingLeft == true)
+        {
+            castDist = -distance; // flips
+        }
+
+        Vector2 endPos = raycastStartPoint.position + Vector3.left * castDist;
+
+        RaycastHit2D hit = Physics2D.Linecast(raycastStartPoint.position, endPos, 1 << LayerMask.NameToLayer("Player"));
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.CompareTag("Player"))
+            {
+                val = true;
+            }
+            else
+            {
+                val = false;
+            }
+
+            Debug.DrawLine(raycastStartPoint.position, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.DrawLine(raycastStartPoint.position, endPos, Color.green);
+        }
+
+        return val;
+    }
 
     private void ChasePlayer()
     {
         if (transform.position.x < player.position.x)
         {
-            // enemy on left i.e move right
+            // enemy on left  of player i.e move right
             rb2d.velocity = new Vector2(moveSpeed, 0);
             transform.localScale = new Vector2(-1, 1); // turn left
+            //transform.Rotate(Vector2.up * 180);
+            isFacingLeft = true;
         }
         else if (transform.position.x > player.position.x) // counter for if we're on top
         {
-            //enemy on right i.e move left
+            //enemy on right of player move left
             rb2d.velocity = new Vector2(-moveSpeed, 0);
-            transform.localScale = new Vector2(1, 1);// turn right
+            transform.localScale = new Vector2(1, 1); // turn right
+            isFacingLeft = false;
         }
 
         hellhound.Play("Hellhound_Run");
@@ -79,6 +156,8 @@ public class EnemyAggro : MonoBehaviour
 
     private void StopChasingPlayer()
     {
+        _isAggro = false;
+        _isSearching = false;
         rb2d.velocity = Vector2.zero;
         hellhound.Play("Hellhound_Idle");
     }
