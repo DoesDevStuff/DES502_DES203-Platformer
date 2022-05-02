@@ -398,6 +398,9 @@ public class PlayerController : MonoBehaviour
         //wall running
         if (canWallRun && (_characterController.left || _characterController.right))
         {
+
+            isGliding = false;
+
             if (_input.y > 0 && _ableToWallRun)
             {
                 _moveDirection.y = wallRunAmount;
