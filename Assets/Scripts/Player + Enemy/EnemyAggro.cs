@@ -10,13 +10,12 @@ public class EnemyAggro : MonoBehaviour
     /// In case we decide to do a wake up animation on just the face 
     /// 
     /// We have a GameObject face ensure this is inside the enemy object on top.
-    /// This is where we have animation for eyes (eg: Sleeping and then annoyed )
+    /// This is where we have animation for enemy.
     /// </summary>
 
-    // [SerializeField]
-    // GameObject face;
+    [SerializeField] GameObject rig; //reference to the animated rig
 
-    Animator hellhound; // so that you don't have a whole animator for face emotions
+    Animator hellhound; // reference to the animator as well
 
     #endregion
 
@@ -37,7 +36,7 @@ public class EnemyAggro : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-       // faceAnimator = face.GetComponent<Animator>();
+       hellhound = rig.GetComponent<Animator>(); // we get the animator component from the rig gameobject
     }
 
     // Update is called once per frame
@@ -75,12 +74,12 @@ public class EnemyAggro : MonoBehaviour
             transform.localScale = new Vector2(1, 1);// turn right
         }
 
-       // faceAnimator.Play("Animation Name");
+        hellhound.Play("Hellhound_Run");
     }
 
     private void StopChasingPlayer()
     {
         rb2d.velocity = Vector2.zero;
-        // faceAnimator.Play("Animation Name");
+        hellhound.Play("Hellhound_Idle");
     }
 }
