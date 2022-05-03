@@ -14529,8 +14529,8 @@ MonoBehaviour:
   - {fileID: 1166513069}
   - {fileID: 1589685395}
   m_Bounds:
-    m_Center: {x: -7.8778553, y: -0.055591106, z: 0}
-    m_Extent: {x: 3.2732182, y: 2.3853528, z: 0}
+    m_Center: {x: -7.887142, y: -0.0703876, z: 0}
+    m_Extent: {x: 3.2684748, y: 2.3886437, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -14583,7 +14583,7 @@ SpriteRenderer:
   m_Size: {x: 7.17, y: 7.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &350253997
@@ -21650,7 +21650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.2, y: -3.69, z: -10}
+  m_LocalPosition: {x: -20.6, y: -4.09, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -25426,7 +25426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607794484}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -7.86, y: -3.16, z: -0}
+  m_LocalPosition: {x: -11, y: -2.1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1458345924}
@@ -26532,7 +26532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624722289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 306.55, y: -76, z: 845.9796}
+  m_LocalPosition: {x: 306.55, y: -75.64, z: 845.9796}
   m_LocalScale: {x: 1.4, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1039507638}
@@ -45626,7 +45626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968554557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.2, y: -6.1, z: 0}
+  m_LocalPosition: {x: -20.6, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 823310970}
@@ -66112,7 +66112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rig: {fileID: 347051078}
   player: {fileID: 968554562}
-  aggroRange: 6
+  aggroRange: 20
   moveSpeed: 3
   raycastStartPoint: {fileID: 607794485}
 --- !u!61 &1458345926
@@ -70094,7 +70094,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -70111,7 +70111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522694194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.2, y: -3.69, z: -10}
+  m_LocalPosition: {x: -20.6, y: -4.09, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 134566884}

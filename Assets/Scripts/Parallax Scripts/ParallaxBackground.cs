@@ -17,6 +17,15 @@ public class ParallaxBackground : MonoBehaviour
         SetLayers();
     }
 
+    /// Sorts through and relabels all layers in object this
+    /// script is attached, as Layer-0, Layer-1, Layer-2 etc
+    /// This is done so that the individual parallax layers
+    /// i.e the objects inside object the background script 
+    /// is on can be given a parallax factor much more easily.
+    /// 
+    /// Layers are now also very easily sorted
+
+
     void SetLayers()
     {
         parallaxLayers.Clear();

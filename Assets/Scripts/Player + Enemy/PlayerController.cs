@@ -343,7 +343,8 @@ public class PlayerController : MonoBehaviour
             _startJump = false;
 
             if (canPowerJump && isDucking &&
-                _characterController.groundType != GroundType.OneWayPlatform && (_powerJumpTimer > powerJumpWaitTime))
+                _characterController.groundType != GroundType.OneWayPlatform && 
+                (_powerJumpTimer > powerJumpWaitTime))
             {
                 _moveDirection.y = powerJumpSpeed;
                 StartCoroutine("PowerJumpWaiter");
@@ -369,8 +370,6 @@ public class PlayerController : MonoBehaviour
 
     private void ClearAirAbilityFlags()
     {
-       
-
         //clear flags for in air abilities
         isJumping = false;
         isDoubleJumping = false;
