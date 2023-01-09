@@ -86,4 +86,4 @@ UI Screens Showcase
 <br>
 
 ### Final presentation and individual portfolio
-<br> Within Documentation folder I have included the final presentation pitch and my personal portfolio detailing my contibution and code explanations.
+<br> Within the [Documentation folder](https://github.com/DoesDevStuff/DES502_DES203-Platformer/tree/main/Documentation) I have included the [final presentation pitch](https://github.com/DoesDevStuff/DES502_DES203-Platformer/blob/main/Documentation/Monolith%20Showcase.pdf) and my [personal portfolio](https://github.com/DoesDevStuff/DES502_DES203-Platformer/blob/main/Documentation/Monolith_DevelopmentPortfolio_Charlie_2104598.pdf) detailing my contibution and code explanations.
