@@ -32,14 +32,11 @@ Player Movements include -
 - Air Glide
 - Swimming
 - Flare Gun (to shoot with)
+- Enemy AI - Range based and done with help of raycasts. 
 <br>
 
-Mechanics Showcase:
-https://user-images.githubusercontent.com/74312830/211333228-6848b09d-e154-4fca-9211-7fe6d41af0b8.mp4
-
-Enemy AI - Range based and done with help of raycasts. 
-<br>
-https://user-images.githubusercontent.com/74312830/182161026-5b8d93ee-32a0-41a2-8177-b7853555b1df.mp4
+### Video Showcase
+https://user-images.githubusercontent.com/74312830/211334874-2c2b0e7a-ada5-477a-ab90-1337f30bf140.mp4
 
 ## UI
 <br> 
