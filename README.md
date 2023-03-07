@@ -9,6 +9,12 @@ Art & Animation - Scott Adam, Ross Cormack <br>
 UI / UX Design - Tsz Yuet Wong, Charlie Joshi <br>
 Audio Design - Declan Hanson, Jordan Robertson <br>
 
+---
+### Final Game Showcase
+
+https://user-images.githubusercontent.com/74312830/223565144-243feb35-0f27-4c9c-8c79-5b3f9f8b0b6d.mp4
+
+---
 ## Introduction
 Genre: 2D platformer, thriller <br>
 - Eldritch Horror Platformer, combining elements of Metroid, Shadow of the Colossus and Tomb Raider. 
@@ -20,7 +26,7 @@ Summary: Trapped in another dimension, a group of WW2 expeditionists take on los
 
 ## Mechanics
 The mechanics of the game are showcased in the video below. <br>
-Player Movements include -
+<b> Player Movements include - 
 - Jump
 - Power Jump
 - Double Jump
@@ -33,16 +39,49 @@ Player Movements include -
 - Swimming
 - Flare Gun (to shoot with)
 - Enemy AI - Range based and done with help of raycasts. 
+</b>
+
+### Prototype Video Demonstration
+
+> Player Mechanics demonstration:
+  
+https://user-images.githubusercontent.com/74312830/223566705-016ba3a3-32e3-4dc9-9827-173ca4637a84.mp4
+
 <br>
 
-### Video Showcase
-https://user-images.githubusercontent.com/74312830/211334874-2c2b0e7a-ada5-477a-ab90-1337f30bf140.mp4
+> Parallax Background
+
+https://user-images.githubusercontent.com/74312830/223567736-b667b4ee-a670-4765-a826-083dad2b5e65.mp4
+
+<br>
+
+> Platform Mechanics and Intial water setup
+
+https://user-images.githubusercontent.com/74312830/223568796-bb236151-2753-4442-a28a-5389fa808134.mp4
+
+<br>
+
+> Swimming
+
+https://user-images.githubusercontent.com/74312830/223567865-64ba6556-bf24-46b5-bb24-ee570957440c.mp4
+
+----
 
 ## UI
-<br> 
 
-UI Screens Showcase
+### The UI in action : 
 
+
+https://user-images.githubusercontent.com/74312830/223565622-602ec731-0299-4545-b36b-c3c33a9c52db.mp4
+
+<br>
+
+## Individual UI Pages
+
+<details>
+<summary>
+<b> Snapshots </b>
+</summary>
 <br>
 
 - Main Menu Page
@@ -72,8 +111,7 @@ UI Screens Showcase
 - Credits Screen (Animated)
 
 ![image3](https://user-images.githubusercontent.com/74312830/182166010-0dde126b-bd81-45c8-b657-d57a830bb0de.gif)
-
-<br>
+</details>
 
 ## Documentation And Set Up
 <br>
